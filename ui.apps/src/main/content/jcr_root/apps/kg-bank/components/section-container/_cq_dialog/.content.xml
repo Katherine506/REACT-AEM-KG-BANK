@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Section Container"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[]"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1404895246/Section+Container"
+          trackingFeature="kg-bank:section-container">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            granite:class="cmp-section-container__editor">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured"
+                                                sling:hideChildren="[layout]">
+                                            <background
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Background Color"
+                                                    fieldDescription="Background color of the section."
+                                                    name="./backgroundColor"
+                                                    required="{Boolean}true">
+                                                <datasource
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="kg-bank/datasources/dropdown"
+                                                        path="/apps/kg-bank/dialogs/options/background-color"
+                                                        defaultValueSelected="white"/>
+                                            </background>
+                                            <width
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Width"
+                                                    name="./width"
+                                                    required="{Boolean}true">
+                                                <datasource
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="kg-bank/datasources/dropdown"
+                                                        path="/apps/kg-bank/dialogs/options/container-width"
+                                                        defaultValueSelected="full"/>
+                                            </width>
+                                            <flush
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Flush"
+                                                fieldDescription="Determine which side of this container will be flush with other containers."
+                                                name="./flush"
+                                                required="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <neither
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Never"
+                                                        value="never"/>
+                                                    <top
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Top"
+                                                        value="top"/>
+                                                    <bottom
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Bottom"
+                                                        value="bottom"/>
+                                                    <both
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Both"
+                                                        value="top-and-bottom"/>
+                                                </items>
+                                            </flush>
+                                            <alignment
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="Horizontal Alignment"
+                                                    fieldDescription="Determines how the content within the section container is aligned."
+                                                    name="./alignment"
+                                                    required="{Boolean}true">
+                                                <datasource
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="kg-bank/datasources/dropdown"
+                                                        path="/apps/kg-bank/dialogs/options/alignment"
+                                                        defaultValueSelected="left"/>
+                                            </alignment>
+                                            <graphical-element
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Graphical Element"
+                                                fieldDescription="Select which graphical element will be used in the background of the section."
+                                                name="./graphicalElement"
+                                                required="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/graphical-elements"
+                                                    defaultValueSelected="no"/>
+                                            </graphical-element>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

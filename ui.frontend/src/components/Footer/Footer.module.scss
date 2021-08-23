@@ -1,0 +1,247 @@
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+
+.root {
+    background-color: $color-white;
+}
+
+.container {
+    max-width: $container-max-width;
+    margin: 0 auto;
+
+    &--skinny {
+        max-width: $container-max-width-skinny;
+        margin: 0 auto;
+    }
+}
+
+.top-container {
+    padding: $spacing-xl $spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        padding: $spacing-xl $spacing-xl 3rem;
+    }
+}
+
+.primary-links-navigation {
+    &,
+    & > :global(.rwc-cnt) > :global(.aem-Grid) {
+        @media #{$breakpoint-tablet} {
+            column-count: 4;
+            margin-bottom: 2rem;
+        }
+
+        @media #{$breakpoint-mobile} {
+            column-count: unset;
+            column-width: toRem(136px);
+        }
+
+        @media #{$breakpoint-desktop} {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.social-media-navigation {
+    margin-bottom: toRem(22px);
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: toRem(10px);
+    }
+}
+
+.social-media-navigation-list {
+    display: flex;
+    justify-content: center;
+
+    @media #{$breakpoint-desktop} {
+        justify-content: flex-start;
+    }
+}
+
+.social-media-navigation-item {
+    &:not(:nth-last-of-type(1)) {
+        margin-right: $spacing-xxs;
+    }
+}
+
+.social-media-navigation-link {
+    display: flex;
+    @include link-focus($pseudo-element: 'before');
+
+    &:focus:before {
+        left: -0.125rem;
+        right: -0.125rem;
+    }
+}
+
+.social-media-navigation-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.secondary-navigation {
+    margin-bottom: toRem(38px);
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: toRem(49px);
+    }
+}
+
+.secondary-navigation-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media #{$breakpoint-desktop} {
+        justify-content: flex-start;
+    }
+}
+
+.secondary-navigation-item {
+    display: flex;
+
+    &:not(:nth-last-of-type(1)) {
+        &:after {
+            @include body-s;
+
+            content: '|';
+            color: $color-black-80;
+            margin-left: 0.25rem;
+        }
+    }
+
+    &:not(:nth-of-type(1)) {
+        margin-left: 0.25rem;
+    }
+}
+
+.secondary-navigation-link {
+    @include body-s;
+
+    display: flex;
+    color: $color-black-80;
+    text-decoration: none;
+
+    &:hover {
+        .secondary-navigation-link-container {
+            border-bottom: toRem(2px) solid $color-vermilion;
+        }
+    }
+
+    &:not([target='_blank']) {
+        @include link-focus('.secondary-navigation-link-container');
+
+        &:focus .secondary-navigation-link-container:after {
+            left: -0.2rem;
+            right: -0.2rem;
+        }
+    }
+
+    &[target='_blank'] {
+        @include link-focus('.secondary-navigation-link-container', 'before');
+
+        .secondary-navigation-link-container:after {
+            @include external-link(1.3125rem, 'external-link-black-80.svg');
+        }
+
+        &:focus .secondary-navigation-link-container:before {
+            left: -0.2rem;
+            right: -0.2rem;
+        }
+    }
+
+    @media #{$breakpoint-desktop} {
+        @include labels;
+
+        &[target='_blank'] {
+            .secondary-navigation-link-container:after {
+                width: 1.125rem;
+                height: 1.125rem;
+            }
+        }
+    }
+}
+
+.secondary-navigation-link-container {
+    display: flex;
+    align-items: center;
+    border-top: toRem(2px) solid transparent;
+    border-bottom: toRem(2px) solid transparent;
+}
+
+.bottom-text-container {
+    text-align: center;
+
+    .bottom-text {
+        // The styles in this block override styles in Text.module.scss
+        color: $color-black-65;
+
+        ul,
+        ol {
+            padding: 0;
+            margin: 0;
+        }
+    }
+}
+
+.lower-text-container {
+    padding-top: $spacing-xl;
+    border-top: toRem(1px) solid $color-black-10;
+
+    @media #{$breakpoint-desktop} {
+        padding-top: $spacing-l;
+    }
+}
+
+.legal-text-container {
+    padding: $spacing-s;
+    background-color: $color-black-5;
+
+    @media #{$breakpoint-desktop} {
+        padding: $spacing-xs 0;
+    }
+}
+
+// AEM specific styles
+:global(.footer .aem-Grid .navigation-column) {
+    @media #{$breakpoint-desktop} {
+        &:not(:nth-last-of-type(1)) {
+            margin-right: 0.875rem;
+        }
+    }
+}
+
+:global(.footer.aem-GridColumn) {
+    .primary-links-navigation {
+        @media #{$breakpoint-tablet} {
+            column-count: unset;
+            margin-bottom: unset;
+        }
+
+        @media #{$breakpoint-mobile} {
+            column-width: unset;
+        }
+
+        @media #{$breakpoint-desktop} {
+            display: unset;
+            margin-bottom: unset;
+        }
+    }
+}
+
+// Author only styles - apply only in the XF Editor
+:global(.aem-AuthorLayer-Edit body .experiencefragment.container) {
+    .primary-links-navigation {
+        :global(.aem-Grid-newComponent),
+        :global(.section.navigation-column),
+        :global(.aem-GridColumn) {
+            @media #{$breakpoint-desktop} {
+                width: calc(100% / 6);
+            }
+        }
+    }
+}

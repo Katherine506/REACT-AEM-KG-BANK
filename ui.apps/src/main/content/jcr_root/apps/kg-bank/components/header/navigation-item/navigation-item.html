@@ -1,0 +1,10 @@
+<sly
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.parser="com.konrad.core.reweb.DialogDataParser">
+    <sly data-sly-test="${properties.text}">
+        <kg-navigation-item aem-data="${parser.data}">
+            <sly data-sly-resource="${resource @ resourceType='wcm/foundation/components/responsivegrid'}"></sly>
+        </kg-navigation-item>
+    </sly>
+    <sly data-sly-call="${template.placeholder @ isEmpty=!properties.text}"></sly>
+</sly>

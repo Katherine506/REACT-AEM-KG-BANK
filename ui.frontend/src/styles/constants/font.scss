@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/fonts/MinionPro-Medium.otf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'MinionPro';
+    src: url('/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/fonts/MinionPro-Semibold.otf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/fonts/SourceSansPro-Regular.ttf')
+        format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'SourceSansPro';
+    src: url('/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/fonts/SourceSansPro-Semibold.ttf')
+        format('truetype');
+    font-weight: 600;
+}
+
+$font-family-primary: 'MinionPro', serif;
+$font-family-secondary: 'SourceSansPro', sans-serif;
+
+$font-size-base: 16px;

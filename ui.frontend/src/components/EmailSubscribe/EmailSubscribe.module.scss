@@ -1,0 +1,189 @@
+@import '../../styles/mixins/form';
+
+.root {
+    width: 100%;
+    text-align: left;
+
+    @media #{$breakpoint-desktop} {
+        max-width: 37rem;
+        margin: 0 auto;
+    }
+}
+
+.row {
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}
+
+.container {
+    @media #{$breakpoint-desktop} {
+        flex: 1 0;
+        margin-right: $spacing-s;
+    }
+}
+
+.input-container {
+    margin-bottom: $spacing-xs;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: 0;
+    }
+
+    &--checkbox {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 0;
+
+        @media #{$breakpoint-desktop} {
+            margin-top: $spacing-s;
+        }
+    }
+}
+
+div.error-message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: $spacing-xxs;
+}
+
+.error-message {
+    &-icon {
+        @include error-message-icon;
+    }
+
+    &-text {
+        @include error-message-text;
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .error-message {
+        &-icon {
+            @include error-message-icon--dark-theme;
+        }
+
+        &-text {
+            @include error-message-text--dark-theme;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .error-message {
+        &-icon {
+            @include error-message-icon--light-theme;
+        }
+
+        &-text {
+            @include error-message-text--light-theme;
+        }
+    }
+}
+
+input.text-field {
+    @include body-l;
+    @include form-text-field;
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    input.text-field {
+        @include form-text-field-dark;
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    input.text-field {
+        @include form-text-field-light;
+    }
+}
+
+.result-text {
+    @include body-s;
+
+    margin-top: $spacing-xxs;
+    margin-bottom: $spacing-xs;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: 0;
+    }
+}
+
+.checkbox {
+    &-input {
+        margin: 0;
+    }
+
+    &-label {
+        @include body-s;
+
+        padding-left: $spacing-xxs;
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .result-text,
+    .checkbox-label {
+        color: $color-white;
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .result-text,
+    .checkbox-label {
+        color: $color-black;
+    }
+}
+
+.cta {
+    margin-top: $spacing-s;
+
+    :global(.text) {
+        margin: 0;
+    }
+
+    @media #{$breakpoint-desktop} {
+        @include body;
+        @include bold;
+
+        line-height: toRem(23px);
+        margin-top: 0;
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .cta {
+        @media #{$breakpoint-desktop} {
+            height: 3.3125rem;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .cta {
+        @media #{$breakpoint-desktop} {
+            height: 3.1875rem;
+        }
+    }
+}
+
+.recaptcha-text {
+    margin-top: $spacing-m;
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .recaptcha-text {
+        color: $color-gray;
+    }
+}

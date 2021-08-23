@@ -1,0 +1,48 @@
+@import '../../../styles/mixins/typography';
+
+.result {
+    &-title {
+        @include heading-6;
+        @include bold;
+
+        margin-bottom: $spacing-xxs;
+    }
+
+    &-text {
+        @include body-l;
+
+        margin-bottom: $spacing-l;
+    }
+
+    &-cta {
+        :global(.text) {
+            margin: 0;
+        }
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .result {
+        &-title {
+            color: $color-white;
+        }
+
+        &-text {
+            color: $color-white;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .result {
+        &-title {
+            color: $color-dark-purple;
+        }
+
+        &-text {
+            color: $color-black-80;
+        }
+    }
+}

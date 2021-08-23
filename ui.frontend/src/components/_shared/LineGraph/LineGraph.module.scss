@@ -1,0 +1,10 @@
+@import '../../../styles/constants/spacing';
+
+.root {
+    width: 100%;
+}
+
+.canvas {
+    width: 100%;
+    margin-bottom: $spacing-m;
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+    <xl
+        jcr:primaryType="nt:unstructured"
+        text="Extra Large"
+        value="spacingXl"/>
+    <l
+        jcr:primaryType="nt:unstructured"
+        text="Large"
+        value="spacingL"/>
+    <m
+        jcr:primaryType="nt:unstructured"
+        text="Medium"
+        value="spacingM"/>
+    <s
+        jcr:primaryType="nt:unstructured"
+        text="Small"
+        value="spacingS"/>
+    <xs
+        jcr:primaryType="nt:unstructured"
+        text="Extra Small"
+        value="spacingXs"/>
+    <xxs
+        jcr:primaryType="nt:unstructured"
+        text="Smallest"
+        value="spacingXxs"/>
+</jcr:root>

@@ -1,0 +1,8 @@
+<sly
+    data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+    data-sly-use.parser="com.konrad.core.reweb.DialogDataParser">
+    <sly data-sly-test="${properties.resultsPath}">
+        <kg-search-form aem-data="${parser.data}"></kg-search-form>
+    </sly>
+    <sly data-sly-call="${template.placeholder @ isEmpty=(!properties.resultsPath)}"></sly>
+</sly>

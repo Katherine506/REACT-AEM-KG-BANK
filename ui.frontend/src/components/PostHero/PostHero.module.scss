@@ -1,0 +1,73 @@
+@import '../../styles/constants/index';
+@import '../../styles/mixins/container';
+
+.main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    max-width: $container-max-width-skinny;
+    width: 100%;
+    padding: 0 $container-padding;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: $container-padding;
+        width: calc(100% - #{$spacing-l});
+        height: 0.063rem;
+        background-color: $color-black-10;
+    }
+}
+
+.image {
+    height: 13rem;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    max-width: 1600px;
+    margin-top: $spacing-xl;
+    margin-bottom: $spacing-m;
+    @media #{$breakpoint-desktop} {
+        margin-top: 0;
+        margin-bottom: $spacing-xl;
+        height: 35rem;
+    }
+}
+
+.category {
+    margin-bottom: $spacing-xxs;
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-m;
+    }
+}
+
+.title {
+    margin-bottom: $spacing-xxs;
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-s;
+    }
+}
+
+.text.details {
+    color: $color-black-65;
+    margin-bottom: 1.25rem;
+    @media #{$breakpoint-desktop} {
+        margin-bottom: 1.438rem;
+    }
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.text.details) {
+            color: $color-white;
+        }
+    }
+}

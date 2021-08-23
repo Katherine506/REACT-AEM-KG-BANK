@@ -1,0 +1,31 @@
+@import '../../styles/constants/animation';
+@import '../../styles/constants/spacing';
+@import '../../styles/constants/colors';
+
+.progress {
+    background-color: $color-purple;
+    height: 100%;
+    width: 0;
+}
+
+.container {
+    width: 100%;
+    height: 0.5rem;
+    position: fixed;
+
+    :global(.sticky-container.transitioning) & {
+        position: fixed;
+    }
+}
+
+:global(.aem-AuthorLayer-Edit) {
+    .container {
+        margin: $spacing-s 0;
+        position: static;
+        width: 50%;
+
+        :global(.sticky-container.transitioning) & {
+            position: static;
+        }
+    }
+}

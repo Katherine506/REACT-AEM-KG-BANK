@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:tags="[]"
+        cq:template="/conf/kg-bank/settings/wcm/templates/xf-web-variation"
+        cq:xfMasterVariation="{Boolean}true"
+        cq:xfVariantType="web"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Footer"
+        sling:resourceType="kg-bank/components/xfpage">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="kg-bank/components/container"
+            layout="responsiveGrid">
+            <separator
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="kg-bank/components/separator"/>
+            <footer
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="kg-bank/components/footer"
+                legalText="&lt;p>In Ontario, KG Bank Financial Inc. is licensed as mortgage brokerage 10821. **KG Bank Customer Experience Survey – November 2019 (n=6,158)&lt;br />&#xd;&#xa;&lt;span style=&quot;&quot;>&lt;br />&#xd;&#xa;***KG Bank data 2007–2017.&lt;br />&#xd;&#xa;&lt;br />&#xd;&#xa;© 2020, ™ ® KG Bank Financial Inc.&lt;/span>&lt;/p>&#xd;&#xa;"
+                lowerText="&lt;p>KG Bank is Canada’s leading non-bank provider of responsible lending solutions. With over 235 branches coast to coast, KG Bank provides personal loans and home equity loans designed to suit today’s borrowing needs. KG Bank also partners with a wide network of businesses to deliver flexible automobile and retail point-of-sale financing programs. With roots in Canada for almost 100 years, KG Bank is committed to making a difference in local communities.&lt;/p>&#xd;&#xa;"
+                textIsRich="[true,true]">
+                <navigation_column
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Loan Types">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            text="KG Bank overview"
+                            url="#"
+                            type="internal"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="Unsecured personal loans"
+                            type="internal"
+                            url="#"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            text="Secured personal loans"
+                            type="internal"
+                            url="#"/>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            text="Mortgages"
+                            type="internal"
+                            url="#"/>
+                        <item4
+                            jcr:primaryType="nt:unstructured"
+                            text="Car loan"
+                            type="internal"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column>
+                <navigation_column_28252559
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Loan uses">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            text="Debt consolidation"
+                            type="internal"
+                            url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="Emergency"
+                            type="internal"
+                            url="#"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            text="Car repair"
+                            type="internal"
+                            url="#"/>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            text="Home improvement"
+                            type="internal"
+                            url="#"/>
+                        <item4
+                            jcr:primaryType="nt:unstructured"
+                            text="Travel &amp; vacation"
+                            type="internal"
+                            url="#"/>
+                        <item5
+                            jcr:primaryType="nt:unstructured"
+                            text="Wedding"
+                            type="internal"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column_28252559>
+                <navigation_column_1274489952
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Insurance">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            text="Loan insurance overview"
+                            type="internal"
+                            url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="Loan insurance claims"
+                            type="internal"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column_1274489952>
+                <navigation_column_1623648809
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Financing">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            text="Point-of-sale financing"
+                            type="internal"
+                            url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="Automobile financing"
+                            type="internal"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column_1623648809>
+                <navigation_column_56554012
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Company">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            text="About us"
+                            type="internal"
+                            url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="Our branches"
+                            type="internal"
+                            url="#"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            text="Contact us"
+                            type="internal"
+                            url="#"/>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            text="Careers"
+                            type="internal"
+                            url="#"/>
+                        <item4
+                            jcr:primaryType="nt:unstructured"
+                            type="internal"
+                            text="Press release"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column_56554012>
+                <navigation_column_1514821968
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/navigation-column"
+                    title="Learn">
+                    <multifield-items jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            type="internal"
+                            text="Blog"
+                            url="#"/>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            text="FAQ"
+                            type="internal"
+                            url="#"/>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            text="Calculator"
+                            type="internal"
+                            url="#"/>
+                    </multifield-items>
+                </navigation_column_1514821968>
+                <multifield-secondaryNavigationLinks jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        type="internal"
+                        text="Privacy &amp; security"
+                        url="#"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        type="internal"
+                        text="Terms &amp; conditions"
+                        url="#"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        type="internal"
+                        text="Accessibility"
+                        url="#"/>
+                </multifield-secondaryNavigationLinks>
+                <multifield-socialMediaLinks jcr:primaryType="nt:unstructured">
+                    <item0
+                        jcr:primaryType="nt:unstructured"
+                        altText="View KG Bank on Facebook"
+                        fileReference="/content/dam/kg-bank/icons/social-media/icon-facebook.svg"
+                        url="#"/>
+                    <item1
+                        jcr:primaryType="nt:unstructured"
+                        altText="View KG Bank on Instagram"
+                        fileReference="/content/dam/kg-bank/icons/social-media/icon-instagram.svg"
+                        url="/content/kg-bank/us/en"/>
+                    <item2
+                        jcr:primaryType="nt:unstructured"
+                        altText="View KG Bank on Linkedin"
+                        fileReference="/content/dam/kg-bank/icons/social-media/icon-linkedin.svg"
+                        url="#"/>
+                    <item3
+                        jcr:primaryType="nt:unstructured"
+                        altText="View KG Bank on YouTube"
+                        fileReference="/content/dam/kg-bank/icons/social-media/icon-youtube.svg"
+                        url="#"/>
+                </multifield-socialMediaLinks>
+            </footer>
+        </root>
+    </jcr:content>
+</jcr:root>

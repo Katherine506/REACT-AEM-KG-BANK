@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+  <h1
+      jcr:primaryType="nt:unstructured"
+      text="H1"
+      value="h1"/>
+  <h2
+      jcr:primaryType="nt:unstructured"
+      text="H2"
+      value="h2"/>
+  <h3
+      jcr:primaryType="nt:unstructured"
+      text="H3"
+      value="h3"/>
+  <h4
+      jcr:primaryType="nt:unstructured"
+      text="H4"
+      value="h4"/>
+  <h5
+      jcr:primaryType="nt:unstructured"
+      text="H5"
+      value="h5"/>
+  <h6
+      jcr:primaryType="nt:unstructured"
+      text="H6"
+      value="h6"/>
+</jcr:root>

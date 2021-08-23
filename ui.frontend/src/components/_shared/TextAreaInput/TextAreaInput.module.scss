@@ -1,0 +1,89 @@
+@import '../../../styles/mixins/calculator';
+@import '../../../styles/mixins/form';
+@import '../../../styles/mixins/container';
+@import '../../../styles/mixins/typography';
+
+.title {
+    @include input-title;
+}
+
+.field-container {
+    @include input-field-container;
+
+    display: flex;
+}
+
+.field {
+    @include input-field;
+
+    resize: none;
+    height: 9.25rem;
+
+    @media #{$breakpoint-desktop} {
+        height: 13.25rem;
+    }
+}
+
+.field-focus {
+    @include input-field-focus;
+}
+
+.subtitle {
+    @include input-subtitle;
+}
+
+.error-message {
+    &-container {
+        @include error-message-container;
+    }
+
+    &-icon {
+        @include error-message-icon;
+    }
+
+    &-text {
+        @include error-message-text;
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .title {
+        @include input-title--dark-theme;
+    }
+
+    .field {
+        @include input-field--dark-theme;
+    }
+
+    .error-message {
+        &-icon {
+            @include error-message-icon--dark-theme;
+        }
+
+        &-text {
+            @include error-message-text--dark-theme;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .title {
+        @include input-title--light-theme;
+    }
+
+    .field {
+        @include input-field--light-theme;
+    }
+
+    .error-message {
+        &-icon {
+            @include error-message-icon--light-theme;
+        }
+
+        &-text {
+            @include error-message-text--light-theme;
+        }
+    }
+}

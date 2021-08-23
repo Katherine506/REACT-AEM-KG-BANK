@@ -1,0 +1,92 @@
+$color-white: #ffffff;
+$color-white-transparent-50: rgba(255, 255, 255, 0.5);
+$color-black: #000000;
+$color-black-5: #f1f1f1;
+$color-black-10: #e8e8e8;
+$color-black-15: #d6d6d6;
+$color-black-20: #c7c7c7;
+$color-black-40: #999999;
+$color-black-65: #525252;
+$color-black-65-transparent-30: rgba(82, 82, 82, 0.3);
+$color-black-75: #404040;
+$color-black-80: #333333;
+$color-black-transparent-4: rgba(0, 0, 0, 0.04);
+$color-black-transparent-25: rgba(0, 0, 0, 0.25);
+$color-black-transparent-60: rgba(0, 0, 0, 0.6);
+$color-black-transparent-80: rgba(51, 51, 51, 0.8);
+$color-gray: #6e6e6e;
+$color-purple: #52356e;
+$color-purple-transparent-50: rgba(82, 53, 110, 0.5);
+$color-dark-purple: #3f2a56;
+$color-dark-purple-transparent-5: rgba(63, 42, 86, 0.05);
+$color-purple-gray: #f9f9fa;
+$color-cyan: #41b9e6;
+$color-dark-cyan: #009bcd;
+$color-vermilion: #fb625b;
+$color-dark-vermilion: #d93d33;
+$color-dark-vermilion-transparent-12: rgba(217, 61, 51, 0.12);
+$color-dark-vermilion-transparent-18: rgba(217, 61, 51, 0.18);
+$color-dark-vermilion-transparent-50: rgba(217, 61, 51, 0.5);
+$color-error-red: #c42323;
+$color-success: #008545;
+$color-error-red-transparent-5: rgba(196, 35, 35, 0.05);
+
+$colors: (
+    'white': $color-white,
+    'whiteTransparent50': $color-white-transparent-50,
+    'black': $color-black,
+    'black5': $color-black-5,
+    'black10': $color-black-10,
+    'black15': $color-black-15,
+    'black20': $color-black-20,
+    'black40': $color-black-40,
+    'black65': $color-black-65,
+    'black65Transparent30': $color-black-65-transparent-30,
+    'black75': $color-black-75,
+    'black80': $color-black-80,
+    'blackTransparent4': $color-black-transparent-4,
+    'blackTransparent25': $color-black-transparent-25,
+    'gray': $color-gray,
+    'purple': $color-purple,
+    'purpleGray': $color-purple-gray,
+    'purpleTransparent50': $color-purple-transparent-50,
+    'darkPurple': $color-dark-purple,
+    'darkPurpleTransparent5': $color-dark-purple-transparent-5,
+    'cyan': $color-cyan,
+    'darkCyan': $color-dark-cyan,
+    'vermilion': $color-vermilion,
+    'darkVermilion': $color-dark-vermilion,
+    'darkVermilionTransparent12': $color-dark-vermilion-transparent-12,
+    'darkVermilionTransparent18': $color-dark-vermilion-transparent-18,
+    'darkVermilionTransparent50': $color-dark-vermilion-transparent-50,
+);
+
+:export {
+    white: $color-white;
+    whiteTransparent50: $color-white-transparent-50;
+    black: $color-black;
+    black5: $color-black-5;
+    black10: $color-black-10;
+    black15: $color-black-15;
+    black20: $color-black-20;
+    black40: $color-black-40;
+    black65: $color-black-65;
+    black65Transparent30: $color-black-65-transparent-30;
+    black75: $color-black-75;
+    black80: $color-black-80;
+    blackTransparent4: $color-black-transparent-4;
+    blackTransparent25: $color-black-transparent-25;
+    gray: $color-gray;
+    purple: $color-purple;
+    purpleGray: $color-purple-gray;
+    purpleTransparent50: $color-purple-transparent-50;
+    darkPurple: $color-dark-purple;
+    darkPurpleTransparent5: $color-dark-purple-transparent-5;
+    cyan: $color-cyan;
+    darkCyan: $color-dark-cyan;
+    vermilion: $color-vermilion;
+    darkVermilion: $color-dark-vermilion;
+    darkVermilionTransparent12: $color-dark-vermilion-transparent-12;
+    darkVermilionTransparent18: $color-dark-vermilion-transparent-18;
+    darkVermilionTransparent50: $color-dark-vermilion-transparent-50;
+}

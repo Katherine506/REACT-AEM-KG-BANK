@@ -1,0 +1,168 @@
+@import '../constants/breakpoints';
+@import 'utils';
+@import '../../styles/mixins/typography';
+
+$_background-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/backgrounds/';
+$_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/icons/';
+
+@mixin background-color {
+    @each $key, $color in $colors {
+        &-#{$key} {
+            background-color: $color;
+        }
+    }
+}
+
+@mixin flush-padding() {
+    .flush {
+        &-top {
+            padding-top: 0;
+        }
+
+        &-bottom {
+            padding-bottom: 0;
+        }
+
+        &-left {
+            padding-left: 0;
+        }
+
+        &-right {
+            padding-right: 0;
+        }
+
+        &-top-and-bottom {
+            padding: 0;
+        }
+
+        &-left-and-right {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        &-all {
+            padding: 0;
+        }
+    }
+}
+
+@mixin content-alignment {
+    .alignment-left,
+    .alignment-right,
+    .alignment-center {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+    }
+
+    .alignment-left {
+        align-items: flex-start;
+    }
+
+    .alignment-right {
+        align-items: flex-end;
+    }
+
+    .alignment-center {
+        align-items: center;
+    }
+}
+
+@mixin container {
+    @media #{$breakpoint-desktop} {
+        padding-left: toRem(40px);
+        padding-right: toRem(40px);
+    }
+}
+
+@mixin decorations {
+    :global(.dark-theme),
+    :global(.light-theme .dark-theme) {
+        .decoration {
+            &--purple-corners {
+                &:before {
+                    background-image: url($_icon-base-url + 'ge-top-left-corner-dark.svg');
+                }
+
+                &:after {
+                    background-image: url($_icon-base-url + 'ge-bottom-right-corner-dark.svg');
+                }
+            }
+        }
+    }
+
+    :global(.light-theme),
+    :global(.dark-theme .light-theme) {
+        .decoration {
+            &--purple-corners {
+                &:before {
+                    background-image: url($_icon-base-url + 'ge-top-left-corner.svg');
+                }
+
+                &:after {
+                    background-image: url($_icon-base-url + 'ge-bottom-right-corner.svg');
+                }
+            }
+        }
+    }
+
+    .decoration {
+        &--purple-corners {
+            z-index: 1;
+            padding: $spacing-m;
+            min-height: 4rem;
+            position: relative;
+            box-sizing: border-box;
+
+            @media #{$breakpoint-mobile} {
+                padding: $spacing-s;
+            }
+
+            &:before,
+            &:after {
+                z-index: 2;
+                content: '';
+                width: 4.1875rem;
+                height: 4.1875rem;
+                position: absolute;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+            }
+
+            &:before {
+                top: 0;
+                left: 0;
+            }
+
+            &:after {
+                right: 0;
+                bottom: 0;
+            }
+        }
+    }
+}
+
+@mixin wrap-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    text-align: left;
+    margin-top: -$spacing-s;
+    margin-left: -$spacing-s;
+    @media #{$breakpoint-desktop} {
+        margin-top: -$spacing-l;
+        margin-left: -$spacing-l;
+    }
+}
+
+@mixin wrap-item {
+    width: 10.21875rem;
+    margin-top: $spacing-s;
+    margin-left: $spacing-s;
+    @media #{$breakpoint-desktop} {
+        width: 15.063rem;
+        margin-top: $spacing-l;
+        margin-left: $spacing-l;
+    }
+}

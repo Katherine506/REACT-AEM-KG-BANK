@@ -1,0 +1,151 @@
+@import '../../styles/constants/index';
+@import '../../styles/mixins/typography';
+
+$image-container-width-desktop: 16.813rem;
+$image-container-width-mobile: 9.344rem;
+
+.partners {
+    width: 100%;
+    margin-top: 2.563rem;
+    padding: 0 $spacing-m;
+    @media #{$breakpoint-desktop} {
+        margin-top: $spacing-xl;
+        padding: 0 4.5rem;
+    }
+}
+
+.display-section {
+    display: flex;
+    align-items: center;
+    .play-pause {
+        margin-right: $spacing-xxs;
+        @media #{$breakpoint-desktop} {
+            margin-right: $spacing-xl;
+        }
+        .play-pause-button {
+            display: flex;
+            background: none;
+            padding: 0;
+            border: none;
+            cursor: pointer;
+            .icon {
+                display: flex;
+                width: 1.125rem;
+                height: 1.125rem;
+                align-items: center;
+                svg path {
+                    transition: stroke $animation-speed-quick linear,
+                        fill $animation-speed-quick linear;
+                }
+            }
+            @include link-focus {
+                @include _icon-link-focus;
+                left: 0;
+                right: 0;
+            }
+            &:hover {
+                .icon svg path {
+                    fill: $color-vermilion;
+                    stroke: $color-vermilion;
+                }
+            }
+        }
+    }
+    .marquee:hover,
+    .animation-stopped {
+        .marquee-content {
+            animation-play-state: paused;
+        }
+    }
+    .marquee {
+        overflow: hidden;
+        flex: 1;
+        display: flex;
+        position: relative;
+        .marquee-content {
+            display: flex;
+            height: 100%;
+            .marquee-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 0 $spacing-xs;
+                height: 2.875rem;
+                width: $image-container-width-mobile;
+                flex-basis: $image-container-width-mobile;
+                @media #{$breakpoint-desktop} {
+                    height: 5.25rem;
+                    width: $image-container-width-desktop;
+                    flex-basis: $image-container-width-desktop;
+                }
+                .partner-logo {
+                    max-height: 100%;
+                    max-width: 100%;
+                    filter: grayscale(100%);
+                }
+            }
+        }
+    }
+}
+
+@mixin _key-frame($i) {
+    @keyframes scrolling-mobile-#{$i} {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-1 * #{$i} * #{$image-container-width-mobile}));
+        }
+    }
+
+    @keyframes scrolling-desktop-#{$i} {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(calc(-1 * #{$i} * #{$image-container-width-desktop}));
+        }
+    }
+    .marquee-animation-#{$i} {
+        $animation-speed-const: 3s;
+        $animation-timing-function: linear;
+        $marquee-animation-duration: calc((#{$i} + 1) * #{$animation-speed-const});
+        $animation-delay: 0.1s;
+        animation: scrolling-mobile-#{$i} $marquee-animation-duration $animation-timing-function infinite
+            $animation-delay;
+        @media #{$breakpoint-desktop} {
+            animation: scrolling-desktop-#{$i} $marquee-animation-duration $animation-timing-function
+                infinite $animation-delay;
+        }
+    }
+}
+
+@for $no-of-logos from 1 through 10 {
+    @include _key-frame($no-of-logos);
+}
+
+.fade {
+    &-enter {
+        opacity: 0;
+        &-active {
+            opacity: 1;
+        }
+    }
+    &-exit {
+        opacity: 1;
+        &-active {
+            opacity: 0;
+        }
+    }
+    &-enter,
+    &-exit {
+        &-active {
+            transition: opacity $animation-speed-quick;
+        }
+    }
+}
+
+:export {
+    image-container-width-mobile: $image-container-width-mobile;
+    image-container-width-desktop: $image-container-width-desktop;
+}

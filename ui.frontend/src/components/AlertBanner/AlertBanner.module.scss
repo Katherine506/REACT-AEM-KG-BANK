@@ -1,0 +1,114 @@
+@import '../../styles/constants/colors';
+@import '../../styles/constants/breakpoints';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+
+.root {
+    position: relative;
+    width: 100%;
+    background-color: $color-dark-vermilion;
+    padding-top: $spacing-s;
+    padding-bottom: $spacing-s;
+
+    &--hide {
+        display: none;
+    }
+}
+
+.container {
+    position: relative;
+    padding: 0 3rem;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    @include container;
+}
+
+div.text {
+    // The styles in this block override styles in Text.module.scss
+    text-align: center;
+    padding: 0 $spacing-xs;
+
+    &,
+    * {
+        @media #{$breakpoint-desktop} {
+            font-size: 1.125rem;
+        }
+    }
+
+    a {
+        &:hover {
+            border-bottom-color: $color-white;
+        }
+
+        &:not([target='_blank']) {
+            &:focus:after {
+                box-shadow: 0 0 0 toRem(1px) $color-white;
+            }
+        }
+        &[target='_blank'] {
+            &:focus:before {
+                box-shadow: 0 0 0 toRem(1px) $color-white;
+            }
+        }
+    }
+
+    ul,
+    ol {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+.icon-button {
+    position: absolute;
+    top: 50%;
+    right: $spacing-s;
+    transform: translateY(-50%);
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    @media #{$breakpoint-desktop} {
+        right: $spacing-xs;
+    }
+
+    &:hover {
+        .icon path {
+            stroke: $color-black;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus:after {
+        content: '';
+        position: absolute;
+        top: toRem(-4px);
+        left: toRem(-4px);
+        bottom: toRem(-4px);
+        right: toRem(-4px);
+        border-radius: toRem(2px);
+        border: solid toRem(1px) $color-white;
+    }
+
+    .icon {
+        @media #{$breakpoint-desktop} {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+
+        svg {
+            @media #{$breakpoint-desktop} {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+        }
+
+        path {
+            transition: stroke $animation-speed-quick;
+        }
+    }
+}

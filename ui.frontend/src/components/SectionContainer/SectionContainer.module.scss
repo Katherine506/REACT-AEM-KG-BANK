@@ -1,0 +1,48 @@
+@import '../../styles/constants/spacing';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/container';
+
+.root {
+    @include body;
+    display: block;
+    width: 100%;
+    padding: $spacing-xl 0;
+}
+
+:global(.kg-section-container).bg {
+    @include background-color;
+}
+
+.content {
+    margin: 0 auto;
+    padding: 0 $container-padding;
+
+    & :global(.rwc-cnt) {
+        width: 100%;
+    }
+
+    :global(.aem-AuthorLayer-Edit) &,
+    :global(.aem-AuthorLayer-Layouting) & {
+        max-width: unset !important;
+    }
+}
+
+@include text-alignment();
+@include content-alignment();
+@include flush-padding();
+
+.width {
+    &--full {
+        max-width: $container-max-width;
+    }
+
+    &--reduced {
+        max-width: $container-max-width-reduced;
+    }
+
+    &--skinny {
+        max-width: $container-max-width-skinny;
+    }
+}
+
+@include decorations();

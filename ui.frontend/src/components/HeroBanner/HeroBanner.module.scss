@@ -1,0 +1,226 @@
+@import '../../styles/constants/colors';
+@import '../../styles/mixins/container';
+@import '../../styles/constants/animation';
+
+.root {
+    width: 100%;
+    color: $color-white;
+    background-color: $color-dark-purple;
+    padding-top: 3.5rem;
+
+    @media #{$breakpoint-desktop} {
+        padding-top: 4.5rem;
+    }
+
+    &.primary,
+    &.tertiary {
+        background-image: url($_background-base-url + 'hero-triangles-white-desktop.svg');
+        background-position: bottom;
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        @media #{$breakpoint-mobile} {
+            background-image: url($_background-base-url + 'hero-triangles-white-mobile.svg');
+        }
+
+        @media #{$breakpoint-desktop-xl} {
+            min-height: 45rem;
+            background-color: $color-white;
+            background-image: url($_background-base-url + 'hero-full-triangles-white-desktop.svg');
+            background-position: calc(50% + 30rem) top;
+            background-size: cover;
+        }
+
+        @media #{$breakpoint-desktop-xxl} {
+            height: 100vh;
+            max-height: 90rem;
+            background-position: calc(50% + 56rem) top;
+        }
+    }
+
+    &.primary {
+        padding-bottom: 8rem;
+
+        @media #{$breakpoint-desktop} {
+            padding-bottom: 12rem;
+        }
+    }
+
+    &.secondary {
+        text-align: center;
+        padding-bottom: 3.5rem;
+
+        @media #{$breakpoint-desktop} {
+            padding-bottom: 4.5rem;
+        }
+    }
+
+    &.tertiary {
+        padding-bottom: 10rem;
+
+        @media #{$breakpoint-desktop} {
+            padding-bottom: 12rem;
+        }
+    }
+}
+
+.container {
+    @include container;
+
+    padding-left: $spacing-s;
+    padding-right: $spacing-s;
+    margin: 0 auto;
+}
+
+.primary-container {
+    position: relative;
+    margin-bottom: $spacing-xxs;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-s;
+    }
+
+    .heading {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .hidden {
+        visibility: hidden;
+    }
+
+    .first-line,
+    .second-line {
+        display: block;
+        animation: fade-in-slide $animation-speed-hero-banner ease-in-out 1 forwards;
+    }
+    .first-line {
+        color: $color-white;
+    }
+
+    .second-line {
+        opacity: 0;
+        color: $color-vermilion;
+        animation-delay: $animation-speed-quick;
+    }
+}
+
+:global(.hero-animation) {
+    width: unset !important;
+    max-width: 100%;
+    margin-left: -$spacing-s;
+    margin-bottom: $spacing-xxs;
+
+    @media #{$breakpoint-desktop} {
+        margin-left: -3.5rem;
+        margin-bottom: $spacing-s;
+    }
+}
+
+.button-context {
+    display: flex;
+    align-items: center;
+    margin-top: $spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        margin-top: $spacing-xs;
+    }
+
+    & &-icon {
+        display: flex;
+        margin-right: $spacing-xxs;
+    }
+
+    &-text {
+        @include labels;
+    }
+}
+
+.primary,
+.tertiary {
+    .container {
+        max-width: $container-max-width;
+    }
+
+    .title {
+        max-width: 50rem;
+
+        @media #{$breakpoint-desktop} {
+            max-width: 45rem;
+        }
+    }
+
+    .subtitle {
+        max-width: 50rem;
+
+        @media #{$breakpoint-desktop} {
+            max-width: 45rem;
+        }
+    }
+}
+
+.primary {
+    .title {
+        @include heading-6;
+        @include bold;
+
+        margin-bottom: 3rem;
+
+        @media #{$breakpoint-desktop} {
+            margin-bottom: 4rem;
+        }
+    }
+
+    .primary-cta {
+        margin-bottom: $spacing-s;
+
+        @media #{$breakpoint-desktop} {
+            margin-right: $spacing-s;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.secondary,
+.tertiary {
+    .subtitle {
+        margin-top: $spacing-xxs;
+
+        @media #{$breakpoint-desktop} {
+            margin-top: $spacing-s;
+        }
+    }
+
+    .primary-cta {
+        margin-top: $spacing-l;
+    }
+}
+
+.secondary {
+    .container {
+        max-width: $container-max-width-skinny;
+    }
+
+    .title {
+        @include heading-3;
+
+        @media #{$breakpoint-desktop} {
+            @include heading-2;
+        }
+    }
+
+    .subtitle {
+        @include body-l;
+    }
+}
+
+.tertiary {
+    .title {
+        @include heading-2;
+    }
+
+    .subtitle {
+        @include body-xl;
+    }
+}

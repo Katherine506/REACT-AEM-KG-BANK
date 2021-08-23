@@ -1,0 +1,76 @@
+{
+    "name": "aem-ui",
+    "version": "1.0.0",
+    "description": "AEM UI",
+    "author": "Konrad group",
+    "license": "https://konradgroup.atlassian.net/wiki/download/attachments/828276798/LICENSE?version=2&modificationDate=1578421514612&cacheVersion=1&api=v2&download=true",
+    "scripts": {
+        "dev": "npm run prod",
+        "prod": "react-scripts build && clientlib --verbose",
+        "start": "react-scripts start",
+        "storybook": "start-storybook -p 9009 -s public"
+    },
+    "dependencies": {
+        "@konrad/reweb-aem": "^1.0.1",
+        "@konrad/reweb-core": "^1.0.1",
+        "@konrad/reweb-react-scripts": "^3.0.0",
+        "@storybook/addon-queryparams": "^6.0.21",
+        "aem-clientlib-generator": "^1.4.3",
+        "axios": "^0.19.2",
+        "chart.js": "^2.9.3",
+        "chartjs-plugin-annotation": "^0.5.7",
+        "classnames": "^2.2.6",
+        "core-js": "^3.6.5",
+        "husky": "^4.2.5",
+        "lint-staged": "^10.2.11",
+        "lorem-ipsum": "^2.0.3",
+        "prettier": "^2.0.5",
+        "prop-types": "^15.7.2",
+        "react": "^16.8.6",
+        "react-dom": "^16.8.6",
+        "react-dotdotdot": "^1.3.1",
+        "react-focus-lock": "^2.4.1",
+        "react-hook-form": "^6.8.6",
+        "react-text-mask": "^5.4.3",
+        "react-to-print": "^2.10.0",
+        "react-transition-group": "^4.4.1",
+        "reset-css": "^5.0.1",
+        "rxjs": "^6.6.0",
+        "swiper": "^6.1.2",
+        "text-mask-addons": "^3.8.0",
+        "url-parse": "^1.4.7",
+        "uuid": "^3.4.0"
+    },
+    "devDependencies": {
+        "@babel/core": "^7.4.5",
+        "@storybook/addon-a11y": "^5.1.3",
+        "@storybook/addon-actions": "^5.0.11",
+        "@storybook/addon-knobs": "^5.1.3",
+        "@storybook/addon-links": "^5.0.11",
+        "@storybook/addons": "^5.0.11",
+        "@storybook/react": "^5.0.11",
+        "babel-loader": "8.0.5",
+        "fs-extra": "^8.1.0",
+        "http-proxy-middleware": "^1.0.5"
+    },
+    "lint-staged": {
+        "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+            "prettier --write"
+        ]
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "optionalDependencies": {
+        "fsevents": "*"
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    },
+    "browserslist": [
+        "last 2 version",
+        "> 1%"
+    ]
+}

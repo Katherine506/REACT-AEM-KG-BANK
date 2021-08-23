@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/conf/kg-bank" mode="merge"/>
+    <filter root="/content/kg-bank" mode="merge"/>
+    <filter root="/content/dam/kg-bank" mode="merge"/>
+    <filter root="/content/experience-fragments/kg-bank" mode="merge"/>
+</workspaceFilter>

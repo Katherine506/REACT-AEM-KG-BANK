@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="FAQ Item"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[]"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1426621327/FAQ+Item"
+          trackingFeature="kg-bank:faq-item">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            granite:class="cmp-faq-item__editor">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured"
+                                                sling:hideChildren="[layout]">
+                                            <question
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Character Limit: 60 characters."
+                                                fieldLabel="Question"
+                                                required="{Boolean}true"
+                                                name="./question"/>
+                                            <headingLevel
+                                                granite:class="core-heading-levels"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Question Heading Level"
+                                                fieldDescription="This determines the semantic hierarchy of the headings."
+                                                required="{Boolean}true"
+                                                name="./headingLevel">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/heading-level"
+                                                    defaultValueSelected="h3"/>
+                                            </headingLevel>
+                                            <answer
+                                                granite:class="core-heading-levels"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                fieldLabel="Answer"
+                                                required="{Boolean}true"
+                                                useFixedInlineToolbar="{Boolean}true"
+                                                name="./answer">
+                                                <options jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                        path="/apps/kg-bank/dialogs/options/rich-text"/>
+                                            </answer>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

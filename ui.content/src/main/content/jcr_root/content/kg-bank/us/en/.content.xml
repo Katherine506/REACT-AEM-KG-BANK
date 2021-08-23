@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:contextHubPath="/conf/kg-bank/settings/cloudsettings/kg-bank/contexthub"
+        cq:contextHubSegmentsPath="/conf/kg-bank/settings/wcm/segments"
+        cq:isLanguageRoot="true"
+        cq:target-ambits="[/content/campaigns/kg-bank/en]"
+        cq:template="/conf/kg-bank/settings/wcm/templates/page-content"
+        jcr:language="en"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="en"
+        sling:resourceType="kg-bank/components/page"
+        pageTitle="KG Bank">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="kg-bank/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="kg-bank/components/container">
+                <container
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/components/container"
+                    layout="responsiveGrid">
+                    <section_container
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="kg-bank/components/section-container"
+                        alignment="center"
+                        backgroundColor="white"
+                        layout="responsiveGrid"
+                        width="full">
+                        <container
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="kg-bank/components/container"
+                            layout="simple">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    behavior="newline"
+                                    offset="0"
+                                    width="4"/>
+                            </cq:responsive>
+                            <button_366188497_cop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="kg-bank/components/button"
+                                linkText="Click here"
+                                linkType="internal"
+                                linkUrl="/content/kg-bank/us/en">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                </cq:responsive>
+                            </button_366188497_cop>
+                        </container>
+                        <container_240067532
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="kg-bank/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                            </cq:responsive>
+                            <button_366188497_cop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="kg-bank/components/button"
+                                linkText="Click here"
+                                linkType="internal"
+                                linkUrl="/content/kg-bank/us/en">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="5"/>
+                                </cq:responsive>
+                            </button_366188497_cop>
+                        </container_240067532>
+                        <container_291216844
+                            jcr:primaryType="nt:unstructured"
+                            sling:resourceType="kg-bank/components/container">
+                            <cq:responsive jcr:primaryType="nt:unstructured">
+                                <default
+                                    jcr:primaryType="nt:unstructured"
+                                    offset="0"
+                                    width="4"/>
+                            </cq:responsive>
+                            <button_366188497_cop
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="kg-bank/components/button"
+                                linkText="Click here"
+                                linkType="internal"
+                                linkUrl="/content/kg-bank/us/en">
+                                <cq:responsive jcr:primaryType="nt:unstructured">
+                                    <default
+                                        jcr:primaryType="nt:unstructured"
+                                        offset="0"
+                                        width="3"/>
+                                </cq:responsive>
+                            </button_366188497_cop>
+                        </container_291216844>
+                    </section_container>
+                </container>
+            </container>
+        </root>
+    </jcr:content>
+</jcr:root>

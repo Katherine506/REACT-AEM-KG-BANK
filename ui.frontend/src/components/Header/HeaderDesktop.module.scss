@@ -1,0 +1,267 @@
+@import '../../styles/constants/spacing';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+@import '../../styles/constants/index';
+
+.root {
+    @include body;
+    width: 100%;
+    z-index: $z-index-header;
+}
+
+.tertiary-navigation {
+    background-color: $color-dark-purple;
+
+    &-container {
+        padding: $spacing-xxs $spacing-xl;
+    }
+
+    &-list {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &-item {
+        display: flex;
+        &:not(:nth-last-of-type(1)) {
+            &:after {
+                content: '|';
+                color: $color-white;
+                margin-left: $spacing-xxs;
+            }
+        }
+
+        &:not(:nth-of-type(1)) {
+            margin-left: $spacing-xxs;
+        }
+    }
+
+    &-link {
+        display: flex;
+        color: $color-white;
+        text-decoration: none;
+        @include link-hover();
+        @include link-focus($pseudo-element: 'before') {
+            left: -0.45rem;
+            right: -0.45rem;
+        }
+
+        &[target='_blank'] {
+            &:after {
+                @include external-link(1.5rem, 'external-link-white.svg');
+            }
+        }
+    }
+}
+
+.child-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.primary-navigation {
+    position: relative;
+    color: $color-dark-purple;
+    background-color: $color-white;
+
+    &-container {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 $spacing-xl;
+        border-bottom: toRem(1px) solid $color-black-15;
+    }
+
+    &-subcontainer {
+        display: flex;
+        flex-grow: 1;
+        align-items: center;
+
+        &--right {
+            flex-grow: 0;
+            padding-top: 1.125rem;
+            padding-bottom: 1.125rem;
+        }
+    }
+
+    &-list {
+        display: flex;
+        flex-grow: 1;
+        height: 100%;
+    }
+
+    &-link {
+        display: flex;
+        color: $color-dark-purple;
+        text-decoration: none;
+        border-top: toRem(2px) solid transparent;
+        margin-right: $spacing-m;
+        @include link-hover();
+        @include link-focus($pseudo-element: 'before');
+
+        &[target='_blank'] {
+            &:after {
+                @include external-link(1.5rem, 'external-link-dark-purple.svg');
+            }
+        }
+    }
+}
+
+.logo {
+    width: auto;
+    height: 2.5rem;
+}
+
+.logo-link {
+    position: relative;
+    display: flex;
+    margin: 0 toRem(26px) $spacing-s 0;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus:after {
+        content: '';
+        position: absolute;
+        top: toRem(-14px);
+        left: toRem(-14px);
+        bottom: toRem(-14px);
+        right: toRem(-14px);
+        border-radius: toRem(4px);
+        border: solid toRem(2px) $color-dark-purple;
+    }
+}
+
+.search {
+    &-button {
+        display: flex;
+        background: none;
+        padding: 0;
+        border: none;
+        margin-right: $spacing-s;
+        cursor: pointer;
+        @include link-focus {
+            @include _icon-link-focus;
+        }
+        .search-icon svg path {
+            transition: stroke $animation-speed-quick linear;
+        }
+        &:hover {
+            .search-icon svg path {
+                stroke: $color-vermilion;
+            }
+        }
+    }
+
+    &-menu {
+        z-index: $z-index-header;
+        visibility: hidden;
+        transform: scaleY(0);
+        transform-origin: top center;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: $color-white;
+        box-shadow: 0 toRem(2px) toRem(6px) 0 $color-black-transparent-4,
+            0 toRem(10px) toRem(20px) 0 $color-black-transparent-4;
+        transition: transform $animation-speed-quick ease-out, visibility $animation-speed-quick;
+    }
+
+    &-menu-open {
+        visibility: unset;
+        transform: scaleY(1);
+    }
+
+    &-menu-container {
+        opacity: 0;
+        transform: translateY(-$spacing-xs);
+        display: flex;
+        padding: $spacing-m 20.25rem;
+    }
+
+    &-menu-container-open {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity $animation-speed-quick ease-out $animation-speed-normal,
+            transform $animation-speed-very-quick ease-out $animation-speed-normal;
+    }
+}
+
+:global(.header) {
+    .search-icon {
+        display: flex;
+        width: 1.125rem;
+        height: 1.125rem;
+        align-items: center;
+    }
+}
+
+// Global styles
+:global {
+    // Fix for OOTB container component using grid display
+    header.experiencefragment .cmp-container {
+        display: block;
+    }
+}
+
+// AEM specific styles
+.primary-navigation-list > :global(.rwc-cnt) {
+    &,
+    & > :global(.aem-Grid) {
+        display: flex;
+        flex-grow: 1;
+    }
+}
+
+.primary-navigation-list {
+    :global(.navigation-item.container.aem-GridColumn.aem-GridColumn--default--12) {
+        width: unset;
+    }
+}
+
+.cta {
+    :global(.text) {
+        margin: 0;
+    }
+}
+
+// Author only styles - apply only in the XF Editor
+:global(.aem-AuthorLayer-Edit body .experiencefragment.container) {
+    .primary-navigation {
+        &-subcontainer:not(.primary-navigation-subcontainer--right) {
+            width: 80%;
+        }
+
+        &-list,
+        &-list > :global(.rwc-cnt) > :global(.aem-Grid) {
+            display: block;
+            width: 100%;
+        }
+
+        &-list {
+            :global(.navigation-item.container.aem-GridColumn.aem-GridColumn--default--12) {
+                width: 100%;
+            }
+        }
+
+        &-subcontainer--right {
+            height: 4rem;
+        }
+    }
+
+    // Fix to get other header elements to the top in editor
+    .logo-link {
+        align-self: flex-start;
+        padding-top: 1rem;
+    }
+}
+
+// Force each nav link to be the full height of the container
+.child-container {
+    :global(.navigation-item.container) {
+        height: 100%;
+    }
+}

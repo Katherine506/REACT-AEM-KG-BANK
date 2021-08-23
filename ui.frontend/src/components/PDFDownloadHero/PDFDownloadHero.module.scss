@@ -1,0 +1,318 @@
+@import '../../styles/mixins/form';
+
+.root {
+    width: 100%;
+    background-color: $color-white;
+    padding-bottom: $spacing-xl;
+
+    @media #{$breakpoint-desktop} {
+        background: center 12rem / 100% 300px no-repeat
+                url($_background-base-url + 'hero-triangles-white-desktop.svg'),
+            linear-gradient(to bottom, $color-dark-purple 12rem, $color-white 12rem 100%);
+        padding-top: 4.5rem;
+        padding-bottom: 4rem;
+    }
+
+    @media #{$breakpoint-desktop-l} {
+        background: center 7rem / 100% 400px no-repeat
+                url($_background-base-url + 'hero-triangles-white-desktop.svg'),
+            linear-gradient(to bottom, $color-dark-purple 7rem, $color-white 7rem 100%);
+    }
+
+    @media #{$breakpoint-desktop-xl} {
+        background: center 2rem / 100% 525px no-repeat
+                url($_background-base-url + 'hero-triangles-white-desktop.svg'),
+            linear-gradient(to bottom, $color-dark-purple 2rem, $color-white 2rem 100%);
+    }
+
+    .form {
+        background-color: $color-white;
+        padding: $spacing-xl $spacing-m;
+        border-radius: 0.25rem;
+        box-shadow: 0 toRem(2px) toRem(6px) 0 $color-black-transparent-4,
+            0 1rem 1.5rem 0 $color-black-transparent-4;
+
+        @media #{$breakpoint-desktop} {
+            flex-shrink: 0;
+            width: 50%;
+            padding: $spacing-xl;
+            margin-left: $spacing-m;
+            box-shadow: 0 toRem(2px) toRem(6px) 0 $color-black-transparent-4,
+                0 toRem(10px) toRem(20px) 0 $color-black-transparent-4;
+        }
+
+        &-heading {
+            @include heading-3;
+
+            color: $color-dark-purple;
+            font-weight: 500;
+            margin-bottom: $spacing-xxs;
+        }
+
+        &-subheading {
+            @include body-l;
+
+            color: $color-black-80;
+            margin-bottom: $spacing-s;
+        }
+
+        &-fields {
+            position: relative;
+        }
+
+        &-fields-container {
+            .recaptcha-text {
+                color: $color-gray;
+            }
+        }
+    }
+}
+
+.container {
+    @include container;
+
+    max-width: $container-max-width;
+    padding-left: $spacing-s;
+    padding-right: $spacing-s;
+    margin: 0 auto;
+}
+
+.title {
+    @include heading-2;
+
+    width: calc(100% + 2 * #{$spacing-s});
+    color: $color-white;
+    background-color: $color-dark-purple;
+    padding: 3.5rem $spacing-s $spacing-xxs;
+    margin-left: -$spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        @include heading-1;
+
+        width: unset;
+        max-width: 52rem;
+        background-color: transparent;
+        padding: 0;
+        margin-left: 0;
+        margin-bottom: $spacing-s;
+    }
+}
+
+.subcontainer {
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        align-items: flex-start;
+    }
+}
+
+.content {
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        flex-grow: 1;
+        flex-direction: column;
+    }
+}
+
+.subtitle {
+    @include heading-5;
+
+    width: calc(100% + 2 * #{$spacing-s});
+    color: $color-white;
+    background-color: $color-dark-purple;
+    padding: 0 $spacing-s;
+    margin-left: -$spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        @include heading-6;
+
+        width: unset;
+        max-width: 30rem;
+        background-color: transparent;
+        padding: 0;
+        margin-left: 0;
+        margin-bottom: 12rem;
+    }
+
+    @media #{$breakpoint-desktop-l} {
+        margin-bottom: 17.875rem;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        width: calc(100% + 2 * #{$spacing-s});
+        height: 9.875rem;
+        background-color: $color-white;
+        background-image: url($_background-base-url + 'hero-triangles-white-mobile.svg');
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin-left: -$spacing-s;
+
+        @media #{$breakpoint-mobile-s} {
+            background-size: 100%;
+        }
+
+        @media #{$breakpoint-desktop} {
+            display: none;
+        }
+    }
+}
+
+.content-container {
+    margin-bottom: 4.875rem;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: 0;
+    }
+}
+
+.row {
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-s;
+    }
+
+    &--checkbox {
+        @media #{$breakpoint-desktop} {
+            margin-bottom: $spacing-s;
+        }
+    }
+}
+
+.input-container {
+    margin-bottom: $spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        width: calc((100% - 1rem) / 2);
+        margin-bottom: 0;
+    }
+
+    &--full-width {
+        @media #{$breakpoint-desktop} {
+            width: 100%;
+        }
+    }
+
+    &--checkbox {
+        display: flex;
+        align-items: baseline;
+    }
+}
+
+input.text-field,
+select.select-field,
+textarea.text-field {
+    @include form-field;
+}
+
+input.text-field,
+textarea.text-field {
+    @include form-text-field;
+}
+
+select.select-field {
+    @include form-select-field;
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    input.text-field,
+    select.select-field,
+    textarea.text-field {
+        @include form-text-field-dark;
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    input.text-field,
+    select.select-field,
+    textarea.text-field {
+        @include form-text-field-light;
+    }
+}
+
+.checkbox {
+    &-input {
+        margin: 0;
+    }
+
+    &-label {
+        @include body-s;
+
+        padding-left: $spacing-xxs;
+    }
+}
+
+.error-message {
+    &-container {
+        @include error-message-container;
+    }
+
+    &-icon {
+        @include error-message-icon;
+    }
+
+    &-text {
+        @include error-message-text;
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    .error-message {
+        &-icon {
+            @include error-message-icon--dark-theme;
+        }
+
+        &-text {
+            @include error-message-text--dark-theme;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .error-message {
+        &-icon {
+            @include error-message-icon--light-theme;
+        }
+
+        &-text {
+            @include error-message-text--light-theme;
+        }
+    }
+}
+
+.result {
+    position: relative;
+
+    @media #{$breakpoint-desktop} {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.cta {
+    margin-top: $spacing-s;
+
+    :global(.text) {
+        margin: 0;
+    }
+}
+
+.recaptcha-text {
+    margin-top: $spacing-m;
+}
+
+.hidden {
+    display: none;
+
+    @media #{$breakpoint-desktop} {
+        display: unset;
+        visibility: hidden;
+    }
+}

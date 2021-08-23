@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Footer"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          extraClientlibs="[]"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1350467608/Header"
+          trackingFeature="kg-bank:footer">
+    <content
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container"
+            granite:class="cmp-header__editor">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <lower-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                name="./lowerText"
+                                                fieldLabel="Lower Text"
+                                                fieldDescription="This will be displayed centered at the bottom of the footer."
+                                                required="{Boolean}false"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <options jcr:primaryType="nt:unstructured"
+                                                         sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                         path="/apps/kg-bank/dialogs/options/rich-text"/>
+                                            </lower-text>
+                                            <legal-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                name="./legalText"
+                                                fieldLabel="Legal Text"
+                                                fieldDescription="This will be displayed at the bottom of the webpage."
+                                                required="{Boolean}false"
+                                                useFixedInlineToolbar="{Boolean}true">
+                                                <options jcr:primaryType="nt:unstructured"
+                                                         sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                         path="/apps/kg-bank/dialogs/options/rich-text"/>
+                                            </legal-text>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                    <navigation
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Navigation"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <list
+                                                granite:class="foundation-layout-util-vmargin"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <options
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Secondary Links"
+                                                        fieldDescription="These are page links placed in small text beneath the social media icons."
+                                                        renderReadOnly="{Boolean}true">
+                                                        <field
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./multifield-secondaryNavigationLinks">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <option
+                                                                    granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <text
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            name="./text"
+                                                                            fieldLabel="Link Text"
+                                                                            required="{Boolean}true"/>
+                                                                        <url
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            fieldLabel="Link URL"
+                                                                            required="{Boolean}true"
+                                                                            name="./url"/>
+                                                                        <linkType
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                            fieldLabel="Link Type"
+                                                                            required="{Boolean}false"
+                                                                            name="./type">
+                                                                            <datasource
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="kg-bank/datasources/dropdown"
+                                                                                path="/apps/kg-bank/dialogs/options/linkType"/>
+                                                                        </linkType>
+                                                                    </items>
+                                                                </option>
+                                                            </items>
+                                                        </field>
+                                                    </options>
+                                                </items>
+                                            </list>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </navigation>
+                    <social-media
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Social Media"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <list
+                                                granite:class="foundation-layout-util-vmargin"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <options
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Social Media Icons"
+                                                        fieldDescription="Applied Icons must follow the appropriate brand guidelines."
+                                                        renderReadOnly="{Boolean}true">
+                                                        <field
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./multifield-socialMediaLinks">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <option
+                                                                    granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <icon-url
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                                                                            fileNameParameter="./fileName"
+                                                                            fileReferenceParameter="./fileReference"
+                                                                            fieldDescription="Supported image types: .jpg, .svg, .png"
+                                                                            mimeTypes="[image/jpeg,image/png,image/svg+xml]"
+                                                                            multiple="{Boolean}false"
+                                                                            allowUpload="{Boolean}false"
+                                                                            name="./iconUrl"
+                                                                            title="Icon"
+                                                                            uploadUrl="${suffix.path}"
+                                                                            useHTML5="{Boolean}true"
+                                                                            required="{Boolean}no"/>
+                                                                        <alt-text
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            name="./altText"
+                                                                            fieldLabel="Icon Alt Text"
+                                                                            required="{Boolean}true"/>
+                                                                        <url
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            fieldLabel="Link URL"
+                                                                            required="{Boolean}true"
+                                                                            name="./url"/>
+                                                                    </items>
+                                                                </option>
+                                                            </items>
+                                                        </field>
+                                                    </options>
+                                                </items>
+                                            </list>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </social-media>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

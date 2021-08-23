@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          sling:resourceType="cq/gui/components/authoring/dialog">
+    <data
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <image
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="cq/gui/components/authoring/dialog/fileupload"
+                fileNameParameter="./fileName"
+                fileReferenceParameter="./fileReference"
+                mimeTypes="[image/gif,image/jpeg,image/png,image/svg+xml]"
+                multiple="{Boolean}false"
+                allowUpload="{Boolean}false"
+                name="./image"
+                title="Image"
+                fieldLabel="Image"
+                fieldDescription="Image file to be displayed."
+                uploadUrl="${suffix.path}"
+                useHTML5="{Boolean}true"
+                required="{Boolean}true"/>
+            <video-link
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldDescription="Input the URL of the Youtube video that will be embedded in this component."
+                fieldLabel="Youtube Video Link"
+                name="./videoLink"/>
+            <alt-text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                fieldDescription="Provide context for the media."
+                fieldLabel="Alt Text"
+                name="./altText"/>
+            <graphical-element
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                fieldLabel="Graphical Element"
+                fieldDescription="Select which graphical element will be used in the background of the section."
+                name="./graphicalElement"
+                required="{Boolean}true">
+                <datasource
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="kg-bank/datasources/dropdown"
+                    path="/apps/kg-bank/dialogs/options/graphical-elements"
+                    defaultValueSelected="no"/>
+            </graphical-element>
+        </items>
+    </data>
+</jcr:root>

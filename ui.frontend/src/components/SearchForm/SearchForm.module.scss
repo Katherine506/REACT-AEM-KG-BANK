@@ -1,0 +1,70 @@
+@import '../../styles/constants/spacing';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+
+:global(.sb-show-main .header) {
+    .root {
+        overflow: visible;
+    }
+}
+
+.root {
+    width: 100%;
+}
+
+.label {
+    @include body-s;
+    @include bold;
+
+    display: block;
+    color: $color-dark-purple;
+    margin-bottom: $spacing-xxs;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    @media #{$breakpoint-desktop} {
+        flex-direction: row;
+    }
+}
+
+.search-icon {
+    position: absolute;
+    top: toRem(13.5px);
+    left: toRem(14px);
+}
+
+.input-field {
+    @include body-l;
+
+    appearance: none;
+    flex: 1 0;
+    color: $color-black-80;
+    background: $color-white;
+    padding: toRem(11px) toRem(15px) toRem(11px) toRem(51px);
+    border: toRem(1px) solid $color-black-80;
+    border-radius: 0.25rem;
+    margin-bottom: $spacing-xxs;
+    @media #{$breakpoint-desktop} {
+        margin-right: $spacing-s;
+        margin-bottom: 0;
+    }
+
+    &::placeholder {
+        color: $color-black-40;
+    }
+}
+
+.button {
+    flex: 0 0;
+    padding: toRem(10px) toRem(30px);
+    @include body-l-semi-bold;
+    font-size: 1.125rem;
+
+    :global(.text) {
+        margin: 0;
+    }
+}

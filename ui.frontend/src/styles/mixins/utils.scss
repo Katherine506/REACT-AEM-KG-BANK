@@ -1,0 +1,68 @@
+@function toRem($size) {
+    $remSize: $size / $font-size-base;
+    @return #{$remSize}rem;
+}
+
+@mixin visually-hidden() {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 0.06rem;
+    margin: 0.06rem;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 0.06rem;
+
+    &:active,
+    &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+
+    a:focus,
+    a:hover {
+        position: static;
+        width: auto;
+        height: auto;
+    }
+}
+
+@mixin ellipsis-text() {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+:global(.sr-only) {
+    @include visually-hidden();
+}
+
+:global(.modal-open) {
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    padding-right: 15px; //Scroll width;
+}
+
+:global(.grecaptcha-badge) {
+    // Hides Google reCAPTCHA badge (the sticky logo on the bottom of the page)
+    // per Google FAQ: https://developers.google.com/recaptcha/docs/faq#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+    visibility: hidden;
+}
+
+@mixin last-child-no-bottom-margin() {
+    // Fix for bottom margins on the last component inside this space.
+    // Components that have a bottom margin that needs to be removed here
+    // should define a .defines-bottom-margin class on the element that
+    // contains that margin.
+    > :global(.rwc-cnt) > :global(div.parsys) > div:last-child,
+    > :global(.rwc-cnt) > div:last-child {
+        :global(.defines-bottom-margin) {
+            margin-bottom: 0;
+        }
+    }
+}

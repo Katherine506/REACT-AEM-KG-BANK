@@ -1,0 +1,27 @@
+@import '../../styles/constants/animation';
+
+.container {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    visibility: hidden;
+    transition: opacity $animation-speed-medium ease-in,
+        transform $animation-speed-long cubic-bezier(0.25, 0.1, 0.39, 0.96);
+    will-change: opacity, visibility;
+
+    &--visible {
+        @extend .container;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}
+
+// Author only styles - apply only in the editor
+:global(.aem-AuthorLayer-Edit) {
+    .container {
+        @extend .container;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+    }
+}

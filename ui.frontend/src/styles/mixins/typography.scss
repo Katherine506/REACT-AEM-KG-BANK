@@ -1,0 +1,309 @@
+@import '../constants/font';
+@import '../constants/colors';
+@import '../constants/breakpoints';
+@import '../../styles/mixins/utils';
+@import '../../styles/constants/animation';
+
+// Alignments
+$alignment-left: left;
+$alignment-right: right;
+$alignment-center: center;
+
+$alignments: (
+    'left': $alignment-left,
+    'right': $alignment-right,
+    'center': $alignment-center,
+);
+
+// Heading level
+
+// Base
+
+@mixin heading-base() {
+    font-weight: 500;
+    font-style: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    font-family: $font-family-primary;
+}
+
+@mixin body-base() {
+    line-height: 1.5;
+    font-style: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: normal;
+    font-size: $font-size-base;
+    font-family: $font-family-secondary;
+}
+
+// Headings
+
+@mixin heading-1 {
+    @include heading-base();
+
+    line-height: 1.14;
+    font-size: 3.625rem;
+    letter-spacing: -1px;
+
+    @media #{$breakpoint-desktop} {
+        line-height: 1.11;
+        font-size: 4.375rem;
+    }
+}
+
+@mixin heading-2 {
+    @include heading-base();
+
+    font-size: 3rem;
+    line-height: 1.29;
+    letter-spacing: -0.5px;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 3.5rem;
+        line-height: 1.14;
+        letter-spacing: -1px;
+    }
+}
+
+@mixin heading-3 {
+    @include heading-base();
+
+    line-height: 1.25;
+    font-size: 2rem;
+    letter-spacing: -0.5px;
+
+    @media #{$breakpoint-desktop} {
+        line-height: 1.2;
+        font-size: 2.5rem;
+    }
+}
+
+@mixin heading-4 {
+    @include heading-base();
+
+    line-height: 1.5;
+    font-weight: normal;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+    font-family: $font-family-secondary;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 2rem;
+        line-height: 1.25;
+    }
+}
+
+@mixin heading-5 {
+    @include heading-base();
+
+    font-weight: 600;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    letter-spacing: normal;
+    font-family: $font-family-secondary;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.5rem;
+        font-family: $font-family-primary;
+    }
+}
+
+@mixin heading-6 {
+    @include body-base();
+
+    line-height: 1.5;
+    font-size: 1.125rem;
+    font-weight: normal;
+    letter-spacing: normal;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+// Body
+
+@mixin body-xl {
+    @include body-base();
+
+    font-size: 1.125rem;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.25rem;
+    }
+}
+
+@mixin body-l-semi-bold {
+    @include body-base();
+
+    font-weight: 600;
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.125rem;
+    }
+}
+
+@mixin body-l {
+    @include body-base();
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.125rem;
+    }
+}
+
+@mixin body {
+    @include body-base();
+}
+
+@mixin body-s {
+    @include body-base();
+
+    font-size: 0.875rem;
+}
+
+@mixin labels {
+    @include body-base();
+
+    font-size: 0.75rem;
+}
+
+@mixin bold {
+    font-weight: 600;
+}
+
+@mixin italic {
+    font-style: italic;
+}
+
+@mixin text-color {
+    .color {
+        @each $key, $color in $colors {
+            &-#{$key} {
+                color: $color;
+            }
+        }
+    }
+}
+
+@mixin text-alignment {
+    .alignment {
+        @each $key, $alignment in $alignments {
+            &-#{$key} {
+                text-align: $alignment;
+            }
+        }
+    }
+}
+
+@mixin text-shadow($textShadowColor) {
+    text-shadow: 0 0 0.01px $textShadowColor;
+}
+
+@mixin link-hover($selector: '', $underLineColor: $color-vermilion) {
+    & #{$selector} {
+        border-bottom: 0.125rem solid transparent;
+        transition: border-bottom-color $animation-speed-quick;
+    }
+    &:hover #{$selector} {
+        border-bottom-color: $underLineColor;
+    }
+}
+
+@mixin _text-link-focus {
+    border-radius: toRem(4px);
+    box-shadow: 0 0 0 toRem(1px) $color-cyan;
+}
+
+@mixin _icon-link-focus {
+    border-radius: toRem(2px);
+    box-shadow: 0 0 0 toRem(1px) $color-dark-purple;
+}
+
+@mixin _pseudo-style {
+    content: '';
+    position: absolute;
+    top: -0.125rem;
+    bottom: -0.125rem;
+    left: -$spacing-xxs;
+    right: -$spacing-xxs;
+    @include _text-link-focus;
+    @content;
+}
+
+@mixin link-focus($selector: '', $pseudo-element: 'after') {
+    &:focus {
+        outline: none;
+    }
+    & #{$selector} {
+        position: relative;
+    }
+    @if $selector!= '' {
+        &:focus #{$selector}:#{$pseudo-element} {
+            @include _pseudo-style {
+                @content;
+            }
+        }
+    } @else {
+        &:focus:#{$pseudo-element} {
+            @include _pseudo-style {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin link-hover-focus($selector: '') {
+    @include link-focus($selector) {
+        @content;
+    }
+    @include link-hover($selector);
+}
+
+@mixin text-link-basic($color) {
+    text-decoration: none;
+    color: $color;
+}
+
+@mixin external-link($size, $icon-filename) {
+    content: ' ';
+    width: $size;
+    height: $size;
+    background-image: url($_icon-base-url + $icon-filename);
+    background-size: contain;
+}
+
+@mixin card() {
+    $card-box-shadow: 0 toRem(2px) toRem(6px) 0 rgba(0, 0, 0, 0.04),
+        0 toRem(16px) toRem(24px) 0 rgba(0, 0, 0, 0.06);
+    border-radius: toRem(4px);
+    box-shadow: $card-box-shadow;
+    border: solid toRem(1px) $color-black-5;
+    background-color: $color-white;
+
+    // Handle shadows for cards in a carousel
+    :global(.swiper-slide) & {
+        box-shadow: none;
+        transition: box-shadow $animation-speed-quick;
+    }
+    :global(.swiper-slide-active) &,
+    :global(.swiper-slide-next) &,
+    :global(.aem-AuthorLayer-Edit .swiper-slide) & {
+        box-shadow: $card-box-shadow;
+    }
+}
+
+@mixin print-white-text {
+    // Overrides Firefox default dark text color with white text color
+    @media print {
+        color: transparent;
+        text-shadow: 0 0 0px #fff;
+    }
+}
+
+:export {
+    left: $alignment-left;
+    right: $alignment-right;
+    center: $alignment-center;
+}

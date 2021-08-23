@@ -1,0 +1,54 @@
+@import '../../styles/constants/index';
+
+.container {
+    $border-width: 0.063rem;
+    border-top: $border-width solid $color-black-10;
+    border-bottom: $border-width solid $color-black-10;
+    margin: $spacing-xl 0;
+    padding: $spacing-m 0;
+    .text-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: $spacing-m;
+        justify-content: center;
+    }
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .text-wrapper {
+            margin-bottom: 0;
+            margin-right: $spacing-xl;
+        }
+    }
+}
+
+// To override the text component font-size styles
+.text {
+    &,
+    * {
+        font-size: 1.25rem !important;
+        width: unset !important;
+        @media #{$breakpoint-desktop} {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.text) {
+            color: $color-white !important;
+        }
+    }
+}
+
+:global {
+    .light-theme,
+    .dark-theme .light-theme {
+        :local(.text) {
+            color: $color-dark-purple !important;
+        }
+    }
+}

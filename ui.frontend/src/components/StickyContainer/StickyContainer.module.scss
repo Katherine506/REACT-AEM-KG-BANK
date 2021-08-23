@@ -1,0 +1,28 @@
+@import '../../styles/constants/colors';
+@import '../../styles/constants/z-index';
+@import '../../styles/constants/breakpoints';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+
+.root {
+    top: 0;
+    left: 0;
+    width: 100%;
+    position: fixed;
+    transform: translateY(0);
+    z-index: $z-index-header;
+    transition: transform $animation-speed-quick ease-in-out;
+
+    &:global(.transitioning) {
+        transform: translateY(-100%);
+    }
+
+    &:global(.sticky) {
+        position: fixed;
+        transform: translateY(0);
+    }
+
+    :global(.aem-AuthorLayer-Edit) & {
+        position: static;
+    }
+}

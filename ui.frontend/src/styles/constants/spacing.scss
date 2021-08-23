@@ -1,0 +1,24 @@
+$spacing-xxs: 0.5rem;
+$spacing-xs: 0.75rem;
+$spacing-s: 1rem;
+$spacing-m: 1.5rem;
+$spacing-l: 2rem;
+$spacing-xl: 2.5rem;
+
+$spacings: (
+    'spacingXxs': $spacing-xxs,
+    'spacingXs': $spacing-xs,
+    'spacingS': $spacing-s,
+    'spacingM': $spacing-m,
+    'spacingL': $spacing-l,
+    'spacingXl': $spacing-xl,
+);
+
+:export {
+    spacingXxs: $spacing-xxs;
+    spacingXs: $spacing-xs;
+    spacingS: $spacing-s;
+    spacingM: $spacing-m;
+    spacingL: $spacing-l;
+    spacingXl: $spacing-xl;
+}

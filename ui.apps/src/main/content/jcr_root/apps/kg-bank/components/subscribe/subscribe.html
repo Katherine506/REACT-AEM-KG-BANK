@@ -1,0 +1,8 @@
+<sly
+        data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser">
+    <sly data-sly-test="${properties.emailHelperText}">
+        <kg-email-subscribe aem-data="${reweb.data}" path="${resource.path @ context='attribute'}"></kg-email-subscribe>
+    </sly>
+    <sly data-sly-call="${template.placeholder @ isEmpty=!properties.emailHelperText}"></sly>
+</sly>

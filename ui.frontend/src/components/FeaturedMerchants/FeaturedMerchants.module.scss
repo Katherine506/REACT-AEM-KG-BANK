@@ -1,0 +1,147 @@
+@import '../../styles/index';
+
+.container {
+    // By default, Chrome puts the user's scroll position on the last loaded card when the load
+    // more button is clicked. The following property opts out of this scroll anchoring behavior, so
+    // the user's scroll position stays at the same spot that it was just before clicking the button:
+    overflow-anchor: none;
+    margin: $spacing-xl 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @media #{$breakpoint-desktop} {
+        margin: 5rem 0;
+    }
+
+    &__more-button {
+        width: 100%;
+        max-width: 22rem;
+        padding: $spacing-xxs 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        margin-top: $spacing-l;
+
+        & > span {
+            font-size: 1rem;
+        }
+
+        @media #{$breakpoint-desktop} {
+            max-width: 7rem;
+            margin-top: $spacing-s;
+        }
+    }
+}
+
+.merchant {
+    padding-bottom: $spacing-m;
+    margin: 0 $spacing-xs;
+
+    @media #{$breakpoint-tablet} {
+        width: calc((100% / 3) - #{$spacing-m});
+        height: 14rem;
+    }
+
+    @media #{$breakpoint-desktop} {
+        width: calc((100% / 3) - #{$spacing-m});
+        height: 18rem;
+    }
+
+    @media #{$breakpoint-desktop-l} {
+        width: calc((100% / 4) - #{$spacing-m});
+    }
+
+    @media #{$breakpoint-mobile} {
+        width: 100%;
+    }
+}
+
+.merchant-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & .merchant__img {
+        display: flex;
+        margin: 0 auto;
+        height: auto;
+        width: auto;
+        filter: grayscale(1);
+        transition: filter $animation-speed-medium;
+        max-height: 100%;
+    }
+
+    &:hover {
+        box-shadow: 0 toRem(2px) toRem(6px) 0 rgba(0, 0, 0, 0.15),
+            0 toRem(10px) toRem(20px) 0 rgba(0, 0, 0, 0.15);
+
+        & .merchant__img {
+            filter: none;
+        }
+    }
+
+    &__icon {
+        display: inline-block;
+        height: 1.2rem;
+        width: 1.2rem;
+    }
+
+    &__sizer {
+        @media #{$breakpoint-mobile} {
+            height: calc(100% - 51px);
+        }
+
+        @media screen and (min-width: #{$tablet}px) {
+            height: calc(100% - 63px);
+        }
+        width: 100%;
+        padding: 1rem 2rem 0 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: auto;
+    }
+
+    &__main {
+        margin-right: $spacing-xxs;
+        font-weight: 600;
+    }
+
+    &__sub {
+        text-transform: uppercase;
+        @include body-s;
+        font-weight: 600;
+        text-align: center;
+    }
+
+    &__body {
+        display: flex;
+        margin-top: auto;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        text-decoration: none;
+    }
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-bottom: -$spacing-m;
+    margin-left: -$spacing-xs;
+    margin-right: -$spacing-xs;
+
+    @media #{$breakpoint-desktop-l} {
+        &:after {
+            content: '';
+            display: block;
+            width: calc((100% - (2 * #{$spacing-m})) / 4);
+        }
+    }
+}

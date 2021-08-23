@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/kg-bank/clientlibs"/>
+    <filter root="/apps/kg-bank/components"/>
+    <filter root="/apps/kg-bank/i18n"/>
+    <filter root="/apps/kg-bank/datasources"/>
+    <filter root="/apps/kg-bank/dialogs"/>
+</workspaceFilter>

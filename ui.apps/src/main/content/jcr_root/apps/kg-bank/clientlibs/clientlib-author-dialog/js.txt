@@ -1,0 +1,4 @@
+js/multifield-max.js
+js/autocomplete-prefill-fix.js
+js/icon-picker.js
+js/required-or-show-if.js

@@ -1,0 +1,66 @@
+@import '../../styles/mixins/form';
+
+.hide {
+    height: 0;
+    visibility: hidden;
+}
+
+.root {
+    width: 100%;
+}
+
+.row {
+    @include contact-us-form-row;
+}
+
+.input-container {
+    @include contact-us-form-input-container;
+}
+
+input.text-field,
+select.select-field,
+textarea.text-field {
+    @include form-field;
+}
+
+input.text-field,
+textarea.text-field {
+    @include form-text-field;
+}
+
+select.select-field {
+    @include form-select-field;
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    input.text-field,
+    select.select-field,
+    textarea.text-field {
+        @include form-text-field-dark;
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    input.text-field,
+    select.select-field,
+    textarea.text-field {
+        @include form-text-field-light;
+    }
+}
+
+.cta {
+    @include contact-us-form-cta;
+}
+
+.recaptcha-text {
+    margin-top: $spacing-m;
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .recaptcha-text {
+        color: $color-gray;
+    }
+}

@@ -1,0 +1,89 @@
+@import '../../../styles/mixins/typography';
+@import '../../../styles/constants/colors';
+
+// Global spacing rules for AEM decorator elements
+:global {
+    .heading {
+        &:not(:first-child) {
+            margin-top: $spacing-m;
+        }
+        &.heading--h1,
+        &.heading--h2,
+        &.heading--h3 {
+            margin-bottom: $spacing-s;
+        }
+
+        &.heading--h4,
+        &.heading--h5,
+        &.heading--h6 {
+            margin-bottom: $spacing-xxs;
+        }
+    }
+}
+.root {
+    @include heading-3;
+}
+
+@include text-alignment();
+
+@include text-color();
+
+.h1 {
+    @include heading-1;
+}
+
+.h2 {
+    @include heading-2;
+}
+
+.h3 {
+    @include heading-3;
+}
+
+.h4 {
+    @include heading-4;
+}
+
+.h5 {
+    @include heading-5;
+}
+
+.h6 {
+    @include heading-6;
+}
+
+.large {
+    @include body-l-semi-bold;
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.root) {
+            color: $color-white;
+        }
+    }
+}
+
+:global {
+    .light-theme,
+    .dark-theme .light-theme {
+        :local(.root) {
+            color: $color-dark-purple;
+        }
+    }
+}
+
+:global {
+    .card--text-align-left,
+    .card--text-align-center,
+    .card--text-align-right {
+        :local(.root) {
+            text-align: inherit;
+        }
+    }
+}
+
+:global(.dark-theme .light-theme) {
+    @include text-color();
+}

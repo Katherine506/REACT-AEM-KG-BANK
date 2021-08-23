@@ -1,0 +1,36 @@
+@import '../../styles/index';
+
+.root {
+    width: 100%;
+    @include wrap-container;
+
+    .black {
+        color: $color-black-80;
+        @include heading-4;
+    }
+
+    .vermillion {
+        color: $color-dark-vermilion;
+        @include heading-4;
+    }
+}
+
+.box {
+    @include wrap-item;
+}
+
+@include text-alignment;
+
+:global {
+    .alignment-center {
+        :local(.root) {
+            justify-content: center;
+        }
+    }
+
+    .alignment-right {
+        :local(.root) {
+            justify-content: flex-end;
+        }
+    }
+}

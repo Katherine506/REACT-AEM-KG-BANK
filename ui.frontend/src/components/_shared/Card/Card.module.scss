@@ -1,0 +1,28 @@
+@import '../../../styles/constants/colors';
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/utils';
+@import '../../../styles/constants/spacing';
+
+.card {
+    height: 100%;
+    box-sizing: border-box;
+    @include card;
+    &--alignment,
+    &__child--alignment {
+        @each $key, $alignment in $alignments {
+            &-#{$key} {
+                text-align: $alignment;
+            }
+        }
+    }
+
+    &--padding {
+        padding: $spacing-m;
+    }
+
+    > *:not(:last-child) {
+        margin-bottom: $spacing-s;
+    }
+
+    @include last-child-no-bottom-margin;
+}

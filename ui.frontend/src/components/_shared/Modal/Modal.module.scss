@@ -1,0 +1,61 @@
+@import '../../../styles/constants/index';
+@import '../../../styles/mixins/index';
+
+.root {
+    animation: fade-in $animation-speed-quick ease-in-out forwards;
+}
+
+.overlay {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: $color-black-transparent-60;
+    z-index: $z-index-modal-overlay;
+    backdrop-filter: blur(toRem(7px));
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    @include container();
+    width: 100%;
+    max-width: $container-max-width;
+    transform: translateY(-3.375rem); //to account for the modal header
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.close-btn {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    padding-right: $spacing-xl;
+
+    & > span,
+    &:hover > :global(.text) {
+        border-bottom: none;
+    }
+}
+
+.cross-icon {
+    top: 50%;
+    position: absolute;
+    right: $spacing-xxs;
+    transform: translateY(-50%);
+}

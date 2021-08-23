@@ -1,0 +1,707 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Contact Us POS Form"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1551597670/Contact+Us+-+POS+Form"
+          trackingFeature="kg-bank:contact-us-pos-form">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        granite:class="cq-search-form-FixedColumn-column"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <field1Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field1Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Field 1 Label"
+                                                value="First name"
+                                                required="{Boolean}false"/>
+                                            <field1Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field1Name"
+                                                fieldLabel="Field 1 Name"
+                                                value="firstName"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    required-if-label-1-set="field1Label"/>
+                                            </field1Name>
+                                            <field1Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Field 1 Optional"
+                                                name="./field1Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    required-if-label-1-set="field1Label"/>
+                                            </field1Optional>
+                                            <field1OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./field1Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <field1RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field1RequiredErrorMessage"
+                                                fieldLabel="Field 1 Required Error Message"
+                                                value="Enter your first name"
+                                                required="{Boolean}false"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    comparison-operation="and"
+                                                    required-if-label-1-set="field1Label"
+                                                    required-if-field-1-not-optional="field1Optional=false"/>
+                                            </field1RequiredErrorMessage>
+                                            <field2Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field2Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Field 2 Label"
+                                                value="Last name"
+                                                required="{Boolean}false"/>
+                                            <field2Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field2Name"
+                                                fieldLabel="Field 2 Name"
+                                                value="lastName"
+                                                required="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-2-set="field2Label"/>
+                                            </field2Name>
+                                            <field2Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Field 2 Optional"
+                                                name="./field2Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-2-set="field2Label"/>
+                                            </field2Optional>
+                                            <field2OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./field2Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <field2RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field2RequiredErrorMessage"
+                                                fieldLabel="Field 2 Required Error Message"
+                                                value="Enter your last name"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-label-2-set="field2Label"
+                                                required-if-field-2-not-optional="field2Optional=false"/>
+                                            </field2RequiredErrorMessage>
+                                            <field3Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field3Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Field 3 Label"
+                                                value="Company"
+                                                required="{Boolean}false"/>
+                                            <field3Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field3Name"
+                                                fieldLabel="Field 3 Name"
+                                                value="company"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-3-set="field3Label"/>
+                                            </field3Name>
+                                            <field3Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Field 3 Optional"
+                                                name="./field3Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-3-set="field3Label"/>
+                                            </field3Optional>
+                                            <field3OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./field3Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <field3RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field3RequiredErrorMessage"
+                                                fieldLabel="Field 3 Required Error Message"
+                                                value="Enter your company"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-label-3-set="field3Label"
+                                                required-if-field-3-not-optional="field3Optional=false"/>
+                                            </field3RequiredErrorMessage>
+                                            <field4Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field4Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Field 4 Label"
+                                                value="Job title"
+                                                required="{Boolean}false"/>
+                                            <field4Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field4Name"
+                                                fieldLabel="Field 4 Name"
+                                                value="jobTitle"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-4-set="field4Label"/>
+                                            </field4Name>
+                                            <field4Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Field 4 Optional"
+                                                name="./field4Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-4-set="field4Label"/>
+                                            </field4Optional>
+                                            <field4OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./field4Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <field4RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field4RequiredErrorMessage"
+                                                fieldLabel="Field 4 Required Error Message"
+                                                value="Enter your job title"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    comparison-operation="and"
+                                                    required-if-label-4-set="field4Label"
+                                                    required-if-field-4-not-optional="field4Optional=false"/>
+                                            </field4RequiredErrorMessage>
+                                            <emailLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./emailLabel"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Email Label"
+                                                value="Email"
+                                                required="{Boolean}true"/>
+                                            <emailInvalidErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./emailInvalidErrorMessage"
+                                                fieldLabel="Email Invalid Error Message"
+                                                value="Enter a valid email address"
+                                                required="{Boolean}true"/>
+                                            <emailRequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./emailRequiredErrorMessage"
+                                                fieldLabel="Email Required Error Message"
+                                                value="Enter your email address"
+                                                required="{Boolean}true"/>
+                                            <field5Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field5Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Field 5 Label"
+                                                value="Phone"
+                                                required="{Boolean}false"/>
+                                            <field5Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field5Name"
+                                                fieldLabel="Field 5 Name"
+                                                value="phone"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-5-set="field5Label"/>
+                                            </field5Name>
+                                            <field5Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Field 5 Optional"
+                                                name="./field5Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-label-5-set="field5Label"/>
+                                            </field5Optional>
+                                            <field5OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./field5Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <field5RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./field5RequiredErrorMessage"
+                                                fieldLabel="Field 5 Required Error Message"
+                                                value="Enter your phone number"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-label-5-set="field5Label"
+                                                required-if-field-5-not-optional="field5Optional=false"/>
+                                            </field5RequiredErrorMessage>
+                                            <dropdown1Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown1Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Dropdown 1 Label"
+                                                value="Industry"
+                                                required="{Boolean}false"/>
+                                            <dropdown1Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown1Name"
+                                                fieldLabel="Dropdown 1 Name"
+                                                value="industry"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-1-set="dropdown1Label"/>
+                                            </dropdown1Name>
+                                            <dropdown1Options
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Dropdown 1 Options"
+                                                renderReadOnly="{Boolean}true">
+                                                <field
+                                                    granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./multifield-dropdown1Options">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <option
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items
+                                                                jcr:primaryType="nt:unstructured">
+                                                                <label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./name"
+                                                                    fieldLabel="Label"
+                                                                    fieldDescription="Character Limit: 30"
+                                                                    required="{Boolean}false"/>
+                                                                <name
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./value"
+                                                                    fieldLabel="Name"
+                                                                    required="{Boolean}false"/>
+                                                            </items>
+                                                        </option>
+                                                    </items>
+                                                </field>
+                                            </dropdown1Options>
+                                            <dropdown1Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Dropdown 1 Optional"
+                                                name="./dropdown1Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-1-set="dropdown1Label"/>
+                                            </dropdown1Optional>
+                                            <dropdown1OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./dropdown1Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <dropdown1RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown1RequiredErrorMessage"
+                                                fieldLabel="Dropdown 1 Required Error Message"
+                                                value="Choose an industry"
+                                                required="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-dropdown-1-set="dropdown1Label"
+                                                required-if-field-dropdown-not-optional="dropdown1Optional=false"/>
+                                            </dropdown1RequiredErrorMessage>
+                                            <dropdown2Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown2Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Dropdown 2 Label"
+                                                value="Business is managed/operated from"
+                                                required="{Boolean}false"/>
+                                            <dropdown2Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown2Name"
+                                                fieldLabel="Dropdown 2 Name"
+                                                value="businessIsManagedOperatedFrom"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-2-set="dropdown2Name"/>
+                                            </dropdown2Name>
+                                            <dropdown2Options
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Dropdown 2 Options"
+                                                renderReadOnly="{Boolean}true">
+                                                <field
+                                                    granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./multifield-dropdown2Options">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <option
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items
+                                                                jcr:primaryType="nt:unstructured">
+                                                                <label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./name"
+                                                                    fieldLabel="Label"
+                                                                    fieldDescription="Character Limit: 30"
+                                                                    required="{Boolean}false"/>
+                                                                <name
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./value"
+                                                                    fieldLabel="Name"
+                                                                    required="{Boolean}false"/>
+                                                            </items>
+                                                        </option>
+                                                    </items>
+                                                </field>
+                                            </dropdown2Options>
+                                            <dropdown2Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Dropdown 2 Optional"
+                                                name="./dropdown2Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-2-set="dropdown2Name"/>
+                                            </dropdown2Optional>
+                                            <dropdown2OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./dropdown2Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <dropdown2RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown2RequiredErrorMessage"
+                                                fieldLabel="Dropdown 2 Required Error Message"
+                                                value="Select an option"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-dropdown-2-set="dropdown2Label"
+                                                required-if-field-dropdown-not-optional="dropdown2Optional=false"/>
+                                            </dropdown2RequiredErrorMessage>
+                                            <dropdown3Label
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown3Label"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Dropdown 3 Label"
+                                                value="Average transaction amount"
+                                                required="{Boolean}false"/>
+                                            <dropdown3Name
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown3Name"
+                                                fieldLabel="Dropdown 3 Name"
+                                                value="averageTransactionAmount"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-3-set="dropdown3Name"/>
+                                            </dropdown3Name>
+                                            <dropdown3Options
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Dropdown 3 Options"
+                                                renderReadOnly="{Boolean}true">
+                                                <field
+                                                    granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./multifield-dropdown3Options">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <option
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items
+                                                                jcr:primaryType="nt:unstructured">
+                                                                <label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./name"
+                                                                    fieldLabel="Label"
+                                                                    fieldDescription="Character Limit: 30"
+                                                                    required="{Boolean}false"/>
+                                                                <name
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./value"
+                                                                    fieldLabel="Name"
+                                                                    required="{Boolean}false"/>
+                                                            </items>
+                                                        </option>
+                                                    </items>
+                                                </field>
+                                            </dropdown3Options>
+                                            <dropdown3Optional
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                ignoreData="{Boolean}true"
+                                                fieldDescription="Activate to make this field Optional."
+                                                text="Dropdown 3 Optional"
+                                                name="./dropdown3Optional"
+                                                value="{Boolean}true"
+                                                uncheckedValue="{Boolean}false"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-dropdown-3-set="dropdown3Name"/>
+                                            </dropdown3Optional>
+                                            <dropdown3OptionalTypeHint
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/hidden"
+                                                name="./dropdown3Optional@TypeHint"
+                                                value="Boolean"/>
+                                            <dropdown3RequiredErrorMessage
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./dropdown3RequiredErrorMessage"
+                                                fieldLabel="Dropdown 3 Required Error Message"
+                                                value="Select an option"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                comparison-operation="and"
+                                                required-if-dropdown-2-set="dropdown3Label"
+                                                required-if-field-dropdown-not-optional="dropdown3Optional=false"/>
+                                            </dropdown3RequiredErrorMessage>
+                                            <textBoxLabel
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./textBoxLabel"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Text Box Label"
+                                                value="How can we help"
+                                                required="{Boolean}true"/>
+                                            <textBoxName
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./textBoxName"
+                                                fieldLabel="Text Box Name"
+                                                value="howCanWeHelp"
+                                                required="{Boolean}true"/>
+                                            <textBoxHelpText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./textBoxHelpText"
+                                                fieldLabel="Text Box Help Text"
+                                                value="Tell us more about your needs"
+                                                required="{Boolean}false"/>
+                                            <submissionCTAText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./ctaText"
+                                                fieldLabel="Submission CTA Text"
+                                                fieldDescription="Character Limit: 25"
+                                                value="SUBMIT"
+                                                required="{Boolean}true"/>
+                                            <submissionAltText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./ctaAltText"
+                                                fieldLabel="Submission CTA Alt Text"
+                                                fieldDescription="Text that will be read by Screen Readers. If unset, this would be ‘Submit form’."
+                                                required="{Boolean}false"/>
+                                            <formRecipients
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Form Recipients"
+                                                fieldDescription="Provide any number of email addresses that the form will be sent to."
+                                                renderReadOnly="{Boolean}true"
+                                                required="{Boolean}true">
+                                                <field
+                                                    granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./formRecipients">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <option
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items
+                                                                jcr:primaryType="nt:unstructured">
+                                                                <label
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    name="./email"
+                                                                    fieldLabel="Email"
+                                                                    fieldDescription="Email addresses that the form will be sent to."
+                                                                    required="{Boolean}true"/>
+                                                            </items>
+                                                        </option>
+                                                    </items>
+                                                </field>
+                                            </formRecipients>
+                                            <submitErrorTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitErrorTitle"
+                                                fieldLabel="Submit Error Title"
+                                                value="Form submission error"
+                                                required="{Boolean}true"/>
+                                            <submitErrorCTAText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitErrorCtaText"
+                                                fieldLabel="Submit Error CTA Text"
+                                                fieldDescription="Character Limit: 25"
+                                                value="RETURN TO FORM"
+                                                required="{Boolean}true"/>
+                                            <submitErrorCtaAltText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitErrorCtaAltText"
+                                                fieldLabel="Submit Error CTA Alt Text"
+                                                fieldDescription="Text that will be read by Screen Readers. If unset, this would be ‘Return to form’."
+                                                required="{Boolean}false"/>
+                                            <submitSuccessTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitSuccessTitle"
+                                                fieldLabel="Submit Success Title"
+                                                value="Thank you!"
+                                                required="{Boolean}true"/>
+                                            <submitSuccessText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitSuccessText"
+                                                fieldLabel="Submit Success Text"
+                                                value="We have received your information and a KG Bank team member will reach out to you shortly."
+                                                required="{Boolean}true"/>
+                                            <submitSuccessCTAText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitSuccessCtaText"
+                                                fieldLabel="Submit Success CTA Text"
+                                                fieldDescription="Character Limit: 25"
+                                                value="RETURN TO FORM"
+                                                required="{Boolean}true"/>
+                                            <submitSuccessCtaAltText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./submitSuccessCtaAltText"
+                                                fieldLabel="Submit Success CTA Alt Text"
+                                                fieldDescription="Text that will be read by Screen Readers. If unset, this would be ‘Return to form’."
+                                                required="{Boolean}false"/>
+                                            =
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

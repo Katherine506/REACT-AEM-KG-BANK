@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Featured Post"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1435238447/Featured+Post"
+          trackingFeature="kg-bank:featured-post">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        granite:class="cq-Richfeatured-post-FixedColumn-column"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <post
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="cq/gui/components/coral/common/form/pagefield"
+                                                fieldDescription="Select the post to display."
+                                                fieldLabel="Post"
+                                                name="./post"
+                                                required="{Boolean}true"/>
+                                            <titleHeadingLevel
+                                                granite:class="core-heading-levels"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Title Heading Level"
+                                                fieldDescription="This determines the semantic hierarchy of the post title."
+                                                required="{Boolean}true"
+                                                name="./titleHeadingLevel">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/heading-level"
+                                                    defaultValueSelected="h2"/>
+                                            </titleHeadingLevel>
+                                            <categoryHeadingLevel
+                                                granite:class="core-heading-levels"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Category Heading Level"
+                                                fieldDescription="This determines the semantic hierarchy of the post category name."
+                                                required="{Boolean}true"
+                                                name="./categoryHeadingLevel">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/heading-level"
+                                                    defaultValueSelected="h3"/>
+                                            </categoryHeadingLevel>
+                                            <link-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="The text that will be displayed on the CTA which directs to the post. Character Limit: 20"
+                                                fieldLabel="Link Text"
+                                                name="./linkText"
+                                                required="{Boolean}true"/>
+                                            <link-alt-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Override the alt text read by screen readers for the primary CTA. This should provide context about the article that is more descriptive than “Read More”."
+                                                fieldLabel="Link Alt Text"
+                                                name="./linkAltText"/>
+                                            <graphical-element
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Graphical Element"
+                                                fieldDescription="Select which graphical element will be used to highlight the image in the section."
+                                                name="./graphicalElement"
+                                                required="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <no
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="None"
+                                                        value="no"/>
+                                                    <purple-corners
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Purple Corners"
+                                                        value="purple-corners"/>
+                                                </items>
+                                            </graphical-element>
+=                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

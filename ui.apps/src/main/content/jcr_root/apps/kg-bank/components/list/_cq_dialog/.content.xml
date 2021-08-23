@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="List"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1423704229/List"
+          trackingFeature="kg-bank:list">
+    <content
+            granite:class="cmp-list__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <list
+                                                granite:class="foundation-layout-util-vmargin"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <options
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="List Items"
+                                                        renderReadOnly="{Boolean}true">
+                                                        <field
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./multifield-items">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <option
+                                                                    granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <text
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            name="./linkText"
+                                                                            fieldLabel="Text"
+                                                                            fieldDescription="Recommended Text Character Limit: 30"
+                                                                            required="{Boolean}true"/>
+                                                                        <url
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                                            fieldLabel="Link URL"
+                                                                            fieldDescription="The webpage that the link will direct the user to."
+                                                                            required="{Boolean}false"
+                                                                            name="./linkURL"/>
+                                                                        <linkType
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                            fieldLabel="Link Type"
+                                                                            fieldDescription="Indicate whether the URL is a link that directs to another area of this website, or to another website."
+                                                                            required="{Boolean}false"
+                                                                            name="./linkType">
+                                                                            <datasource
+                                                                                jcr:primaryType="nt:unstructured"
+                                                                                sling:resourceType="kg-bank/datasources/dropdown"
+                                                                                path="/apps/kg-bank/dialogs/options/linkType"/>
+                                                                        </linkType>
+                                                                    </items>
+                                                                </option>
+                                                            </items>
+                                                        </field>
+                                                    </options>
+                                                </items>
+                                            </list>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

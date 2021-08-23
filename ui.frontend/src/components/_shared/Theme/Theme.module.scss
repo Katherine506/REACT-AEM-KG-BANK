@@ -1,0 +1,41 @@
+@import '../../../styles/constants/colors';
+
+:global {
+    .dark-theme {
+        background-color: $color-dark-purple;
+    }
+
+    .light-theme {
+        background-color: $color-white;
+    }
+
+    .dark-theme,
+    .light-theme {
+        width: 100%;
+    }
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .sb-show-main {
+        min-height: 100%;
+    }
+
+    .sb-show-main .theme-root {
+        overflow: auto;
+    }
+    .sb-show-main #root {
+        width: 100%;
+        //min-height: 100%;
+        display: flex;
+        flex-wrap: wrap; // added
+    }
+}

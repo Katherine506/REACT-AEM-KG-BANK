@@ -1,0 +1,141 @@
+@import '../../../styles/constants/colors';
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/utils';
+
+$_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/icons/';
+
+// Global spacing rules for AEM decorator elements
+:global {
+    .text {
+        margin: $spacing-xxs 0;
+    }
+}
+
+@mixin _theme-styles($lightTheme: true) {
+    $textColor: $color-black-80;
+    $anchorTextColor: $color-purple;
+    $externalLinkIconUrl: $_icon-base-url + 'external-link-purple.svg';
+
+    @if not $lightTheme {
+        $textColor: $color-white;
+        $anchorTextColor: $color-white;
+        $externalLinkIconUrl: $_icon-base-url + 'external-link-white.svg';
+    }
+    color: $textColor;
+    &,
+    * {
+        a {
+            @include text-link-basic($anchorTextColor);
+            &[target='_blank']:after {
+                background-image: url($externalLinkIconUrl);
+            }
+        }
+    }
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.text) {
+            @include _theme-styles($lightTheme: false);
+        }
+    }
+}
+
+:global {
+    .light-theme,
+    .dark-theme .light-theme {
+        :local(.text) {
+            @include _theme-styles($lightTheme: true);
+        }
+    }
+}
+
+.text {
+    &-size {
+        &-x-large {
+            &,
+            * {
+                @include body-xl;
+            }
+        }
+        &-large {
+            &,
+            * {
+                @include body-l;
+            }
+        }
+        &-body {
+            &,
+            * {
+                @include body;
+            }
+        }
+        &-small {
+            &,
+            * {
+                @include body-s;
+            }
+        }
+        &-labels {
+            &,
+            * {
+                @include labels;
+            }
+        }
+    }
+}
+
+.text {
+    &,
+    * {
+        width: 100%;
+        word-break: break-word;
+        ul {
+            list-style-type: disc;
+        }
+        ol {
+            list-style-type: decimal;
+        }
+        ul,
+        ol {
+            list-style-position: inside;
+        }
+        strong,
+        b {
+            @include bold;
+        }
+        em,
+        i {
+            @include italic;
+        }
+        q:before {
+            content: '\201C';
+        }
+        q:after {
+            content: '\201D';
+        }
+        a {
+            @include link-hover;
+            &:not([target='_blank']) {
+                @include link-focus;
+            }
+            &[target='_blank'] {
+                @include link-focus($pseudo-element: 'before');
+            }
+            &[target='_blank']:after {
+                content: ' ';
+                position: relative;
+                top: 3px;
+                width: 1.5rem;
+                height: 1.3rem;
+                background-size: cover;
+                display: inline-block;
+            }
+        }
+    }
+    * {
+        font-style: inherit;
+        font-weight: inherit;
+    }
+}

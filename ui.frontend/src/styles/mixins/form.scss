@@ -1,0 +1,226 @@
+@import '../constants/colors';
+@import '../constants/breakpoints';
+@import 'container';
+@import 'typography';
+@import 'utils';
+
+@mixin input-title {
+    @include labels;
+    @include bold;
+
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+@mixin input-title--dark-theme {
+    color: $color-white;
+
+    &-error {
+        color: $color-white;
+    }
+}
+
+@mixin input-title--light-theme {
+    color: $color-dark-purple;
+
+    &-error {
+        color: $color-error-red;
+    }
+}
+
+@mixin input-field-container {
+    z-index: 0;
+    position: relative;
+}
+
+@mixin input-field {
+    @include body-l;
+
+    width: 100%;
+    border-radius: 0.25rem;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin input-field--dark-theme {
+    background-color: $color-dark-purple;
+
+    &::placeholder {
+        color: $color-white;
+    }
+
+    &:focus + .field-focus {
+        border: toRem(2px) solid $color-cyan;
+        border-radius: 0.375rem;
+    }
+}
+
+@mixin input-field--light-theme {
+    background-color: $color-white;
+
+    &::placeholder {
+        color: $color-black-40;
+    }
+
+    &:focus + .field-focus {
+        border: toRem(2px) solid $color-dark-purple;
+        border-radius: 0.375rem;
+    }
+
+    &-error {
+        border: toRem(1px) solid $color-error-red !important;
+
+        &:focus + .field-focus {
+            border-color: $color-error-red;
+        }
+    }
+}
+
+@mixin select-field {
+    appearance: none; // Remove default dropdown arrow
+    background-position: right $spacing-s center;
+    background-repeat: no-repeat;
+    background-size: 0.875rem;
+
+    &::-ms-expand {
+        display: none; // Remove default dropdown arrow in IE
+    }
+}
+
+@mixin select-field--dark-theme {
+    background-image: url($_icon-base-url + 'chevron-down-white.svg');
+}
+
+@mixin select-field--light-theme {
+    background-image: url($_icon-base-url + 'chevron-down.svg');
+}
+
+@mixin input-field-focus {
+    z-index: -1;
+    position: absolute;
+    top: toRem(-4px);
+    left: toRem(-4px);
+    bottom: toRem(-4px);
+    right: toRem(-4px);
+    display: block;
+}
+
+@mixin input-subtitle {
+    @include labels;
+
+    margin-top: 0.25rem;
+}
+
+@mixin error-message-container {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 0.25rem;
+}
+
+@mixin error-message-icon {
+    margin-right: $spacing-xxs;
+
+    svg {
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+}
+
+@mixin error-message-icon--dark-theme {
+    svg {
+        path {
+            fill: $color-white;
+        }
+    }
+}
+
+@mixin error-message-icon--light-theme {
+    svg {
+        path {
+            fill: $color-error-red;
+        }
+    }
+}
+
+@mixin error-message-text {
+    @include body-s;
+}
+
+@mixin error-message-text--dark-theme {
+    color: $color-white;
+}
+
+@mixin error-message-text--light-theme {
+    color: $color-error-red;
+}
+
+@mixin form-field {
+    @include body-xl;
+
+    @media #{$breakpoint-desktop} {
+        @include body-l;
+    }
+}
+
+@mixin form-text-field {
+    padding: toRem(7px) toRem(11px);
+
+    @media #{$breakpoint-desktop} {
+        padding: toRem(11px) toRem(15px);
+    }
+}
+
+@mixin form-select-field {
+    padding: toRem(7px) toRem(41px) toRem(7px) toRem(11px);
+
+    @media #{$breakpoint-desktop} {
+        padding: toRem(11px) toRem(41px) toRem(11px) toRem(15px);
+    }
+}
+
+@mixin form-text-field-dark {
+    color: $color-white;
+    border: toRem(2px) solid $color-white;
+}
+
+@mixin form-text-field-light {
+    color: $color-black-80;
+    border: toRem(1px) solid $color-black-80;
+}
+
+@mixin contact-us-form-row {
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-m;
+    }
+}
+
+@mixin contact-us-form-input-container {
+    margin-bottom: $spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        width: calc((100% - 1.75rem) / 2);
+        margin-bottom: 0;
+    }
+
+    &--full-width {
+        @media #{$breakpoint-desktop} {
+            width: 100%;
+        }
+    }
+}
+
+@mixin contact-us-form-cta {
+    margin-top: $spacing-s;
+
+    :global(.text) {
+        margin: 0;
+    }
+
+    @media #{$breakpoint-desktop} {
+        margin-top: $spacing-xxs;
+    }
+}

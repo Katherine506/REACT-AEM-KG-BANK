@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+    <x-large
+        jcr:primaryType="nt:unstructured"
+        text="Extra Large"
+        value="x-large"/>
+    <large
+        jcr:primaryType="nt:unstructured"
+        text="Large"
+        value="large"/>
+    <body
+        jcr:primaryType="nt:unstructured"
+        text="Body"
+        value="body"/>
+    <small
+        jcr:primaryType="nt:unstructured"
+        text="Small"
+        value="small"/>
+    <labels
+        jcr:primaryType="nt:unstructured"
+        text="Labels"
+        value="labels"/>
+</jcr:root>

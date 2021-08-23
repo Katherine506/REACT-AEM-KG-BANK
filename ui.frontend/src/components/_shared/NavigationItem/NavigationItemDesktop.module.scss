@@ -1,0 +1,108 @@
+@import '../../../styles/constants/colors';
+@import '../../../styles/constants/font';
+@import '../../../styles/constants/spacing';
+@import '../../../styles/mixins/container';
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/utils';
+
+.root {
+    height: 100%;
+}
+
+.item {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    color: $color-dark-purple;
+    padding: 1.125rem toRem(6px);
+    @include link-hover('.item-container');
+}
+
+.non-link {
+    @include body;
+    @include link-focus('.item-container');
+
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    @include link-focus('.item-container', $pseudo-element: 'before');
+
+    &[target='_blank'] {
+        .item-container:after {
+            @include external-link(1.5rem, 'external-link-dark-purple.svg');
+        }
+    }
+}
+
+.item-container {
+    display: flex;
+    border-top: toRem(2px) solid transparent;
+    border-bottom: toRem(2px) solid transparent;
+    text-align: center;
+}
+
+.indicator-icon {
+    width: 0.625rem;
+    height: 0.625rem;
+    margin-left: 0.25rem;
+}
+
+.menu {
+    z-index: 1;
+    visibility: hidden;
+    transform: scaleY(0);
+    transform-origin: top center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: $color-white;
+    transition: transform $animation-speed-quick ease-out, visibility $animation-speed-quick;
+}
+
+.menu-container {
+    display: flex;
+    padding: $spacing-m $spacing-xl toRem(22px);
+    border-bottom: toRem(1px) solid $color-black-15;
+}
+
+:global(.desktop-menu-open) {
+    visibility: unset;
+    transform: scaleY(1);
+}
+
+// AEM specific styles
+.menu-container :global(.rwc-cnt) > :global(.aem-Grid) {
+    display: flex;
+}
+
+// Author only styles
+:global(.aem-AuthorLayer-Edit body .experiencefragment.container) {
+    .menu {
+        display: block;
+        position: static;
+
+        visibility: visible;
+        transition: none;
+        transform: scaleY(1);
+        transform-origin: top center;
+    }
+
+    .menu-container {
+        padding-left: toRem(6px);
+
+        :global(.newpar),
+        :global(.navigation-column) {
+            min-width: 9rem;
+        }
+    }
+
+    .menu-container .aem-Grid {
+        display: flex;
+    }
+}

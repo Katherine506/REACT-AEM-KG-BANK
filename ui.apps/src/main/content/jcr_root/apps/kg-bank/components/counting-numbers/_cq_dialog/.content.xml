@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Counting Numbers"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1658716455/Counting+Numbers"
+          trackingFeature="kg-bank:counting-numbers">
+    <content
+        granite:class="cmp-counting-numbers__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <statisticColor
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Statistic Colour"
+                                                name="./statisticColor"
+                                                required="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/statistic-color"
+                                                    defaultValueSelected="black"/>
+                                            </statisticColor>
+                                            <subtextAlignment
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Subtext Alignment"
+                                                fieldDescription="Determine the text alignment of the statistic subtext."
+                                                name="./subtextAlignment"
+                                                required="{Boolean}true">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/alignment"
+                                                    defaultValueSelected="left"/>
+                                            </subtextAlignment>
+                                            <statistics
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                composite="{Boolean}true"
+                                                fieldLabel="Statistics"
+                                                renderReadOnly="{Boolean}true">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    minitems="1"
+                                                    maxitems="4"/>
+                                                <field
+                                                    granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                    name="./multifield-statistics">
+                                                    <items jcr:primaryType="nt:unstructured">
+                                                        <statistic
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <statisticValue
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                                    name="./statisticValue"
+                                                                    fieldDescription="Maximum value: 9,999,999. Values between 1,000,000 and 9,999,999 will not display any decimal points."
+                                                                    fieldLabel="Statistic Value"
+                                                                    required="{Boolean}true"/>
+                                                                <numberFormat
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                                    fieldDescription="Indicate whether a ‘%' or '$’ symbol should be added to the statistic."
+                                                                    fieldLabel="Number Format"
+                                                                    name="./numberFormat">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <percentage
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            selected="{Boolean}true"
+                                                                            text="Percentage"
+                                                                            value="percentage"/>
+                                                                        <dollarAmount
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Dollar Amount"
+                                                                            value="dollarAmount"/>
+                                                                        <generic
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            text="Generic"
+                                                                            value="generic"/>
+                                                                    </items>
+                                                                </numberFormat>
+                                                                <frontAccentCharacter
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Add 1 character to the front of the statistic that will not be animated."
+                                                                    fieldLabel="Front Accent Character"
+                                                                    name="./frontAccentCharacter"/>
+                                                                <backAccentCharacter
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                    fieldDescription="Add 1 character to the end of the statistic that will not be animated."
+                                                                    fieldLabel="Back Accent Character"
+                                                                    name="./backAccentCharacter"/>
+                                                                <animationStartValue
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                                    name="./animationStartValue"
+                                                                    fieldDescription="Select the number that the counting animation shall start at."
+                                                                    fieldLabel="Animation Start Value"
+                                                                    required="{Boolean}true"/>
+                                                                <subtext
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="cq/gui/components/authoring/dialog/richtext"
+                                                                    name="./subtext"
+                                                                    fieldLabel="Subtext"
+                                                                    fieldDescription="Character Limit: 80"
+                                                                    useFixedInlineToolbar="{Boolean}true">
+                                                                <options jcr:primaryType="nt:unstructured"
+                                                                         sling:resourceType="granite/ui/components/coral/foundation/include"
+                                                                         path="/apps/kg-bank/dialogs/options/rich-text"/>
+                                                                </subtext>
+                                                                <includeSpacingCharacters
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/form/checkbox"
+                                                                    ignoreData="{Boolean}true"
+                                                                    fieldDescription="Indicate whether the statistic value should have separating characters included after every 3 digits. Commas are used for English pages, and spaces for French pages."
+                                                                    text="Include Spacing Characters"
+                                                                    name="./includeSpacingCharacters"
+                                                                    value="{Boolean}true"
+                                                                    uncheckedValue="{Boolean}false"
+                                                                    />
+                                                            </items>
+                                                        </statistic>
+                                                    </items>
+                                                </field>
+                                            </statistics>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,89 @@
+@import '../../styles/constants/animation';
+@import '../../styles/constants/colors';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+@import '../../styles/constants/spacing';
+
+$_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/icons/';
+
+.list-container {
+    margin: $spacing-m 0;
+}
+
+.list-item {
+    &,
+    * {
+        @include body-l;
+    }
+
+    &:not(:last-child) {
+        margin-bottom: $spacing-s;
+    }
+}
+
+.link {
+    .anchor {
+        display: inline-block;
+        @include link-hover($selector: '.text-content', $underLineColor: $color-dark-vermilion);
+        @include link-focus($selector: '.link-text-wrapper');
+        &:hover .arrow-right {
+            left: $spacing-xs;
+        }
+    }
+}
+
+.arrow-right {
+    position: relative;
+    top: 2px;
+    left: 0;
+    transition: all $animation-speed-quick;
+    width: 0.875rem;
+    height: 0.875rem;
+    display: inline-block;
+    margin-left: $spacing-xs;
+}
+
+@mixin _theme-styles($lightTheme: true) {
+    $textColor: $color-dark-vermilion;
+    $externalLinkIconUrl: $_icon-base-url + 'external-link.svg';
+    $arrowRightIconUrl: $_icon-base-url + 'arrow-right.svg';
+
+    @if not $lightTheme {
+        $textColor: $color-white;
+        $externalLinkIconUrl: $_icon-base-url + 'external-link-white.svg';
+        $arrowRightIconUrl: $_icon-base-url + 'arrow-right-white.svg';
+    }
+
+    :local .list-container {
+        .plain-text {
+            color: $textColor;
+        }
+
+        .anchor {
+            @include text-link-basic($textColor);
+            .external-link-icon {
+                background: url($externalLinkIconUrl) right no-repeat;
+                padding-right: 1.5rem;
+            }
+
+            .arrow-right {
+                background: url($arrowRightIconUrl) no-repeat;
+                background-size: contain;
+            }
+        }
+    }
+}
+
+:global {
+    .light-theme,
+    .dark-theme .light-theme {
+        @include _theme-styles($lightTheme: true);
+    }
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        @include _theme-styles($lightTheme: false);
+    }
+}

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Subscribe"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1530232851/Subscribe"
+          trackingFeature="kg-bank:subscribe">
+    <content
+            granite:class="cmp-statistics__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Properties"
+                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                            margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                    margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                            jcr:primaryType="nt:unstructured"
+                                            sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <list
+                                                granite:class="foundation-layout-util-vmargin"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <emailHelperText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./emailHelperText"
+                                                        fieldDescription="Character Limit of 25. This field helps the user understand what they need to type into the field."
+                                                        fieldLabel="Email Helper Text"
+                                                        value="Email address"
+                                                        required="{Boolean}true"/>
+                                                    <emailInvalidErrorMessage
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./emailInvalidErrorMessage"
+                                                        fieldDescription="This appears when the email id is not valid or fake. Ex someone@example.com"
+                                                        fieldLabel="Email Invalid Error Message"
+                                                        value="Email a valid email address"
+                                                        required="{Boolean}true"/>
+                                                    <emailRequiredErrorMessage
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./emailRequiredErrorMessage"
+                                                        fieldDescription="This appears when the user has not entered an email address."
+                                                        fieldLabel="Email Required Error Message"
+                                                        value="Enter your email address"
+                                                        required="{Boolean}true"/>
+                                                    <newsletterPromptLabel
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./newsletterPromptLabel"
+                                                        fieldDescription="Character Limit of 50. This is the checkbox that a user must click in order to be opted-in to receive communications from KG Bank."
+                                                        fieldLabel="Newsletter Prompt Label"
+                                                        value="Opt-in to receive monthly newsletters and updates"
+                                                        required="{Boolean}true"/>
+                                                    <newsletterPromptRequiredErrorMessage
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./newsletterPromptRequiredErrorMessage"
+                                                        fieldDescription="This appears when the user has not opted-in to communications."
+                                                        fieldLabel="Newsletter Prompt Required Error Message"
+                                                        value="Check opt-in to receive communications"
+                                                        required="{Boolean}true"/>
+                                                    <submissionCTAText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./ctaText"
+                                                        fieldLabel="Submission CTA Text"
+                                                        fieldDescription="Character Limit: 25"
+                                                        value="SIGN UP"
+                                                        required="{Boolean}true"/>
+                                                    <submissionAltText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./ctaAltText"
+                                                        fieldLabel="Submission CTA Alt Text"
+                                                        fieldDescription="Text that will be read by Screen Readers. If unset, this would be ‘Submit form to sign up for email updates’."
+                                                        required="{Boolean}false"/>
+                                                    <submitSuccessText
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        name="./submitSuccessText"
+                                                        fieldDescription="This appears when the user has entered a valid email address and opted-in to communications."
+                                                        fieldLabel="Submit Success Text"
+                                                        value="Thank you! You have signed up successfully."
+                                                        required="{Boolean}true"/>
+                                                </items>
+                                            </list>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

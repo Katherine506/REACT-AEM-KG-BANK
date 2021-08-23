@@ -1,0 +1,20 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.js @ categories='kg-bank.polyfill'}"/>
+
+<sly data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+     data-sly-call="${clientlib.css @ categories='kg-bank.base'}"/>
+
+<sly data-sly-use.runmodes="com.konrad.core.models.Runmodes">
+    <sly data-sly-unwrap
+         data-sly-test="${!runmodes.webpackEnabled}"
+         data-sly-use.clientLib="/libs/granite/sightly/templates/clientlib.html"
+         data-sly-call="${clientLib.css @ categories='kg-bank.ui'}"/>
+</sly>
+
+<!--/* Include Context Hub */-->
+<sly data-sly-call="${clientlib.js @ categories='cq.jquery'}"/>
+<sly data-sly-call="${clientlib.js @ categories='granite.utils'}"/>
+<meta name="path" content="${currentPage.path @ context='attribute'}"/>
+<sly data-sly-resource="${'contexthub' @ resourceType='granite/contexthub/components/contexthub'}"/>

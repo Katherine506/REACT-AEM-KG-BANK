@@ -1,0 +1,85 @@
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+@import '../../styles/constants/index';
+
+$_border-bottom-active-link: 0.25rem;
+
+@mixin _no-scrollbar() {
+    &::-webkit-scrollbar {
+        display: none; // Chrome and Safari
+    }
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
+}
+
+@mixin _padding-right() {
+    padding-right: $spacing-s/2;
+    @media #{$breakpoint-desktop-l} {
+        padding-right: $spacing-l/2;
+    }
+}
+
+@mixin _padding-left() {
+    padding-left: $spacing-s/2;
+    @media #{$breakpoint-desktop-l} {
+        padding-left: $spacing-l/2;
+    }
+}
+
+@mixin _margin-left() {
+    margin-left: $spacing-s;
+    @media #{$breakpoint-desktop-l} {
+        margin-left: 2.875rem;
+    }
+}
+
+.secondary-nav-container {
+    * {
+        @include body;
+    }
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    @include _no-scrollbar;
+    width: 100%;
+    border-bottom: toRem(1px) solid $color-black-15;
+    background-color: $color-white;
+}
+
+.link-item {
+    flex: 0 0 auto;
+    @include _padding-left;
+    @include _padding-right;
+    &:first-of-type {
+        @include _margin-left();
+    }
+    &.active {
+        .link {
+            border-bottom: $_border-bottom-active-link solid $color-vermilion;
+            .link-text-wrapper {
+                @include text-shadow($color-dark-purple);
+                border-style: none;
+            }
+        }
+    }
+}
+
+.link {
+    display: inline-block;
+    padding-top: $spacing-m;
+    padding-bottom: ($spacing-m - $_border-bottom-active-link);
+    @include text-link-basic($color-dark-purple);
+    @include link-hover('.link-text-wrapper');
+    @include link-focus('.link-text-wrapper', $pseudo-element: 'before');
+
+    &[target='_blank'] {
+        .link-text-wrapper:after {
+            @include external-link(1.5rem, 'external-link-dark-purple.svg');
+        }
+    }
+}
+
+.link-text-wrapper {
+    display: flex;
+}

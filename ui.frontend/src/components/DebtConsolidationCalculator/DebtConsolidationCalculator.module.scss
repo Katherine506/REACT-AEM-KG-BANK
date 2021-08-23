@@ -1,0 +1,298 @@
+@import '../../styles/mixins/calculator';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+
+.root {
+    @include calculator-root;
+
+    @media #{$breakpoint-desktop}, print {
+        box-shadow: 0 0 toRem(1px) 0 $color-black-transparent-4,
+            0 toRem(2px) toRem(6px) 0 $color-black-transparent-4,
+            0 1rem 1.5rem 0 $color-black-transparent-4;
+    }
+}
+
+.bills-container {
+    @include calculator-form;
+
+    padding-bottom: $spacing-xl;
+}
+
+.error-message {
+    &-container {
+        display: flex;
+        background-color: $color-error-red-transparent-5;
+        padding: $spacing-xs $spacing-s;
+        border: toRem(1px) solid $color-error-red;
+        border-radius: 0.25rem;
+        margin-bottom: $spacing-m;
+    }
+
+    &-icon {
+        margin-right: $spacing-xxs;
+
+        svg {
+            width: 1rem;
+            height: 1rem;
+
+            path {
+                fill: $color-error-red;
+            }
+        }
+    }
+
+    &-text {
+        @include body-s;
+    }
+}
+
+.bill {
+    padding-bottom: $spacing-s;
+    border-bottom: toRem(1px) solid $color-black-10;
+    margin-bottom: $spacing-s;
+
+    @media #{$breakpoint-desktop}, print {
+        padding-bottom: $spacing-xxs;
+        border-bottom: toRem(0.5px) solid $color-dark-purple;
+        margin-bottom: $spacing-m;
+    }
+
+    &-heading-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $spacing-s;
+
+        @media #{$breakpoint-desktop}, print {
+            margin-bottom: $spacing-xxs;
+        }
+
+        .bill-delete-button {
+            display: flex;
+            width: 1.125rem;
+            height: 1.125rem;
+            cursor: pointer;
+        }
+    }
+
+    &-heading-text {
+        display: flex;
+    }
+
+    &-heading {
+        @include body-l;
+        @include bold;
+
+        color: $color-black-80;
+        margin-right: $spacing-xxs;
+    }
+
+    &-edit-button {
+        @include body-s;
+
+        color: $color-dark-purple;
+        background: none;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        &--disabled {
+            color: $color-black-65;
+            cursor: unset;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    &-items {
+        @media #{$breakpoint-desktop}, print {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-xxs;
+
+        @media #{$breakpoint-desktop}, print {
+            display: unset;
+            width: calc((100% - 1.75rem) / 4);
+            margin-bottom: 0;
+        }
+
+        &-title {
+            @include body;
+            @include bold;
+
+            width: calc((100% - #{$spacing-s}) / 2);
+            color: $color-black-65;
+
+            @media #{$breakpoint-desktop}, print {
+                @include labels;
+
+                width: 100%;
+            }
+        }
+
+        &-value {
+            @include body;
+
+            width: calc((100% - #{$spacing-s}) / 2);
+            color: $color-black-80;
+
+            @media #{$breakpoint-desktop}, print {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.form {
+    @media #{$breakpoint-desktop}, print {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
+.input-container {
+    &--regular {
+        margin-bottom: $spacing-s;
+
+        @media #{$breakpoint-desktop}, print {
+            width: calc((100% - 1.5rem) / 2);
+        }
+    }
+}
+
+.text-field {
+    color: $color-black-80;
+    padding: toRem(11px) toRem(15px);
+    border: toRem(1px) solid $color-black-40;
+}
+
+.select-field {
+    color: $color-black-80;
+    padding: toRem(11px) toRem(41px) toRem(11px) toRem(15px);
+    border: toRem(1px) solid $color-black-40;
+}
+
+.subtitle {
+    color: $color-black-80;
+}
+
+.add-bill-button {
+    @include body;
+    @include bold;
+
+    color: $color-dark-purple;
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    @media #{$breakpoint-desktop}, print {
+        @include body-s;
+        @include bold;
+    }
+
+    @media print {
+        background-color: $color-white;
+    }
+
+    &--disabled {
+        color: $color-black-65;
+        cursor: unset;
+    }
+}
+
+.results {
+    &-container:global(.dark-theme) {
+        @include calculator-results-container;
+
+        @media print {
+            color-adjust: exact;
+        }
+    }
+
+    &-title {
+        @include body;
+        @include print-white-text;
+
+        margin-bottom: $spacing-xl;
+
+        @media #{$breakpoint-desktop}, print {
+            margin-bottom: 0;
+        }
+    }
+
+    &-numbers {
+        &-container {
+            @include print-white-text;
+
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            text-align: left;
+            width: 100%;
+
+            @media #{$breakpoint-desktop}, print {
+                margin-left: $spacing-xxs;
+                margin-bottom: $spacing-m;
+            }
+        }
+
+        &-item {
+            width: calc((100% - #{$spacing-s}) / 2);
+            margin-bottom: $spacing-s;
+
+            @media #{$breakpoint-desktop}, print {
+                width: calc((100% - #{$spacing-xl}) / 3);
+                margin-bottom: 0;
+            }
+        }
+
+        &-heading {
+            @include body-s;
+
+            margin-bottom: 0.25rem;
+        }
+
+        &-value {
+            @include heading-4;
+        }
+
+        &-unit {
+            @include body-s;
+        }
+    }
+}
+
+.cta {
+    @include calculator-cta;
+}
+
+.download-cta {
+    @include calculator-download-cta;
+    @include print-white-text;
+
+    @media print {
+        background-color: $color-dark-purple;
+    }
+}
+
+@media print {
+    // Override fonts that don't render when using react-to-print
+    .root,
+    .root * {
+        font-family: sans-serif;
+    }
+}

@@ -1,0 +1,20 @@
+@import '../../styles/constants/index.scss';
+@import '../../styles/mixins/index';
+
+.time-line-container {
+    margin-top: $spacing-l;
+    margin-bottom: $spacing-xl;
+    @media #{$breakpoint-desktop} {
+        margin-top: $spacing-m;
+        margin-bottom: 5rem;
+    }
+    overflow: hidden;
+    .button {
+        @include body-l-semi-bold;
+        margin-top: $spacing-l;
+        margin-bottom: 0.25rem; //To account for button focus state
+        @media #{$breakpoint-desktop} {
+            margin-left: 3rem;
+        }
+    }
+}

@@ -1,0 +1,7 @@
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          cq:icon="compass"
+          jcr:description="Timeline Item to be inserted in Timeline Container"
+          jcr:primaryType="cq:Component"
+          jcr:title="Timeline Item"
+          sling:resourceSuperType="core/wcm/components/container/v1/container"
+          componentGroup=".hidden"/>

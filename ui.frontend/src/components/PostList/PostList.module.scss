@@ -1,0 +1,43 @@
+@import '../../styles/constants/breakpoints';
+@import '../../styles/constants/colors';
+@import '../../styles/constants/spacing';
+
+.root {
+    // By default, Chrome puts the user's scroll position on the last loaded card when the load
+    // more button is clicked. The following property opts out of this scroll anchoring behavior, so
+    // the user's scroll position stays at the same spot that it was just before clicking the button:
+    overflow-anchor: none;
+}
+
+.posts-container {
+    text-align: left;
+
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        &:after {
+            content: '';
+            display: block;
+            width: calc((100% - (2 * #{$spacing-m})) / 3);
+        }
+    }
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button {
+    margin-top: 2.25rem;
+
+    @media #{$breakpoint-desktop} {
+        margin-top: 2rem;
+    }
+}
+
+.no-posts {
+    white-space: pre-line;
+    color: $color-black-80;
+}

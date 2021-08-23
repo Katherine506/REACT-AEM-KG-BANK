@@ -1,0 +1,78 @@
+@import '../../styles/constants/index';
+
+.root {
+    overflow-anchor: none;
+
+    .year {
+        margin-bottom: 0.938rem;
+        font-weight: 600;
+
+        @media screen and (max-width: #{desktop - 1}px) {
+            font-size: 1.25rem;
+        }
+    }
+
+    .button-box {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @media #{$breakpoint-mobile} {
+            margin-top: $spacing-l;
+        }
+        margin-top: $spacing-xl;
+
+        & span {
+            margin: 0;
+        }
+    }
+
+    .no-posts {
+        white-space: pre-line;
+        color: $color-black-80;
+    }
+}
+
+.container {
+    width: 100%;
+    padding: $spacing-s 0;
+    @media #{$breakpoint-desktop} {
+        padding: $spacing-m 0 1.438rem 0;
+    }
+    border-top: 0.063rem solid $color-black-10;
+    border-bottom: 0.063rem solid $color-black-10;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-s;
+    }
+    margin-bottom: $spacing-m;
+
+    .date {
+        margin-bottom: $spacing-xxs;
+
+        @media #{$breakpoint-mobile} {
+            color: $color-dark-purple;
+        }
+        @media #{$breakpoint-desktop} {
+            margin-top: $spacing-xxs;
+        }
+    }
+
+    .title-link {
+        text-decoration: none;
+        margin-bottom: $spacing-xxs;
+        @media #{$breakpoint-mobile} {
+            margin-bottom: 0;
+        }
+    }
+
+    .post {
+        margin-bottom: $spacing-m;
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .title {
+        font-weight: 400;
+    }
+}

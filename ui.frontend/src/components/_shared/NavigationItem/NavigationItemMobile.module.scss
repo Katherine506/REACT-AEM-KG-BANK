@@ -1,0 +1,99 @@
+@import '../../../styles/mixins/container';
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/utils';
+
+.root {
+    margin-bottom: toRem(6px);
+}
+
+.item {
+    @include heading-6;
+
+    display: inline-flex;
+    color: $color-dark-purple;
+    font-size: 1.5rem;
+    @include link-hover('.item-container');
+
+    @media #{$breakpoint-desktop} {
+        font-weight: normal;
+    }
+}
+
+.non-link {
+    @include link-focus('.item-container');
+
+    background: none;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.link {
+    text-decoration: none;
+    @include link-focus('.item-container', $pseudo-element: 'before');
+
+    &[target='_blank'] {
+        .item-container:after {
+            @include external-link(2.25rem, 'external-link-dark-purple.svg');
+        }
+    }
+}
+
+.item-container {
+    display: flex;
+    border-bottom: toRem(2px) solid transparent;
+}
+
+.indicator-icon {
+    margin-left: $spacing-xxs;
+}
+
+:global(.mobile-nav-menu-slide) {
+    // Styling is located in HeaderMobile.module.scss
+}
+
+:global(.mobile-nav-menu-slide-open) {
+    // Styling is located in HeaderMobile.module.scss
+}
+
+.menu {
+    z-index: 1;
+}
+
+.menu-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 2rem $spacing-s toRem(14px);
+}
+
+.back-button {
+    @include body;
+
+    display: flex;
+    color: $color-dark-purple;
+    background: none;
+    padding: 0;
+    border: none;
+    margin-bottom: toRem(14px);
+    cursor: pointer;
+    @include link-hover-focus('.back-button-container');
+}
+
+.back-button-container {
+    display: flex;
+}
+
+.back-icon {
+    margin-right: 0.25rem;
+}
+
+.menu-title {
+    @include heading-6;
+
+    font-size: 1.5rem;
+    margin-bottom: $spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        font-weight: normal;
+    }
+}

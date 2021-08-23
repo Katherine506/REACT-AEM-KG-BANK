@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Hero Banner"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1486946756/Hero+Banner"
+          trackingFeature="kg-bank:hero-banner">
+    <content
+        granite:class="cmp-hero-banner__editor"
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <desing-type
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="Design Type"
+                                                fieldDescription="Select the banner type, which changes the appearance and features that are displayed."
+                                                name="./designType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <primary
+                                                        jcr:primaryType="nt:unstructured"
+                                                        selected="{Boolean}true"
+                                                        text="Primary"
+                                                        value="primary"/>
+                                                    <secondary
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Secondary"
+                                                        value="secondary"/>
+                                                    <tertiary
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="Tertiary"
+                                                        value="tertiary"/>
+                                                </items>
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq-dialog-dropdown-showhide-target=".design-type-showhide-target"/>
+                                            </desing-type>
+                                            <showHideContainer1
+                                                granite:class="cq-dialog-show-if"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    show-if-design-type-is-primary="designType=primary"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <animation-slides
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/multifield"
+                                                        composite="{Boolean}true"
+                                                        fieldLabel="Animation Slides"
+                                                        renderReadOnly="{Boolean}true">
+                                                        <granite:data
+                                                            jcr:primaryType="nt:unstructured"
+                                                            minitems="1"
+                                                            maxitems="4"/>
+                                                        <field
+                                                            granite:class="cmp-options--editor-item-multifield-composite-item coral-Well"
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/coral/foundation/container"
+                                                            name="./multifield-items">
+                                                            <items jcr:primaryType="nt:unstructured">
+                                                                <option
+                                                                    granite:class="cmp-options--editor-item-multifield-composite-item-container"
+                                                                    jcr:primaryType="nt:unstructured"
+                                                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                                    <items jcr:primaryType="nt:unstructured">
+                                                                        <whiteText
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            name="./whiteText"
+                                                                            fieldDescription="Provide the text that will appear on the first lines of the animation slide."
+                                                                            fieldLabel="White Text"/>
+                                                                        <orangeText
+                                                                            jcr:primaryType="nt:unstructured"
+                                                                            sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                                            name="./orangeText"
+                                                                            fieldDescription="Provide the text that will appear on the second slide of the animation slide."
+                                                                            fieldLabel="Orange Text"/>
+                                                                    </items>
+                                                                </option>
+                                                            </items>
+                                                        </field>
+                                                    </animation-slides>
+                                                </items>
+                                            </showHideContainer1>
+                                            <title
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="The title to be displayed at the top of the article."
+                                                fieldLabel="Title"
+                                                name="./title"/>
+                                            <showHideContainer2
+                                                granite:class="cq-dialog-show-if"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    comparison-operation="or"
+                                                    show-if-design-type-is-not-primary="designType=secondary,tertiary"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <subtitle
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Enter the text that will appear beneath the Title, or Title Animation."
+                                                        fieldLabel="Subtitle"
+                                                        name="./subtitle"/>
+                                                </items>
+                                            </showHideContainer2>
+                                            <primary-cta-link-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Text that will be displayed in the Primary CTA."
+                                                fieldLabel="Primary CTA Link Text"
+                                                name="./primaryCtaLinkText"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    required-if-design-type-is-primary="designType=primary"/>
+                                            </primary-cta-link-text>
+                                            <primary-cta-alt-text
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Text that will be read by Screen Readers. If unset, this would be the Primary CTA Text."
+                                                fieldLabel="Primary CTA Link Alt Text"
+                                                name="./primaryCtaAltText"
+                                                validation="required-if">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    required-if-priamry-cta-set="primaryCtaLinkText"/>
+                                            </primary-cta-alt-text>
+                                            <primary-cta-link-url
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                fieldDescription="The webpage that the Primary CTA will direct the user to."
+                                                fieldLabel="Primary CTA Link URL"
+                                                name="./primaryCtaLinkUrl"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-priamry-cta-set="primaryCtaLinkText"/>
+                                            </primary-cta-link-url>
+                                            <primary-cta-link-type
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldDescription="Indicate whether the URL is a link that directs to another area of this website, or to another website."
+                                                fieldLabel="Primary CTA Link Type"
+                                                name="./primaryCtaLinkType">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <internal
+                                                        jcr:primaryType="nt:unstructured"
+                                                        selected="{Boolean}true"
+                                                        text="Internal"
+                                                        value="internal"/>
+                                                    <external
+                                                        jcr:primaryType="nt:unstructured"
+                                                        text="External"
+                                                        value="external"/>
+                                                </items>
+                                            </primary-cta-link-type>
+                                            <showHideContainer3
+                                                granite:class="cq-dialog-show-if"
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/container">
+                                                <granite:data
+                                                    jcr:primaryType="nt:unstructured"
+                                                    show-if-design-type-is-primary="designType=primary"/>
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <secondary-cta-link-text
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text that will be displayed in the Secondary CTA."
+                                                        fieldLabel="Secondary CTA Link Text"
+                                                        name="./secondaryCtaLinkText"/>
+                                                    <secondary-cta-alt-text
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text that will be read by Screen Readers. If unset, this would be the Secondary CTA Text."
+                                                        fieldLabel="Secondary CTA Link Alt Text"
+                                                        name="./secondaryCtaAltText"/>
+                                                    <secondary-cta-link-url
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                        fieldDescription="The webpage that the Secondary CTA will direct the user to."
+                                                        fieldLabel="Secondary CTA Link URL"
+                                                        name="./secondaryCtaLinkUrl"/>
+                                                    <secondary-cta-link-type
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                        fieldDescription="Indicate whether the URL is a link that directs to another area of this website, or to another website."
+                                                        fieldLabel="Secondary CTA Link Type"
+                                                        name="./secondaryCtaLinkType">
+                                                        <items jcr:primaryType="nt:unstructured">
+                                                            <internal
+                                                                jcr:primaryType="nt:unstructured"
+                                                                selected="{Boolean}true"
+                                                                text="Internal"
+                                                                value="internal"/>
+                                                            <external
+                                                                jcr:primaryType="nt:unstructured"
+                                                                text="External"
+                                                                value="external"/>
+                                                        </items>
+                                                    </secondary-cta-link-type>
+                                                    <button-context-icon
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/foundation/form/autocomplete"
+                                                        class="iconpicker"
+                                                        fieldLabel="Button Context Icon"
+                                                        fieldDescription="Select the Icon that will be displayed beneath the Primary CTA."
+                                                        name="./buttonContextIconUrl"
+                                                        forceSelection="{Boolean}false"
+                                                        required="{Boolean}false"
+                                                        mode="contains">
+                                                        <datasource
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="kg-bank/datasources/dropdown"
+                                                            path="/apps/kg-bank/dialogs/options/icon-names"/>
+                                                        <options
+                                                            jcr:primaryType="nt:unstructured"
+                                                            sling:resourceType="granite/ui/components/foundation/form/autocomplete/list"/>
+                                                    </button-context-icon>
+                                                    <button-context-text
+                                                        jcr:primaryType="nt:unstructured"
+                                                        sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                        fieldDescription="Text that provides a subtitle for the Primary and Secondary CTA."
+                                                        fieldLabel="Button Context Text"
+                                                        name="./buttonContextText"/>
+                                                </items>
+                                            </showHideContainer3>
+                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

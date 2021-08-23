@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+          xmlns:granite="http://www.adobe.com/jcr/granite/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Loan Payment Calculator"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1541374193/Loan+Payment+Calculator"
+          trackingFeature="kg-bank:loan-payment-calculator">
+    <content
+        jcr:primaryType="nt:unstructured"
+        sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <properties
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Properties"
+                        sling:resourceType="granite/ui/components/coral/foundation/container"
+                        margin="{Boolean}true">
+                        <items jcr:primaryType="nt:unstructured">
+                            <columns
+                                jcr:primaryType="nt:unstructured"
+                                sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns"
+                                margin="{Boolean}true">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <column
+                                        jcr:primaryType="nt:unstructured"
+                                        granite:class="cq-search-form-FixedColumn-column"
+                                        sling:resourceType="granite/ui/components/coral/foundation/container">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <loanTypeTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./loanTypeTitle"
+                                                fieldDescription="Character limit: 20"
+                                                fieldLabel="Loan Type Title"
+                                                value="Loan type"
+                                                required="{Boolean}true"/>
+                                            <loanTypeSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./loanTypeSubtitle"
+                                                fieldDescription="Character limit: 40"
+                                                fieldLabel="Loan Type Subtitle"
+                                                value="Is your loan secured or unsecured?"/>
+                                            <userTypeTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./userTypeTitle"
+                                                fieldDescription="Character limit: 20"
+                                                fieldLabel="User Type Title"
+                                                value="Home ownership status"
+                                                required="{Boolean}true"/>
+                                            <homeownerValue
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./homeownerValue"
+                                                fieldDescription="Enter the value that will be added to the dropdown to indicate that the user is a homeowner."
+                                                fieldLabel="Homeowner Value"
+                                                value="Homeowner"
+                                                required="{Boolean}true"/>
+                                            <nonHomeownerValue
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./nonHomeownerValue"
+                                                fieldDescription="Enter the value that will be added to the dropdown to indicate that the user is not a homeowner."
+                                                fieldLabel="Non-Homeowner Value"
+                                                value="Homeowner"
+                                                required="{Boolean}true"/>
+                                            <userTypeSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./userTypeSubtitle"
+                                                fieldDescription="Character limit: 40"
+                                                fieldLabel="User Type Subtitle"
+                                                value="Do you rent or own your home?"/>
+                                            <amountTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./amountTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Amount Title"
+                                                value="Loan amount"
+                                                required="{Boolean}true"/>
+                                            <amountDefault
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                name="./amountDefault"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Amount Default"
+                                                value="5000"
+                                                required="{Boolean}true"/>
+                                            <amountSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./amountSubtitle"
+                                                fieldDescription="Character Limit: 40"
+                                                fieldLabel="Amount Subtitle"
+                                                value="How much you want to borrow"/>
+                                            <frequencyTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./frequencyTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Frequency Title"
+                                                value="Payment frequency"
+                                                required="{Boolean}true"/>
+                                            <frequencySubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./frequencySubtitle"
+                                                fieldDescription="Character Limit: 40"
+                                                fieldLabel="Frequency Subtitle"
+                                                value="Payment frequency"
+                                                required="{Boolean}true"/>
+                                            <provinceTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./provinceTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Province Title"
+                                                value="Province"
+                                                required="{Boolean}true"/>
+                                            <provinceSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./provinceSubtitle"
+                                                fieldDescription="Character Limit: 40"
+                                                fieldLabel="Province Subtitle"
+                                                value="The province in which you live"/>
+                                            <borrowingTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Borrowing Title"
+                                                value="Borrowing History"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption1
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption1"
+                                                fieldDescription="Character Limit: 15"
+                                                fieldLabel="Borrowing Option 1"
+                                                value="Fair"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption1Description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption1Description"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Borrowing Option 1 Description"
+                                                value="Some late payments"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption2
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption2"
+                                                fieldDescription="Character Limit: 15"
+                                                fieldLabel="Borrowing Option 2"
+                                                value="Good"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption2Description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption2Description"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Borrowing Option 2 Description"
+                                                value="Some credit history, good to fair standing"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption3
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption3"
+                                                fieldDescription="Character Limit: 15"
+                                                fieldLabel="Borrowing Option 3"
+                                                value="Excellent"
+                                                required="{Boolean}true"/>
+                                            <borrowingOption3Description
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./borrowingOption3Description"
+                                                fieldDescription="Character Limit: 50"
+                                                fieldLabel="Borrowing Option 3 Description"
+                                                value="Well-established credit history, great standing"
+                                                required="{Boolean}true"/>
+                                            <loanTermTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./loanTermTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Loan Term Title"
+                                                value="Loan term"
+                                                required="{Boolean}true"/>
+                                            <loanTermSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./loanTermSubtitle"
+                                                fieldDescription="Character Limit: 40"
+                                                fieldLabel="Loan Term Subtitle"
+                                                value="The time period you’ll need to pay back your loan"/>
+                                            <resultsTitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./resultsTitle"
+                                                fieldDescription="Character Limit: 20"
+                                                fieldLabel="Results Title"
+                                                value="Results Title"
+                                                required="{Boolean}true"/>
+                                            <resultsSubtitle
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./resultsSubtitle"
+                                                fieldDescription="Character Limit: 40"
+                                                fieldLabel="Results Subtitle"
+                                                value="The estimated interest rate is "/>
+                                            <ctaLinkText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                name="./ctaLinkText"
+                                                fieldDescription="Character Limit: 25"
+                                                fieldLabel="CTA Link Text"/>
+                                            <ctaLinkUrl
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                name="./ctaLinkUrl"
+                                                fieldLabel="CTA Link URL"
+                                                validation="required-if">
+                                            <granite:data
+                                                jcr:primaryType="nt:unstructured"
+                                                required-if-link-text-set="ctaLinkText"/>
+                                            </ctaLinkUrl>
+                                            <ctaLinkAltText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Text that will be read by Screen Readers. If unset, this will be the Button Text."
+                                                fieldLabel="CTA Link Alt Text"
+                                                name="./ctaLinkAltText"/>
+                                            <ctaLinkType
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                fieldLabel="CTA Link Type"
+                                                fieldDescription="Indicate whether the URL is a link that directs to another area of this website, or to another website."
+                                                required="{Boolean}true"
+                                                name="./ctaLinkType">
+                                                <datasource
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="kg-bank/datasources/dropdown"
+                                                    path="/apps/kg-bank/dialogs/options/linkType"/>
+                                            </ctaLinkType>
+                                            <downloadText
+                                                jcr:primaryType="nt:unstructured"
+                                                sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                fieldDescription="Character Limit: 25"
+                                                fieldLabel="Download Text"
+                                                name="./downloadText"/>
+=                                        </items>
+                                    </column>
+                                </items>
+                            </columns>
+                        </items>
+                    </properties>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>

@@ -1,0 +1,32 @@
+@import '../../styles/mixins/typography';
+@import '../../styles/constants/animation';
+
+.sub-heading {
+    margin-bottom: $spacing-xxs;
+
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-s;
+    }
+}
+
+.title {
+    margin-bottom: $spacing-xxs;
+}
+
+.description {
+    margin-bottom: $spacing-s;
+}
+
+.text.details {
+    color: $color-black-65;
+    margin-bottom: $spacing-l;
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.text.details) {
+            color: $color-white;
+        }
+    }
+}

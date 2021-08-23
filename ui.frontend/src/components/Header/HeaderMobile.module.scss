@@ -1,0 +1,317 @@
+@import '../../styles/constants/animation';
+@import '../../styles/constants/z-index';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+@import '../../styles/mixins/utils';
+
+.root {
+    width: 100%;
+}
+
+:global(.mobile-nav-open) {
+    box-shadow: 0 toRem(10px) toRem(20px) 0 $color-black-transparent-4;
+}
+
+.navigation-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-xs $spacing-s;
+    background-color: $color-white;
+    border-bottom: toRem(1px) solid $color-black-10;
+}
+
+.logo-link {
+    position: relative;
+    display: flex;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:focus:after {
+        content: '';
+        position: absolute;
+        top: toRem(-10px);
+        left: toRem(-10px);
+        bottom: toRem(-10px);
+        right: toRem(-10px);
+        border-radius: toRem(4px);
+        border: solid toRem(2px) $color-dark-purple;
+    }
+}
+
+.logo {
+    width: auto;
+    height: toRem(30px);
+}
+
+.navigation-subcontainer {
+    display: flex;
+    align-items: center;
+    .phone-link {
+        @include link-focus {
+            left: -0.4rem;
+            right: -0.4rem;
+            @include _icon-link-focus;
+        }
+        .phone-icon svg {
+            fill: $color-white;
+            transition: fill $animation-speed-quick linear;
+        }
+        &:hover {
+            .phone-icon svg {
+                fill: $color-vermilion;
+            }
+        }
+    }
+}
+
+.phone-icon {
+    display: flex;
+}
+
+.menu-container {
+    display: flex;
+}
+
+.toggle-button {
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    background: none;
+    padding: 0;
+    border: none;
+    margin-left: $spacing-s;
+    cursor: pointer;
+
+    span {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        display: block;
+        width: toRem(26px);
+        height: toRem(2px);
+        background-color: $color-black-80;
+        border-radius: toRem(1px);
+        transform: rotate(0deg);
+        transition: $animation-speed-quick ease-in-out;
+
+        &:nth-child(1) {
+            top: toRem(8px);
+        }
+
+        &:nth-child(2),
+        &:nth-child(3) {
+            top: toRem(16px);
+        }
+
+        &:nth-child(4) {
+            top: toRem(24px);
+        }
+    }
+    @include link-focus {
+        left: 0;
+        right: 0;
+        top: 0.1rem;
+        bottom: 0.1rem;
+        @include _icon-link-focus;
+    }
+    &:hover {
+        span {
+            background-color: $color-vermilion;
+        }
+    }
+}
+
+:global(.nav-menu-toggle-button-open) {
+    span {
+        &:nth-child(1),
+        &:nth-child(4) {
+            top: toRem(16px);
+            width: 0;
+        }
+
+        &:nth-child(2) {
+            transform: rotate(45deg);
+        }
+
+        &:nth-child(3) {
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+.overlay {
+    z-index: -2;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: toRem(57px);
+    left: 0;
+    width: 100%;
+    height: calc((var(--vh, 1vh) * 100) - #{toRem(57px)});
+    background-color: $color-black-65-transparent-30;
+    transition: opacity $animation-speed-quick ease-out, visibility $animation-speed-quick;
+}
+
+:global(.mobile-nav-overlay-active) {
+    visibility: unset;
+    opacity: 1;
+}
+
+.form {
+    z-index: $z-index-header;
+    position: fixed;
+    top: toRem(57px);
+    left: 0;
+    width: 90%;
+    max-width: 30rem;
+    padding-top: $spacing-m;
+    padding-left: $spacing-s;
+    background-color: $color-white;
+}
+
+.form-container {
+    padding-bottom: $spacing-s;
+    border-bottom: toRem(0.5px) solid $color-black-40;
+}
+
+:global(.header) {
+    .search-icon {
+        position: absolute;
+        top: 1.875rem;
+        left: $spacing-s;
+        width: 1.125rem;
+        height: 1.125rem;
+    }
+}
+
+.input-field {
+    @include body-xl;
+
+    appearance: none;
+    width: calc(100% - 1.625rem - #{$spacing-s});
+    color: $color-black-65;
+    outline: none;
+    padding: 0;
+    border-radius: toRem(3px);
+    border: solid toRem(1.5px) transparent;
+    margin-left: 1.625rem;
+    margin-right: $spacing-s;
+
+    &:focus {
+        border-color: $color-dark-purple;
+    }
+
+    @media #{$breakpoint-desktop} {
+        font-size: 1.125rem;
+    }
+}
+
+:global(.mobile-nav-menu) {
+    z-index: $z-index-header-nav;
+    position: fixed;
+    top: toRem(121.5px);
+    left: 0;
+    width: 90%;
+    max-width: 30rem;
+    height: calc((var(--vh, 1vh) * 100) - #{toRem(121.5px)});
+    background-color: $color-white;
+    overflow-y: auto;
+}
+
+:global(.mobile-nav-menu-slide) {
+    left: -30rem;
+    transition: left $animation-speed-quick ease-out, visibility $animation-speed-quick;
+}
+
+:global(.mobile-nav-menu-slide-open) {
+    left: 0;
+}
+
+.top-menu-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    padding: toRem(37px) $spacing-s 0;
+}
+
+.primary-navigation {
+    color: $color-dark-purple;
+    margin-bottom: toRem(50px);
+}
+
+.tertiary-navigation {
+    margin-bottom: toRem(14px);
+
+    &-item {
+        &:not(:last-child) {
+            margin-bottom: toRem(6px);
+        }
+    }
+
+    &-link {
+        @include body;
+
+        display: inline-flex;
+        color: $color-dark-purple;
+        text-decoration: none;
+        border-bottom: toRem(2px) solid transparent;
+        @include link-hover();
+        @include link-focus($pseudo-element: 'before');
+
+        &[target='_blank'] {
+            &:after {
+                @include external-link(1.5rem, 'external-link-dark-purple.svg');
+            }
+        }
+    }
+}
+
+.top-menu-link {
+    @include heading-6;
+
+    display: block;
+    width: calc(100% + 2rem);
+    font-size: 1.5rem;
+    text-decoration: none;
+    padding: $spacing-s;
+    margin-left: -$spacing-s;
+
+    @media #{$breakpoint-desktop} {
+        font-weight: normal;
+    }
+
+    &-container {
+        display: inline-flex;
+    }
+}
+
+.account-link {
+    color: $color-dark-purple;
+    border-top: toRem(0.5px) solid $color-black-40;
+    @include link-hover('.top-menu-link-container');
+    @include link-focus('.top-menu-link-container', 'before');
+
+    .top-menu-link-container:after {
+        @include external-link(2.25rem, 'external-link-dark-purple.svg');
+    }
+}
+
+.cta-link {
+    color: $color-white;
+    background-color: $color-dark-purple;
+    @include link-hover('.top-menu-link-container');
+    @include link-focus('.top-menu-link-container', 'before');
+
+    &[target='_blank'] {
+        .top-menu-link-container:after {
+            @include external-link(2.25rem, 'external-link-white.svg');
+        }
+    }
+}

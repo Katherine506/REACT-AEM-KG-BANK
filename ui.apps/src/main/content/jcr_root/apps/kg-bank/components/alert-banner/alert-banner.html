@@ -1,0 +1,8 @@
+<sly
+        data-sly-use.template="core/wcm/components/commons/v1/templates.html"
+        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser">
+    <sly data-sly-test="${properties.text}">
+        <kg-alert-banner aem-data="${reweb.data}"></kg-alert-banner>
+    </sly>
+    <sly data-sly-call="${template.placeholder @ isEmpty=!properties.text}"></sly>
+</sly>

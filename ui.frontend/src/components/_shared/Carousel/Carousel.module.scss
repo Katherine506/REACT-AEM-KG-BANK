@@ -1,0 +1,199 @@
+@import '../../../styles/constants/colors';
+@import '../../../styles/constants/z-index';
+@import '../../../styles/mixins/container';
+@import '../../../styles/mixins/typography';
+@import '../../../styles/mixins/utils';
+
+.root {
+    width: 100%;
+    padding-bottom: $spacing-xl;
+    margin-bottom: $spacing-xl;
+
+    @media #{$breakpoint-desktop} {
+        padding: 0 6.375rem 3rem;
+    }
+
+    .swiper-wrapper {
+        overflow: visible;
+        position: relative;
+    }
+
+    :global(.swiper-container) {
+        position: unset;
+        padding: $spacing-l $spacing-s;
+        margin: -2rem -1rem;
+
+        @media #{$breakpoint-desktop} {
+            padding: $spacing-l $spacing-s; // Allows the box-shadow of children components (e.g. cards) to be visible
+            margin: -2rem -1rem;
+        }
+
+        &-horizontal {
+            & > :global(.swiper-pagination-bullets) {
+                left: 50%;
+                bottom: -0.6875rem; // 2rem reduction in 'bottom' incorporated because .swiper-container has 'padding-bottom'
+                transform: translateX(-50%);
+                width: unset;
+                display: flex;
+
+                @media #{$breakpoint-desktop} {
+                    bottom: -1rem; // 2rem reduction in 'bottom' incorporated because .swiper-container has 'padding-bottom'
+                }
+
+                :global(.swiper-pagination-bullet) {
+                    margin: 0;
+
+                    &:not(:first-child) {
+                        margin-left: 0.25rem;
+                    }
+
+                    &:not(:last-child) {
+                        margin-right: 0.25rem;
+                    }
+                }
+            }
+        }
+    }
+
+    :global(.swiper-button) {
+        &-disabled {
+            display: none;
+        }
+
+        &-prev,
+        &-next {
+            background-size: contain;
+
+            @media #{$breakpoint-tablet} {
+                top: unset;
+                bottom: -0.875rem; // 2rem reduction in 'bottom' incorporated because .swiper-container has 'padding-bottom'
+                width: 0.875rem;
+                height: 0.875rem;
+                margin: 0;
+            }
+
+            @media #{$breakpoint-desktop} {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            &:after {
+                content: '';
+            }
+        }
+
+        &-prev {
+            @media #{$breakpoint-tablet} {
+                left: 50%;
+            }
+
+            @media #{$breakpoint-desktop} {
+                left: -6.375rem;
+            }
+        }
+
+        &-next {
+            @media #{$breakpoint-tablet} {
+                right: 50%;
+            }
+
+            @media #{$breakpoint-desktop} {
+                right: -6.375rem;
+            }
+        }
+    }
+
+    :global(.swiper-pagination-bullet) {
+        opacity: 1;
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+
+    :global(.swiper-slide) {
+        height: auto; // Makes all children have the same height
+        width: 100%;
+
+        & > div,
+        & > div > :global(.aem-GridColumn),
+        & > div > :global(.responsivegrid) {
+            height: 100%;
+        }
+    }
+
+    :global(.swiper-notification) {
+        opacity: 0;
+        display: block;
+        height: 0;
+    }
+
+    // Component specific styles
+    :global(.swiper-slide) {
+        :global(.testimonial),
+        :global(kg-testimonial) {
+            height: 100%;
+        }
+    }
+}
+
+:global(.dark-theme),
+:global(.light-theme .dark-theme) {
+    :global(.swiper-button) {
+        &-prev {
+            background-image: url($_icon-base-url + 'chevron-left-white.svg');
+        }
+
+        &-next {
+            background-image: url($_icon-base-url + 'chevron-right-white.svg');
+        }
+    }
+
+    :global(.swiper-pagination-bullet) {
+        background-color: $color-dark-purple;
+        border: toRem(1px) solid $color-white;
+
+        &-active {
+            background-color: $color-white;
+        }
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    :global(.swiper-button) {
+        &-prev {
+            background-image: url($_icon-base-url + 'chevron-left.svg');
+        }
+
+        &-next {
+            background-image: url($_icon-base-url + 'chevron-right.svg');
+        }
+    }
+
+    :global(.swiper-pagination-bullet) {
+        background-color: $color-white;
+        border: toRem(1px) solid $color-dark-purple;
+
+        &-active {
+            background-color: $color-dark-purple;
+        }
+    }
+}
+
+// Override global AEM gutters
+:global(.kg-section-container) :global(.aem-Grid) > :global(.responsivegrid):global(.carousel) {
+    padding: 0;
+}
+
+// Author only styles - apply only in the XF Editor
+:global(.aem-AuthorLayer-Edit) {
+    .swiper-wrapper > :global(.swiper-container) > :global(.swiper-wrapper) {
+        transform: none;
+        transition: none;
+        display: block;
+        flex-direction: column;
+
+        & :global(.swiper-slide) {
+            margin: 0 auto !important;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+@import '../../styles/mixins/typography';
+@import '../../styles/constants/animation';
+
+.root {
+    .phone-icon {
+        @include link-focus {
+            left: -0.4rem;
+            right: -0.4rem;
+            @include _icon-link-focus;
+        }
+    }
+    .phone-icon svg {
+        fill: $color-white;
+        transition: fill $animation-speed-quick linear;
+    }
+    &:hover .phone-icon svg {
+        fill: $color-vermilion;
+    }
+
+    @media #{$breakpoint-desktop} {
+        display: flex;
+        color: $color-white;
+        text-decoration: none;
+        @include link-hover();
+        @include link-focus($pseudo-element: 'before') {
+            left: -0.45rem;
+            right: -0.45rem;
+        }
+    }
+}

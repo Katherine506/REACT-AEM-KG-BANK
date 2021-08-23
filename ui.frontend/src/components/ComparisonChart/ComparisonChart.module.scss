@@ -1,0 +1,86 @@
+@import '../../styles/constants/index';
+@import '../../styles/mixins/index';
+
+.root {
+    @include card();
+    padding: $spacing-xl $spacing-xl calc(#{$spacing-xl - $spacing-xs});
+}
+
+.icons {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: stretch;
+}
+
+.header {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: stretch;
+    margin-bottom: $spacing-l;
+}
+
+.column {
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-xs;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &:first-child {
+        align-items: flex-start;
+        padding: 0 $spacing-xs 0 0;
+    }
+
+    &__title b {
+        color: $color-dark-vermilion;
+    }
+
+    &__icon {
+        display: flex;
+        margin-bottom: $spacing-s;
+    }
+}
+
+.columns {
+    &--2 .column {
+        width: 100%;
+        box-sizing: border-box;
+
+        @media #{$breakpoint-desktop} {
+            max-width: 50%;
+        }
+    }
+
+    &--3 .column {
+        width: 100%;
+        box-sizing: border-box;
+
+        @media #{$breakpoint-desktop} {
+            max-width: calc(100% / 3);
+        }
+    }
+
+    &--4 .column {
+        width: 100%;
+        box-sizing: border-box;
+
+        @media #{$breakpoint-desktop} {
+            max-width: 25%;
+        }
+    }
+}
+
+.card {
+    padding-top: $spacing-l;
+    padding-bottom: $spacing-s;
+
+    &__title:global(.kg-comparison-chart__title) {
+        margin-bottom: $spacing-m;
+
+        b {
+            color: $color-dark-vermilion;
+        }
+    }
+}

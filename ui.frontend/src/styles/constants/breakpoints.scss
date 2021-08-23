@@ -1,0 +1,21 @@
+@import './spacing.scss';
+
+$mobile: 540;
+$tablet: 720;
+$desktop: 960;
+$desktop-l: 1280;
+$desktop-xl: 1680;
+$desktop-xxl: 2560;
+
+$container-padding: $spacing-s;
+$container-max-width: 75rem;
+$container-max-width-reduced: 60.375rem;
+$container-max-width-skinny: 49.5rem;
+
+$breakpoint-mobile-s: 'screen and (max-width: #{$mobile - 1}px)';
+$breakpoint-mobile: 'screen and (max-width: #{$tablet - 1}px)';
+$breakpoint-tablet: 'screen and (max-width: #{$desktop - 1}px)';
+$breakpoint-desktop: 'screen and (min-width: #{$desktop}px)';
+$breakpoint-desktop-l: 'screen and (min-width: #{$desktop-l}px)';
+$breakpoint-desktop-xl: 'screen and (min-width: #{$desktop-xl}px)';
+$breakpoint-desktop-xxl: 'screen and (min-width: #{$desktop-xxl}px)';

@@ -1,0 +1,219 @@
+@import '../../styles/mixins/calculator';
+@import '../../styles/mixins/form';
+@import '../../styles/mixins/container';
+@import '../../styles/mixins/typography';
+
+.root {
+    @include calculator-root;
+
+    @media #{$breakpoint-desktop}, print {
+        box-shadow: 0 toRem(2px) toRem(6px) 0 $color-black-transparent-4,
+            0 0.625rem 1.25rem 0 $color-black-transparent-4;
+    }
+}
+
+.form {
+    @include calculator-form;
+
+    padding-bottom: 1.6875rem;
+}
+
+.input-container {
+    &--regular {
+        margin-bottom: 1.1875rem;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+
+        @media #{$breakpoint-desktop}, print {
+            margin-bottom: $spacing-s;
+        }
+    }
+
+    &--borrowing {
+        margin-bottom: $spacing-s;
+    }
+}
+
+.title {
+    @include input-title;
+}
+
+.text-field {
+    color: $color-black-75;
+    padding: toRem(7px) toRem(11px);
+    border: toRem(1px) solid $color-black-75;
+}
+
+.select-field {
+    color: $color-black-75;
+    padding: toRem(7px) toRem(41px) toRem(7px) toRem(11px);
+    border: toRem(1px) solid $color-black-75;
+}
+
+.subtitle {
+    color: $color-black-65;
+}
+
+.radio {
+    &-options-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacing-s;
+
+        @media print {
+            position: relative;
+        }
+    }
+
+    &-option {
+        width: calc((100% - (2 * 0.625rem)) / 3);
+
+        @media #{$breakpoint-desktop}, print {
+            width: calc((100% - (2 * #{$spacing-s})) / 3);
+        }
+    }
+
+    &-button {
+        @include body;
+
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        color: $color-dark-purple;
+        text-align: center;
+        background: $color-white;
+        padding: toRem(7px);
+        border: toRem(1px) solid $color-dark-purple;
+        border-radius: 0.25rem;
+        overflow-wrap: anywhere;
+        cursor: pointer;
+
+        @media print {
+            visibility: hidden;
+            height: unset;
+        }
+    }
+
+    &-input {
+        position: absolute;
+        opacity: 0;
+
+        &:checked + .radio-button {
+            color: $color-white;
+            background: $color-dark-purple;
+        }
+
+        &:focus + .radio-button:after {
+            content: '';
+            position: absolute;
+            top: toRem(-4px);
+            left: toRem(-4px);
+            bottom: toRem(-4px);
+            right: toRem(-4px);
+            border: toRem(2px) solid $color-dark-purple;
+            border-radius: 0.375rem;
+        }
+
+        @media print {
+            &:checked + .radio-button {
+                visibility: unset;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+.description {
+    color: $color-black;
+    background: $color-black-5;
+    padding: $spacing-xs;
+    border-radius: 0.25rem;
+
+    @media #{$breakpoint-desktop}, print {
+        padding: $spacing-s;
+    }
+
+    @media print {
+        color-adjust: exact;
+    }
+}
+
+.results {
+    &-container:global(.dark-theme) {
+        @include calculator-results-container;
+
+        @media print {
+            color-adjust: exact;
+        }
+    }
+
+    &-title {
+        @include body-xl;
+        @include print-white-text;
+
+        margin-bottom: $spacing-l;
+
+        @media #{$breakpoint-desktop}, print {
+            font-size: 1.5rem;
+        }
+    }
+
+    &-payment {
+        @include heading-2;
+        @include print-white-text;
+
+        margin-bottom: $spacing-xxs;
+
+        &-asterisk {
+            @include body-base;
+
+            display: inline-block;
+            font-weight: 300;
+            font-size: 1.5rem;
+            vertical-align: top;
+            transform: translateY(-$spacing-xxs);
+
+            @media #{$breakpoint-desktop}, print {
+                transform: translateY(-$spacing-xs);
+            }
+        }
+    }
+
+    &-subtitle {
+        @include body;
+        @include print-white-text;
+
+        margin-bottom: $spacing-l;
+
+        @media #{$breakpoint-desktop}, print {
+            margin-bottom: $spacing-m;
+        }
+    }
+}
+
+.cta {
+    @include calculator-cta;
+}
+
+.download-cta {
+    @include calculator-download-cta;
+    @include print-white-text;
+
+    @media print {
+        background-color: $color-dark-purple;
+    }
+}
+
+@media print {
+    // Override fonts that don't render when using react-to-print
+    .root,
+    .root * {
+        font-family: sans-serif;
+    }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+    <rtePlugins jcr:primaryType="nt:unstructured">
+        <format
+            jcr:primaryType="nt:unstructured"
+            features="*"/>
+    </rtePlugins>
+    <uiSettings jcr:primaryType="nt:unstructured">
+        <cui jcr:primaryType="nt:unstructured">
+            <inline
+                jcr:primaryType="nt:unstructured"
+                toolbar="[format#bold]"/>
+            <dialogFullScreen
+                jcr:primaryType="nt:unstructured"
+                toolbar="[format#bold]"/>
+        </cui>
+    </uiSettings>
+    <htmlRules jcr:primaryType="nt:unstructured">
+        <blockHandling
+            jcr:primaryType="nt:unstructured"
+            removeSingleParagraphContainer="{Boolean}true"/>
+    </htmlRules>
+</jcr:root>

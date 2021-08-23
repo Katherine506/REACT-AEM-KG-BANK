@@ -1,0 +1,61 @@
+@import '../../styles/constants/index.scss';
+
+$_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/icons/';
+
+@mixin _step-icon-bg-image($i) {
+    &:nth-child(#{$i}) {
+        .step-icon {
+            background-image: url($_icon-base-url + 'steps-#{$i}.svg');
+        }
+    }
+}
+
+:global(.timeline-item) {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-of-type) {
+        margin-bottom: 1.688rem;
+        @media #{$breakpoint-desktop} {
+            margin-bottom: 2.125rem;
+        }
+    }
+    .text-line {
+        padding-left: 3rem;
+        position: relative;
+        width: 100%;
+        &::before {
+            content: ' ';
+            position: absolute;
+            box-shadow: 0 0 0 0.063rem $color-black-15;
+            left: 1rem;
+            top: 0;
+            bottom: -1.188rem;
+            @media #{$breakpoint-desktop} {
+                bottom: -1.625rem;
+            }
+        }
+    }
+    &:last-of-type {
+        .text-line::before {
+            box-shadow: 0 0 0 0.063rem transparent;
+        }
+    }
+
+    @for $i from 1 through 9 {
+        @include _step-icon-bg-image($i);
+    }
+}
+
+.header-container {
+    display: flex;
+    margin-bottom: $spacing-xxs;
+    .step-icon-container {
+        width: 3rem;
+        display: flex;
+        align-items: center;
+        .step-icon {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+}

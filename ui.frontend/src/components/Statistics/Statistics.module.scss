@@ -1,0 +1,46 @@
+@import 'src/styles/constants/colors';
+@import 'src/styles/mixins/typography';
+@import 'src/styles/constants/spacing';
+@import 'src/styles/mixins/container';
+
+.statistic {
+    @include heading-4;
+}
+
+.subtitle {
+    @include body-l;
+}
+
+.wrapper {
+    margin-top: $spacing-s;
+    margin-bottom: 2.25rem;
+    @media #{$breakpoint-desktop} {
+        margin-bottom: $spacing-l;
+    }
+}
+
+.container {
+    @include wrap-container;
+}
+
+.item {
+    @include wrap-item;
+}
+
+:global {
+    .light-theme,
+    .dark-theme .light-theme {
+        :local(.item) {
+            color: $color-black-80;
+        }
+    }
+}
+
+:global {
+    .dark-theme,
+    .light-theme .dark-theme {
+        :local(.item) {
+            color: $color-white;
+        }
+    }
+}

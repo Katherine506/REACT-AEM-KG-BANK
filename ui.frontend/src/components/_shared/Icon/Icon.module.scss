@@ -1,0 +1,40 @@
+@import '../../../styles/constants/spacing';
+
+// Global spacing rules for AEM decorator elements
+:global {
+    .icon {
+        margin-bottom: $spacing-m;
+    }
+}
+
+.wrapper {
+    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--inline {
+        display: inline-block;
+    }
+}
+
+@mixin _icon-size($size, $name) {
+    .size-#{$name} > * {
+        // in case the fetch returns
+        // a non-SVG response
+        display: none;
+    }
+    .size-#{$name},
+    .size-#{$name} svg {
+        display: inline;
+        width: $size;
+        height: $size;
+    }
+}
+
+@include _icon-size(0.875rem, xx-small);
+@include _icon-size(1.25rem, x-small);
+@include _icon-size(1.5rem, small);
+@include _icon-size(2.5rem, medium);
+@include _icon-size(3rem, large);
+@include _icon-size(3.5rem, x-large);

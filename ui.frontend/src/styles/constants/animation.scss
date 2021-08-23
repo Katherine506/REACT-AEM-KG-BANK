@@ -1,0 +1,37 @@
+$animation-speed-very-quick: 0.1s;
+$animation-speed-quick: 0.3s;
+$animation-speed-normal: 0.4s;
+$animation-speed-medium: 0.5s;
+$animation-speed-long: 0.7s;
+$animation-speed-hero-banner: 3s;
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in-slide {
+    0% {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+
+    10% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    90% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}

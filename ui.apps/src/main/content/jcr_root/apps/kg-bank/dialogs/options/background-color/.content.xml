@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0"
+          xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured">
+    <white
+        jcr:primaryType="nt:unstructured"
+        text="White"
+        value="white"/>
+    <purple
+        jcr:primaryType="nt:unstructured"
+        text="Purple"
+        value="darkPurple"/>
+    <purpleGray
+        jcr:primaryType="nt:unstructured"
+        text="Purple-Gray"
+        value="purpleGray"/>
+</jcr:root>

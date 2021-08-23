@@ -1,0 +1,14 @@
+$z-index-modal-overlay: 300;
+$z-index-modal-elements: 325;
+$z-index-header: 200;
+$z-index-header-nav: 199;
+$z-index-secondary-nav-container: 1;
+$z-index-video-testimonial-card: 1;
+
+:export {
+    z-index-modal-overlay: $z-index-modal-overlay;
+    z-index-modal-elements: $z-index-modal-elements;
+    z-index-header: $z-index-header;
+    z-index-secondary-nav-container: $z-index-secondary-nav-container;
+    z-index-video-testimonial-card: $z-index-video-testimonial-card;
+}

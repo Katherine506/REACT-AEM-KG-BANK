@@ -1,0 +1,88 @@
+@import '../../../styles/mixins/typography';
+
+.root {
+    width: 100%;
+    padding-top: $spacing-m;
+    padding-bottom: $spacing-m;
+
+    @media #{$breakpoint-desktop} {
+        width: calc((100% - (2 * #{$spacing-m})) / 3);
+        padding-top: $spacing-xl;
+        padding-bottom: $spacing-xl;
+    }
+}
+
+.container {
+    cursor: pointer;
+}
+
+.image {
+    width: 100%;
+    height: 0;
+    padding-top: 56.25%; // 16:9 Aspect Ratio
+    background-position: center;
+    background-size: cover;
+}
+
+.category {
+    @include bold;
+
+    margin: $spacing-s 0 $spacing-xxs;
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .category {
+        color: $color-dark-purple;
+    }
+}
+
+.title-link {
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: $spacing-xxs;
+
+    &:not([target='_blank']) {
+        @include link-focus;
+    }
+
+    &[target='_blank'] {
+        @include link-focus($pseudo-element: 'before');
+    }
+
+    &[target='_blank']:after {
+        content: ' ';
+        position: relative;
+        top: 3px;
+        width: 1.5rem;
+        height: 1.3rem;
+        background-size: cover;
+        display: inline-block;
+    }
+}
+
+.title a {
+    @include bold;
+
+    @media #{$breakpoint-desktop} {
+        @include body-l-semi-bold;
+    }
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .title a {
+        color: $color-dark-purple;
+    }
+}
+
+.description {
+    margin-bottom: $spacing-xxs;
+}
+
+:global(.light-theme),
+:global(.dark-theme .light-theme) {
+    .details span {
+        color: $color-black-65;
+    }
+}
