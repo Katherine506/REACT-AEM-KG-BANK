@@ -4,3 +4,42 @@
 @import '../../../styles/mixins/container';
 @import '../../../styles/mixins/typography';
 @import '../../../styles/mixins/utils';
+
+.btn {
+  background: white;
+  height: 760px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  &__container{
+    width: 400px;
+    border-radius: 5px;
+    background-color: #BFA2DB;
+  }
+
+  &__container-ref {
+    width: 150px;
+    height: 30px;
+    margin-left: 139px;
+    &:hover {
+      margin-left: 125px;
+    }
+  }
+
+  &__container-btn {
+    border-radius: 8px;
+    color: white;
+    background-color: #7FC8A9;
+    font-size: 16px;
+    font-weight: 500;
+
+    &:focus,
+    &:hover {
+      background-color: #F6A9A9;
+      color: white;
+      width: 150px;
+      height: 30px;
+    }
+  }
+}
