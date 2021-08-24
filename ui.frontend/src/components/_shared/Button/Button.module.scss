@@ -5,41 +5,35 @@
 @import '../../../styles/mixins/typography';
 @import '../../../styles/mixins/utils';
 
-.btn {
-  background: white;
-  height: 760px;
-  display: flex;
-  align-content: center;
-  justify-content: center;
+.button{
+  padding: toRem(16px);
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  outline: 0;
+  text-align: center;
+  font-family: $font-family-secondary;
 
-  &__container{
-    width: 400px;
-    border-radius: 5px;
-    background-color: #BFA2DB;
+  @media #{$breakpoint-mobile}{
+    width: 100%;
   }
 
-  &__container-ref {
-    width: 150px;
-    height: 30px;
-    margin-left: 139px;
-    &:hover {
-      margin-left: 125px;
+  &--general-dark{
+    color: #fff;
+    background-color: $color-dark-purple;
+
+    &:hover{
+      background-color: $color-purple;
+      text-decoration: underline;
     }
-  }
 
-  &__container-btn {
-    border-radius: 8px;
-    color: white;
-    background-color: #7FC8A9;
-    font-size: 16px;
-    font-weight: 500;
+    &:active{
+    }
 
-    &:focus,
-    &:hover {
-      background-color: #F6A9A9;
-      color: white;
-      width: 150px;
-      height: 30px;
+    &:focus{
+      box-shadow: inset 0px 0px 0px 2 px $color-dark-purple;
     }
   }
 }
