@@ -7,16 +7,16 @@ import { linkService } from '@konrad/reweb-aem';
 import { BUTTON_STYLES, LINK_TYPES, ICONS_PATH } from '../../../lib/constants';
 
 const Button = (props) => {
-    const {linkText, linkUrl, altText, linkType, buttonStyle, className} = props;
+    const {buttonStyle, linkText, linkUrl, linkType, altText, className} = props;
     const [isBackgroundPurple, setIsBackgroundPurple] = useState(false);
     const [buttonClass, setButtonClass] = useState('');
-    const buttomElement = useRef(null);
-    const BASE_CLASS = 'buttom';
+    const buttonElement = useRef(null);
+    const BASE_CLASS = 'button';
     const PURPLE_DARK = 'rgb(63, 42, 86)';
 
     useEffect(()=> {
-        if (buttomElement.current !== null) {
-            let item = buttomElement.current.parentElement.parentElement;
+        if (buttonElement.current !== null) {
+            let item = buttonElement.current.parentElement.parentElement;
             let heroSectionBackgroundColor = window.getComputedStyle(item).backgroundColor;
 
             if (heroSectionBackgroundColor === PURPLE_DARK) {
@@ -26,7 +26,7 @@ const Button = (props) => {
 
         let finalClass = '';
         if (buttonStyle === 'general') {
-            finalClass = -isBackgroundPurple ? `${BASE_CLASS}--genral-light` : `${BASE_CLASS}--genral-dark`;
+            finalClass = -isBackgroundPurple ? `${BASE_CLASS}--general-light` : `${BASE_CLASS}--general-dark`;
         } else if (buttonStyle === 'heroPrimary') {
             finalClass = `${BASE_CLASS}--hero-primary`;
         } else if (buttonStyle === 'heroSecondary') {
@@ -35,6 +35,7 @@ const Button = (props) => {
             finalClass = `${BASE_CLASS}--link-text`;
         }
 
+        console.log(finalClass);
         setButtonClass(finalClass);
     }, [isBackgroundPurple, buttonClass]);
 
@@ -46,11 +47,11 @@ const Button = (props) => {
                 `${parentComponent === 'HeroBanner' && styles [`${BASE_CLASS}--hero`]}`,
                 styles[buttonClass]
                 )}
-                aria-label={altText}
-               role= "buttom"
+               aria-label={altText}
+               role= "button"
                href={`${linkUrl}.html`}
                target={`${linkType === 'internal' ? '_self' : '_blank'}`}
-               ref={buttomElement}
+               ref={buttonElement}
             >
                 {linkText}
             </a>
@@ -59,7 +60,10 @@ const Button = (props) => {
 
 Button.displayName = 'Button';
 
-Button.propTypes = {};
+Button.propTypes = {
+    linkText: PropTypes.string,
+
+};
 
 Button.defaultProps = {};
 

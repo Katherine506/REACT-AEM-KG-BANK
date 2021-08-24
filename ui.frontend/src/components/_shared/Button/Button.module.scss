@@ -21,19 +21,119 @@
   }
 
   &--general-dark{
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: toRem(50px);
+    width: toRem(150px) ;
+    color:  $color-white;
     background-color: $color-dark-purple;
 
     &:hover{
       background-color: $color-purple;
       text-decoration: underline;
+      box-shadow: inset 0px 0px 0px 3px $color-purple;
     }
 
     &:active{
+      background-color: $color-purple;
+      text-decoration: underline;
+      box-shadow: inset 0px 0px 0px 3px $color-purple;
     }
 
     &:focus{
-      box-shadow: inset 0px 0px 0px 2 px $color-dark-purple;
+      outline: 2px solid $color-white;
+      outline-offset: -5px;
+      box-shadow: inset 0px 0px 0px 3px $color-purple;
+    }
+  }
+
+  &--general-light{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: toRem(50px);
+    width: toRem(150px) ;
+    color:$color-dark-purple;
+    background-color: $color-white;
+
+    &:hover{
+      color: $color-white;
+      background-color: $color-dark-purple;
+      text-decoration: underline;
+      border: 3px solid $color-white;
+    }
+
+    &:active{
+      color: $color-white;
+      background-color: $color-dark-purple;
+      text-decoration: underline;
+      border: 4px solid $color-white;
+      box-shadow: inset 2px 2px 2px 2px $color-white;
+    }
+
+    &:focus{
+      color:$color-dark-purple;
+      background-color: $color-white;
+      outline: 2px solid $color-dark-purple;
+      outline-offset: -5px;
+    }
+  }
+  
+  &--hero-primary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: toRem(55px);
+    width: toRem(150px) ;
+    color:$color-white;
+    background-color: $color-vermilion;
+
+    &:hover{
+      background-color: $color-dark-vermilion;
+      text-decoration: underline;
+    }
+
+    &:active{
+      background-color: $color-dark-vermilion;
+      text-decoration: underline;
+      border: 2px solid $color-dark-purple-transparent-5;
+    }
+
+    &:focus{
+      background-color: $color-vermilion;
+      outline: 2px solid $color-dark-cyan;
+      outline-offset: 1px;
+    }
+  }
+
+  &--hero-secondary{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: toRem(50px);
+    width: toRem(160px) ;
+    color:$color-white;
+    background-color: $color-dark-purple;
+    border: 2px solid $color-white;
+
+    &:hover{
+      background-color: $color-vermilion;
+      text-decoration: underline;
+      border: 2px solid $color-white;
+    }
+
+    &:active{
+      background-color: $color-dark-vermilion;
+      text-decoration: underline;
+      border: 2px solid $color-white;
+    }
+
+    &:focus{
+      border: 2px solid $color-white;
+      background-color: $color-dark-purple;
+      outline: 2px solid $color-dark-cyan;
+      outline-offset: 1px;
     }
   }
 }
