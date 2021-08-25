@@ -30,8 +30,6 @@ const Button = (props) => {
             finalClass = isBackgroundDark
                 ? `${BASE_CLASS}--general-light`
                 : `${BASE_CLASS}--general-dark`;
-        } else if (buttonStyle === 'generalLight') {
-            finalClass = `${BASE_CLASS}--general-light`;
         } else if (buttonStyle === 'heroPrimary') {
             finalClass = `${BASE_CLASS}--hero-primary`;
         } else if (buttonStyle === 'heroSecondary') {

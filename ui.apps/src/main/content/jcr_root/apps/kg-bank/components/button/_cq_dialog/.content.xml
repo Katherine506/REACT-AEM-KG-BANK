@@ -30,11 +30,18 @@
                                             jcr:primaryType="nt:unstructured"
                                             sling:resourceType="granite/ui/components/coral/foundation/container">
                                         <items jcr:primaryType="nt:unstructured">
-                                            <name
+                                            <text
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldLabel="Text"
+                                                    maxlenght="25"
+                                                    maxLength="25"
                                                     name="./linkText"/>
+                                            <altText
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="alt text"
+                                                    name="./altText"/>
                                             <url
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
@@ -47,14 +54,10 @@
                                                     name="./buttonStyle"
                                                     required="{Boolean}true">
                                                 <items jcr:primaryType="nt:unstructured">
-                                                    <generalDark
-                                                            jcr:primaryType="nt:unstructured"
-                                                            text="General Dark"
-                                                            value="--general-dark"/>
-                                                    <generalLight
+                                                    <general
                                                             jcr:primaryType="nt:unstructured"
                                                             text="General Light"
-                                                            value="--general-light"/>
+                                                            value="general"/>
                                                     <heroPrimary
                                                             jcr:primaryType="nt:unstructured"
                                                             text="Hero Primary"
