@@ -1,5 +1,14 @@
 <sly
         data-sly-use.template="core/wcm/components/commons/v1/templates.html"
-        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser">
-        <kg-button class="kg-button" aem-data="${reweb.data}"></kg-button>
+        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser"
+        >
+        <sly data-sly-test="${properties.text}">
+        <kg-button class="kg-button" aem-data="${reweb.data}"
+
+        ></kg-button>
+
+        </sly>
+        <sly data-sly-call="${template.placeholder @ isEmpty=(!properties.text)}"></sly>
 </sly>
+
+

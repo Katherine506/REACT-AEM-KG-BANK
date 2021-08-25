@@ -81,6 +81,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
   }
 
   &--hero-primary {
+    padding: toRem(24px);
     display: flex;
     //align-items: center;
     justify-content: center;
@@ -106,6 +107,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
   }
 
   &--hero-secondary {
+    padding: toRem(24px);
     display: flex;
     //align-items: center;
     justify-content: center;
