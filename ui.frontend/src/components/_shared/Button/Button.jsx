@@ -1,60 +1,60 @@
 import React, {useEffect, useRef, useState} from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '../../index';
+import {Icon} from '../../index';
 import styles from './Button.module.scss';
 import cx from 'classnames';
-import { linkService } from '@konrad/reweb-aem';
-import { BUTTON_STYLES, LINK_TYPES, ICONS_PATH } from '../../../lib/constants';
+import {linkService} from '@konrad/reweb-aem';
+import {BUTTON_STYLES, LINK_TYPES, ICONS_PATH} from '../../../lib/constants';
 
 const Button = (props) => {
     const {buttonStyle, linkText, linkUrl, linkType, altText, className} = props;
-    const [isBackgroundPurple, setIsBackgroundPurple] = useState(false);
+    const [isBackgroundDark, setIsBackgroundDark] = useState(false);
     const [buttonClass, setButtonClass] = useState('');
+    const [external, setExternal] = useState(false);
     const buttonElement = useRef(null);
     const BASE_CLASS = 'button';
     const PURPLE_DARK = 'rgb(63, 42, 86)';
 
-    useEffect(()=> {
+    useEffect(() => {
         if (buttonElement.current !== null) {
             let item = buttonElement.current.parentElement.parentElement;
             let heroSectionBackgroundColor = window.getComputedStyle(item).backgroundColor;
 
             if (heroSectionBackgroundColor === PURPLE_DARK) {
-                setIsBackgroundPurple(true);
+                setIsBackgroundDark(true);
             }
         }
 
         let finalClass = '';
+        console.log("external", linkType);
         if (buttonStyle === 'general') {
-            finalClass = -isBackgroundPurple ? `${BASE_CLASS}--general-light` : `${BASE_CLASS}--general-dark`;
+            finalClass = isBackgroundDark
+                ? `${BASE_CLASS}--general-light`
+                : `${BASE_CLASS}--general-dark`;
+        } else if (buttonStyle === 'generalLight') {
+            finalClass = `${BASE_CLASS}--general-light`;
         } else if (buttonStyle === 'heroPrimary') {
             finalClass = `${BASE_CLASS}--hero-primary`;
         } else if (buttonStyle === 'heroSecondary') {
             finalClass = `${BASE_CLASS}--hero-secondary`;
-        } else if (buttonStyle === 'linkText') {
-            finalClass = `${BASE_CLASS}--link-text`;
         }
 
-        console.log(finalClass);
         setButtonClass(finalClass);
-    }, [isBackgroundPurple, buttonClass]);
+    }, [isBackgroundDark, buttonClass]);
 
-        const  parentComponent = className && className.split('_')[0];
+    const parentComponent = className && className.split('_')[0];
 
-        return(
-            <a className={cx(
-                styles[BASE_CLASS],
-                `${parentComponent === 'HeroBanner' && styles [`${BASE_CLASS}--hero`]}`,
-                styles[buttonClass]
-                )}
-               aria-label={altText}
-               role= "button"
-               href={`${linkUrl}.html`}
-               target={`${linkType === 'internal' ? '_self' : '_blank'}`}
-               ref={buttonElement}
-            >
-                {linkText}
-            </a>
+    return (
+        <a className={cx(styles[BASE_CLASS], `${parentComponent === 'HeroBanner' ? styles [`${BASE_CLASS}--hero`] : ''}`,
+            styles[buttonClass], `${linkType === '_blank' ? styles[`${BASE_CLASS}__external`] : ''}`)}
+           aria-label={altText}
+           role="button"
+           href={`${linkUrl}.html`}
+           target={`${linkType === 'internal' ? '_self' : '_blank'}`}
+           ref={buttonElement}
+        >
+            <span className={styles [`${BASE_CLASS}__text`]}> {linkText}  </span>
+        </a>
     );
 };
 

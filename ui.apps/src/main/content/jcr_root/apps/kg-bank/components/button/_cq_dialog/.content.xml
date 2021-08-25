@@ -35,11 +35,15 @@
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
                                                     fieldLabel="Text"
                                                     name="./linkText"/>
+                                            <url
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldLabel="link Url"
+                                                    name="./linkUrl"/>
                                             <buttonStyle
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/coral/foundation/form/select"
-                                                    fieldLabel="Flush"
-                                                    fieldDescription="Determine which side of this container will be flush with other containers."
+                                                    fieldLabel="Button Style"
                                                     name="./buttonStyle"
                                                     required="{Boolean}true">
                                                 <items jcr:primaryType="nt:unstructured">
@@ -51,9 +55,38 @@
                                                             jcr:primaryType="nt:unstructured"
                                                             text="General Light"
                                                             value="--general-light"/>
+                                                    <heroPrimary
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Hero Primary"
+                                                            value="heroPrimary"/>
+                                                    <heroSecondary
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Hero Secondary"
+                                                            value="heroSecondary"/>
                                                 </items>
                                             </buttonStyle>
 
+                                            <linkType
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/select"
+                                                    fieldLabel="link Type"
+                                                    name="./linkType"
+                                                    required="{Boolean}true">
+                                                <items jcr:primaryType="nt:unstructured">
+                                                    <internal
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="Same Tab"
+                                                            value="internal"/>
+                                                    <_self
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="New Tab"
+                                                            value="_self"/>
+                                                    <_blank
+                                                            jcr:primaryType="nt:unstructured"
+                                                            text="External"
+                                                            value="_blank"/>
+                                                </items>
+                                            </linkType>
                                         </items>
                                     </column>
                                 </items>
