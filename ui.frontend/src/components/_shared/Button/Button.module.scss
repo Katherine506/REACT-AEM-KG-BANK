@@ -22,8 +22,8 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
     display: flex;
     //align-items: center;
     justify-content: center;
-    height: toRem(50px);
-    width: toRem(150px);
+   /* height: toRem(50px);
+    width: toRem(150px);*/
     color: $color-white;
     background-color: $color-dark-purple;
 
@@ -54,8 +54,6 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
     display: flex;
     //align-items: center;
     justify-content: center;
-    height: toRem(50px);
-    width: toRem(150px);
     color: $color-dark-purple;
     background-color: $color-white;
 
@@ -86,8 +84,6 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
     display: flex;
     //align-items: center;
     justify-content: center;
-    height: toRem(55px);
-    width: toRem(150px);
     color: $color-white;
     background-color: $color-vermilion;
 
@@ -113,8 +109,6 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
     display: flex;
     //align-items: center;
     justify-content: center;
-    height: toRem(50px);
-    width: toRem(160px);
     color: $color-white;
     background-color: $color-dark-purple;
     border: 2px solid $color-white;

@@ -26,7 +26,6 @@ const Button = (props) => {
         }
 
         let finalClass = '';
-        console.log("external", linkType);
         if (buttonStyle === 'general') {
             finalClass = isBackgroundDark
                 ? `${BASE_CLASS}--general-light`
