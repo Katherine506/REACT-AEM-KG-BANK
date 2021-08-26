@@ -47,14 +47,14 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
           flex-direction: row-reverse;
           &.content-media{
             &__info{
-              padding-left: 3rem;
+              padding-right: 3rem;
             }
           }
         }
         @media #{$breakpoint-desktop-l}{
           &.content-media{
             &__info{
-              padding-left: 5rem;
+              padding-right: 5rem;
             }
           }
         }
@@ -137,10 +137,10 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
         top: toRem(-17px);
         left: toRem(-17px);
         z-index: 1;
-        background-image: url($_icon-base-url + 'get-top-left-corner.svg');
+        background-image: url($_icon-base-url + 'ge-top-left-corner.svg');
       }
 
-      &::before{
+      &::after{
         content: "";
         position: absolute;
         width: toRem(67px);
@@ -148,7 +148,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
         top: toRem(-17px);
         left: toRem(-17px);
         z-index: 1;
-        background-image: url($_icon-base-url + 'get-top-left-corner.svg');
+        background-image: url($_icon-base-url + 'ge-bottom-right-corner.svg');
       }
 
       &img{
@@ -159,14 +159,14 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
         border-radius: toRem(3px);
       }
     }
-
+    //@media #{$breakpoint-mobile-s-min}{
     @media #{$breakpoint-mobile-s}{
       height: 22rem;
     }
-
+    //@media #{$breakpoint-mobile-min}{
     @media #{$breakpoint-mobile}{
       max-width: 30rem;
-      height: 30rem;
+      height: 25rem;
     }
 
     &img{
@@ -194,13 +194,13 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
   }
 
   &__info{
-    &__row-cnt{
+    &__rwc-cnt{
       display: flex;
       justify-content: center;
       flex-direction: column;
 
       &.button{
-        margin-top: 1.5rem;
+        margin-top: 2rem;
       }
 
       @media #{$breakpoint-desktop}{
@@ -213,7 +213,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
 
     @media #{$breakpoint-desktop}{
       margin-top: -2rem;
-      width: 50%;
+      width: 58%;
     }
   }
 }
