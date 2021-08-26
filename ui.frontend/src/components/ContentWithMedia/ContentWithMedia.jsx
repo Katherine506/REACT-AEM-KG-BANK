@@ -6,13 +6,13 @@ import { Media } from '../index';
 import useBreakpoint from '../../lib/helpers/useBreakpoint';
 
 const ContentWithMedia = (props) => {
-    const {fileReference, youtubeVideo, desktopPosition, mobilePosition, graphicElement, altText,children, wcChildren} =props;
+    const {fileReference, youtubeVideo, desktopPosition, mobilePosition, graphicalElement, altText,children, wcChildren} =props;
     return (
         <section className={`content-media`}>
             <div className={`content-media__wrapper ${desktopPosition} ${mobilePosition}`}>
-                <div className={`content-media__media ${graphicElement}`}>
+                <div className={`content-media__media ${graphicalElement}`}>
                     <Media altText={altText} videoLink={youtubeVideo} fileReference={fileReference}
-                           horizontalAlignment={desktopPosition} graphicalElement={graphicElement}
+                           horizontalAlignment={desktopPosition} graphicalElement={graphicalElement}
                            className={`media`}/>
                 </div>
                 <div className={`content-media__info`}>

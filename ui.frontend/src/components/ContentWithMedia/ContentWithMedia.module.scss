@@ -13,6 +13,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
       &.mediaLeft{
         & .content-media{
           &__info{
@@ -28,7 +29,6 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
           }
         }
         @media #{$breakpoint-desktop-l}{
-          flex-direction: row;
           &.content-media{
             &__info{
               padding-left: 5rem;
@@ -36,6 +36,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
           }
         }
       }
+
       &.mediaRight{
         & .content-media{
           &__info{
@@ -60,5 +61,159 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
       }
     }
 
+    &.mediaBelow{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column-reverse;
+
+      &.content-media__media{
+        margin-top: 3rem;
+      }
+
+      &.mediaLeft{
+        &.content-media{
+          &__info{
+            padding: 0;
+          }
+        }
+        @media #{$breakpoint-desktop}{
+          flex-direction: row;
+          &.content-media{
+            &__info{
+              padding-left: 3rem;
+            }
+          }
+        }
+        @media #{$breakpoint-desktop-l}{
+          &.content-media{
+            &__info{
+              padding-left: 5rem;
+            }
+          }
+        }
+      }
+
+      &.mediaRight{
+        &.content-media{
+          &__info{
+            padding: 0;
+          }
+        }
+        @media #{$breakpoint-desktop}{
+          flex-direction: row-reverse;
+          &.content-media{
+            &__info{
+              padding-right: 3rem;
+            }
+          }
+        }
+        @media #{$breakpoint-desktop-l}{
+          &.content-media{
+            &__info{
+              padding-right: 5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__media{
+    width: 100%;
+    height: 18rem;
+    z-index: 1;
+    border-radius: toRem(3px);
+    margin-bottom: 2rem;
+
+    &.purpleCorners{
+      position: relative;
+
+      &::before{
+        content: "";
+        position: absolute;
+        width: toRem(67px);
+        height: toRem(67px);
+        top: toRem(-17px);
+        left: toRem(-17px);
+        z-index: 1;
+        background-image: url($_icon-base-url + 'get-top-left-corner.svg');
+      }
+
+      &::before{
+        content: "";
+        position: absolute;
+        width: toRem(67px);
+        height: toRem(67px);
+        top: toRem(-17px);
+        left: toRem(-17px);
+        z-index: 1;
+        background-image: url($_icon-base-url + 'get-top-left-corner.svg');
+      }
+
+      &img{
+        border-radius: toRem(3px);
+      }
+
+      &div{
+        border-radius: toRem(3px);
+      }
+    }
+
+    @media #{$breakpoint-mobile-s}{
+      height: 22rem;
+    }
+
+    @media #{$breakpoint-mobile}{
+      max-width: 30rem;
+      height: 30rem;
+    }
+
+    &img{
+      border-radius: toRem(20px);
+    }
+
+    &div{
+      border-radius: toRem(20px);
+    }
+
+    @media (min-width: 400px){
+      height: 20rem;
+    }
+
+    @media #{$breakpoint-desktop}{
+      width: 52%;
+      height: 22rem;
+    }
+
+    @media #{$breakpoint-desktop-l}{
+      max-width: none;
+      width: 51%;
+      height: 25rem;
+    }
+  }
+
+  &__info{
+    &__row-cnt{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      &.button{
+        margin-top: 1.5rem;
+      }
+
+      @media #{$breakpoint-desktop}{
+        align-items: flex-start;
+        &.text{
+          padding: 0;
+        }
+      }
+    }
+
+    @media #{$breakpoint-desktop}{
+      margin-top: -2rem;
+      width: 50%;
+    }
   }
 }

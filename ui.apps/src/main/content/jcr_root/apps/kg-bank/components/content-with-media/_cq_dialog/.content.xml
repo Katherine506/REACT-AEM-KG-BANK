@@ -111,7 +111,7 @@
                                                     <purple-corners
                                                             jcr:primaryType="nt:unstructured"
                                                             text="Purple Corners"
-                                                            value="purple-corners"/>
+                                                            value="purpleCorners"/>
                                                 </items>
                                             </graphical-element>
 
