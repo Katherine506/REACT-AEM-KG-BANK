@@ -136,8 +136,11 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
         height: toRem(67px);
         top: toRem(-17px);
         left: toRem(-17px);
-        z-index: 1;
+        z-index: -1;
         background-image: url($_icon-base-url + 'ge-top-left-corner.svg');
+        @media #{$breakpoint-desktop}{
+          left: toRem(50px);
+        }
       }
 
       &::after{
@@ -147,8 +150,11 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
         height: toRem(67px);
         top: toRem(-17px);
         left: toRem(-17px);
-        z-index: 1;
+        z-index: -1;
         background-image: url($_icon-base-url + 'ge-bottom-right-corner.svg');
+        @media #{$breakpoint-desktop}{
+          left: toRem(50px);
+        }
       }
 
       &img{
@@ -169,10 +175,10 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
       height: 25rem;
     }
 
-    &img{
+   /* &img{
       border-radius: toRem(20px);
     }
-
+*/
     &div{
       border-radius: toRem(20px);
     }
@@ -216,4 +222,13 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
       width: 58%;
     }
   }
+
+.Media_img__2Xmkj {
+  max-width: toRem(410px);
+  max-height: 98%;
+  width: 100%;
+  height: auto;
+  border-radius: toRem(5px);
+
+}
 }
