@@ -1,2 +1,64 @@
 @import '../../styles/constants/index';
 @import '../../styles/mixins/index';
+
+$_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/icons/';
+
+.content-media{
+
+  &__wrapper{
+    width: 100%;
+
+    &.mediaAbove{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      &.mediaLeft{
+        & .content-media{
+          &__info{
+            padding: 0;
+          }
+        }
+        @media #{$breakpoint-desktop}{
+          flex-direction: row;
+          &.content-media{
+            &__info{
+              padding-left: 3rem;
+            }
+          }
+        }
+        @media #{$breakpoint-desktop-l}{
+          flex-direction: row;
+          &.content-media{
+            &__info{
+              padding-left: 5rem;
+            }
+          }
+        }
+      }
+      &.mediaRight{
+        & .content-media{
+          &__info{
+            padding: 0;
+          }
+        }
+        @media #{$breakpoint-desktop}{
+          flex-direction: row-reverse;
+          &.content-media{
+            &__info{
+              padding-left: 3rem;
+            }
+          }
+        }
+        @media #{$breakpoint-desktop-l}{
+          &.content-media{
+            &__info{
+              padding-left: 5rem;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}

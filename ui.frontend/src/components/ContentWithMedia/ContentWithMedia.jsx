@@ -6,11 +6,34 @@ import { Media } from '../index';
 import useBreakpoint from '../../lib/helpers/useBreakpoint';
 
 const ContentWithMedia = (props) => {
-    return <div>Content with media placeholder</div>;
+    const {fileReference, youtubeVideo, desktopPosition, mobilePosition, graphicElement, altText,children, wcChildren} =props;
+    return (
+        <section className={`content-media`}>
+            <div className={`content-media__wrapper ${desktopPosition} ${mobilePosition}`}>
+                <div className={`content-media__media ${graphicElement}`}>
+                    <Media altText={altText} videoLink={youtubeVideo} fileReference={fileReference}
+                           horizontalAlignment={desktopPosition} graphicalElement={graphicElement}
+                           className={`media`}/>
+                </div>
+                <div className={`content-media__info`}>
+                    {children}
+                </div>
+            </div>
+        </section>
+    );
 };
 
 ContentWithMedia.displayName = 'ContentWithMedia';
 
-ContentWithMedia.propTypes = {};
+ContentWithMedia.propTypes = {
+
+    fileReference: PropTypes.string.isRequired,
+    youtubeVideo: PropTypes.string,
+    desktopPosition: PropTypes.string.isRequired,
+    mobilePosition: PropTypes.string.isRequired,
+    graphicalElement: PropTypes.string.isRequired,
+    altText: PropTypes.string
+
+};
 
 export default ContentWithMedia;
