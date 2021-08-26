@@ -1,3 +1,42 @@
 @import '../../../styles/constants/colors';
 @import '../../../styles/mixins/typography';
 @import '../../../styles/mixins/utils';
+
+.tab-title{
+  display: flex;
+  justify-content: flex-start;
+    &__title{
+    color: $color-purple;
+    font-size: 2rem;
+      @media #{$breakpoint-desktop}{
+        font-size: 3rem;
+      }
+    }
+}
+
+.content-media__info{
+  display: inline-block;
+
+  @media #{$breakpoint-desktop}{
+    display: flex;
+    flex-direction: row;
+  }
+
+}
+div{
+  margin-top: toRem(10px);
+}
+
+p{
+  text-align: justify;
+}
+
+li{
+  display: flex;
+  align-content: flex-start;
+}
+
+.Media_img__2Xmkj{
+  float: right;
+}
+

@@ -2,5 +2,4 @@
           cq:icon="compass"
           jcr:primaryType="cq:Component"
           jcr:title="Tab Content"
-          sling:resourceSuperType="core/wcm/components/container/v1/container"
-          componentGroup=".hidden"/>
+          componentGroup="KG Bank - Content"/>

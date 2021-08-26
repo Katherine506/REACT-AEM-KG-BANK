@@ -17,6 +17,7 @@ $_icon-base-url: '/etc.clientlibs/kg-bank/clientlibs/clientlib-base/resources/ic
   outline: 0;
   text-align: center;
   font-family: $font-family-secondary;
+  width: fit-content;
 
   &--general-dark {
     display: flex;

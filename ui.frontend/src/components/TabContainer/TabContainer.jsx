@@ -5,7 +5,12 @@ import styles from './TabContainer.module.scss';
 import cx from 'classnames';
 
 const TabContainer = (props) => {
-    return <div>Tab Container Placeholder</div>;
+    const {children} = props;
+    return(
+        <div className={`content-media__info`}>
+            {children}
+        </div>
+    );
 };
 
 TabContainer.displayName = 'TabContainer';

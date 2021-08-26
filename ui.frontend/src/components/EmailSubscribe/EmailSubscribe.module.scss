@@ -1,6 +1,7 @@
 @import '../../styles/mixins/form';
 
 .root {
+
     width: 100%;
     text-align: left;
 
@@ -19,6 +20,7 @@
 }
 
 .container {
+
     @media #{$breakpoint-desktop} {
         flex: 1 0;
         margin-right: $spacing-s;
