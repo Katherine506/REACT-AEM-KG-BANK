@@ -9,17 +9,11 @@ import {Media} from "../../index";
 import Heading from "../Heading";
 
 const TabContent = (props) => {
-    const {title, id, altText,children} =props;
+    const {children} =props;
     return (
         <section className={`tab-content`}>
             <div className={`tab-content__wrapper`}>
-                <div className={`tab-title`}>
-                    <h2 className={`tab-title__title`}>{title}</h2>
-                </div>
-                <div className={`content-media__info`}>
-                    {children}
-                </div>
-
+                {children}
             </div>
         </section>
     );
@@ -27,11 +21,6 @@ const TabContent = (props) => {
 
 TabContent.displayName = 'TabContent';
 
-TabContent.propTypes = {
-
-    title: PropTypes.string.isRequired,
-    id: PropTypes.number
-
-};
+TabContent.propTypes = {};
 
 export default TabContent;

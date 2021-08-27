@@ -1,7 +1,11 @@
 <sly
         data-sly-use.template="core/wcm/components/commons/v1/templates.html"
-        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser">
-        <kg-tab-content aem-data="${reweb.data}">
-                <sly data-sly-resource="${'responsive' @resourceType = 'wcm/foundation/components/responsivegrid'}"></sly>
+        data-sly-use.reweb="com.konrad.core.reweb.DialogDataParser"
+        data-sly-use.component="main.js">
+        <kg-tab-content id="${properties.contentId}" data-title="${properties.title}" aem-data="${reweb.data}">
+                <div class="cols" data-sly-repeat="${component.colNum}">
+                        <sly data-sly-resource="${item.parsys @ resourceType='wcm/foundation/components/parsys'}"></sly>
+                </div>
         </kg-tab-content>
+        <sly data-sly-call="${template.placeholder @ isEmpty=(!properties.title)}"></sly>
 </sly>
