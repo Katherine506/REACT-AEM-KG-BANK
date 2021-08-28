@@ -185,6 +185,11 @@ const EmailSubscribe = (props) => {
     }, [submitSuccessful]);
 
     return (
+        <section className={styles.prueba}>
+            <div className={styles.intro}>
+            <h2 className={styles.title}>Want to know more?</h2>
+            <p className={styles.text}> Short one liner here. Lorem ipsum dolor sit</p>
+            </div>
         <form className={styles.root} onSubmit={handleSubmit} ref={formRef} noValidate>
             <div className={styles.row}>
                 <div className={styles.container}>
@@ -278,12 +283,14 @@ const EmailSubscribe = (props) => {
                     linkText={ctaText}
                 />
             </div>
-            <Text
+           {/* <Text
                 className={styles['recaptcha-text']}
                 content={RECAPTCHA_BRANDING_TEXT}
                 size="small"
-            />
+            />*/}
         </form>
+
+        </section>
     );
 };
 

@@ -1,10 +1,9 @@
 @import '../../styles/mixins/form';
 
 .root {
-
     width: 100%;
     text-align: left;
-
+    background-color: #3f2a56;
     @media #{$breakpoint-desktop} {
         max-width: 37rem;
         margin: 0 auto;
@@ -20,7 +19,7 @@
 }
 
 .container {
-
+    background-color: #3f2a56;
     @media #{$breakpoint-desktop} {
         flex: 1 0;
         margin-right: $spacing-s;
@@ -29,6 +28,7 @@
 
 .input-container {
     margin-bottom: $spacing-xs;
+
 
     @media #{$breakpoint-desktop} {
         margin-bottom: 0;
@@ -134,6 +134,7 @@ input.text-field {
     .result-text,
     .checkbox-label {
         color: $color-white;
+
     }
 }
 
@@ -141,7 +142,8 @@ input.text-field {
 :global(.dark-theme .light-theme) {
     .result-text,
     .checkbox-label {
-        color: $color-black;
+        color: $color-white;
+        font-size: 10px;
     }
 }
 
@@ -173,6 +175,7 @@ input.text-field {
 :global(.light-theme),
 :global(.dark-theme .light-theme) {
     .cta {
+
         @media #{$breakpoint-desktop} {
             height: 3.1875rem;
         }
@@ -189,3 +192,31 @@ input.text-field {
         color: $color-gray;
     }
 }
+
+.prueba{
+    width: 100%;
+    background-color: #3f2a56;
+}
+
+.title{
+    padding-top: 40px;
+    padding-right: 3.5px;
+    padding-left: 3.5px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: 500;
+    font-size: toRem(28px);
+}
+
+.text{
+    padding-right: 3.5px;
+    padding-left: 3.5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: toRem(13px);
+}
+
