@@ -54,7 +54,9 @@ const Button = (props) => {
              <span className={styles [`${BASE_CLASS}__text`]}> {linkText}  </span>
          </a>
         :
-        <button type={"submit"}>{linkText} </button>
+        <button className={cx(styles[BASE_CLASS], `${parentComponent === 'HeroBanner' ? styles [`${BASE_CLASS}--hero`] : ''}`,
+            styles[buttonClass], `${linkType === '_blank' ? styles[`${BASE_CLASS}__external`] : ''}`)}
+            type={"submit"}>{linkText} </button>
     );
 };
 
