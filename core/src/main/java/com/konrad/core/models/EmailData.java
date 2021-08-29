@@ -4,17 +4,17 @@ public class EmailData {
     private String email;
     private boolean consentProvided;
     private String status;
-    private String local;
+    private String locale;
 
     public EmailData(){
 
     }
 
-    public EmailData(String email, boolean consentProvided, String status, String local){
+    public EmailData(String email, boolean consentProvided, String status, String locale){
          this.email = email;
          this.consentProvided = consentProvided;
          this.status = status;
-         this.local = local;
+         this.locale = locale;
     }
 
     public String getEmail() {
@@ -41,11 +41,11 @@ public class EmailData {
         this.status = status;
     }
 
-    public String getLocal() {
-        return local;
+    public String getLocale() {
+        return locale;
     }
 
-    public void setLocal(String local) {
-        this.local = local;
+    public void setLocale(String locale) {
+        this.locale = locale;
     }
 }

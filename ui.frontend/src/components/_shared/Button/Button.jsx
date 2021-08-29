@@ -42,16 +42,19 @@ const Button = (props) => {
     const parentComponent = className && className.split('_')[0];
 
     return (
-        <a className={cx(styles[BASE_CLASS], `${parentComponent === 'HeroBanner' ? styles [`${BASE_CLASS}--hero`] : ''}`,
-            styles[buttonClass], `${linkType === '_blank' ? styles[`${BASE_CLASS}__external`] : ''}`)}
-           aria-label={altText}
-           role="button"
-           href={`${linkUrl}.html`}
-           target={`${linkType === 'internal' ? '_self' : '_blank'}`}
-           ref={buttonElement}
-        >
-            <span className={styles [`${BASE_CLASS}__text`]}> {linkText}  </span>
-        </a>
+        linkUrl ?
+         <a className={cx(styles[BASE_CLASS], `${parentComponent === 'HeroBanner' ? styles [`${BASE_CLASS}--hero`] : ''}`,
+             styles[buttonClass], `${linkType === '_blank' ? styles[`${BASE_CLASS}__external`] : ''}`)}
+            aria-label={altText}
+            role="button"
+           href={`${linkUrl}`}
+            target={`${linkType === 'internal' ? '_self' : '_blank'}`}
+            ref={buttonElement}
+         >
+             <span className={styles [`${BASE_CLASS}__text`]}> {linkText}  </span>
+         </a>
+        :
+        <button type={"submit"}>{linkText} </button>
     );
 };
 

@@ -1,21 +1,17 @@
 package com.konrad.core.services.impl;
 
 import com.konrad.core.services.EmailSubscriptionService;
-
-import com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolver;
-import jdk.nashorn.internal.runtime.regexp.joni.ast.Node;
 import org.apache.sling.api.resource.Resource;
-import org.osgi.service.component.annotations.Activate;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.ConfigurationPolicy;
-import org.osgi.service.metatype.annotations.AttributeDefinition;
-import org.osgi.service.metatype.annotations.AttributeType;
 import org.osgi.service.metatype.annotations.Designate;
 import org.osgi.service.metatype.annotations.ObjectClassDefinition;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 import javax.jcr.Node;
-import javax.jcr.RepositoryException;
+
+//import com.sun.org.apache.xml.internal.security.utils.resolver.ResourceResolver;
+//import jdk.nashorn.internal.runtime.regexp.joni.ast.Node;
 
 @Component(service = EmailSubscriptionService.class, configurationPolicy = ConfigurationPolicy.REQUIRE)
 @Designate(ocd = EmailSubscriptionServiceImpl.EmailSubscriptionServiceConfiguration.class)

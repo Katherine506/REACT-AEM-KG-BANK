@@ -86,7 +86,7 @@ const EmailSubscribe = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
+debugger;
         // Prevent the user from firing multiple requests when clicking multiple times:
         if (submitting) {
             return;
@@ -280,6 +280,7 @@ const EmailSubscribe = (props) => {
                 <Button
                     altText={ctaAltText || t('Submit form to sign up for email updates')}
                     className={styles.cta}
+                    linkType ={`button--general-light`}
                     linkText={ctaText}
                 />
             </div>
