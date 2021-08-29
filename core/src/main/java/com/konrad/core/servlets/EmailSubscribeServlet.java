@@ -1,31 +1,45 @@
 package com.konrad.core.servlets;
 
-import org.apache.commons.httpclient.HttpStatus;
-import org.apache.commons.lang3.StringUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.konrad.core.models.EmailSubscription;
+import com.konrad.core.services.EmailSubscriptionService;
+import com.konrad.core.services.impl.EmailSubscriptionServiceImpl;
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.SlingHttpServletResponse;
+import org.apache.sling.api.resource.Resource;
+import org.apache.sling.api.resource.ResourceResolver;
 import org.apache.sling.api.servlets.HttpConstants;
 import org.apache.sling.api.servlets.SlingAllMethodsServlet;
 import org.osgi.framework.Constants;
 import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Reference;
-import org.osgi.service.component.annotations.ReferenceCardinality;
-import org.osgi.service.component.annotations.ReferencePolicyOption;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.Servlet;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 @Component(service = Servlet.class, property = {
     Constants.SERVICE_DESCRIPTION + "=Email Subscription Servlet",
+    "sling.servlet.methods=" + "kg-bank/components/subscribe", //resource type, email
     "sling.servlet.methods=" + HttpConstants.METHOD_POST,
     "sling.servlet.selectors=" + "subscribe",
     "sling.servlet.extensions=" + "json",
 })
-public class EmailSubscribeServlet extends SlingAllMethodsServlet {
+public class EmailSubscribeServlet extends SlingAllMethodsServlet implements com.konrad.core.servlets.EmailSubscriptionService {
+    private static final Logger logger = LoggerFactory.getLogger(EmailSubscribeServlet.class);
+    private final EmailSubscriptionService emailSubscriptionService = new EmailSubscriptionServiceImpl();
 
-    // Implement the subcribe servlet functionality here
+    @Override
+    public void doPost(SlingHttpServletRequest servletRequest, SlingHttpServletRequest servletResponse) throws IOException{
+        try{
+            String data = servletRequest.getReader().lines().collect(Collectors.joining());
+            EmailSubscription emailSubscription = new ObjectMapper().readValue(data, EmailSubscription.class);
+            String email = emailSubscription.getData().getEmail();
+            ResourceResolver resourceResolver = servletRequest.getResourceResolver();
+            Resource resource = servletRequest.getResource();
+            emailSubscriptionService.subscribeEmail(email, resource, resourceResolver);
+        }catch (Exception e){
+            logger.info("Error: ", e);
+        }
+    }
 }

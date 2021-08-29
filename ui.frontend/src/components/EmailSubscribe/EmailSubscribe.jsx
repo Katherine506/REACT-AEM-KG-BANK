@@ -289,8 +289,13 @@ const EmailSubscribe = (props) => {
                 size="small"
             />*/}
         </form>
+            <div>
+                <br/>
+                <br/>
+            </div>
 
         </section>
+
     );
 };
 
