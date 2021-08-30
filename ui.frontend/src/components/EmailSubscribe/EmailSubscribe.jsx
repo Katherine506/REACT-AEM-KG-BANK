@@ -86,7 +86,7 @@ const EmailSubscribe = (props) => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-debugger;
+
         // Prevent the user from firing multiple requests when clicking multiple times:
         if (submitting) {
             return;
@@ -185,7 +185,7 @@ debugger;
     }, [submitSuccessful]);
 
     return (
-        <section className={styles.prueba}>
+        <section className={styles.subs}>
             <div className={styles.intro}>
             <h2 className={styles.title}>Want to know more?</h2>
             <p className={styles.text}> Short one liner here. Lorem ipsum dolor sit</p>

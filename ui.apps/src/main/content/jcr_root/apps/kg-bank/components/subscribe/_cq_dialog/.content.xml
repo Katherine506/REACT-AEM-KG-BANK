@@ -41,6 +41,7 @@
                                                         name="./emailHelperText"
                                                         fieldDescription="Character Limit of 25. This field helps the user understand what they need to type into the field."
                                                         fieldLabel="Email Helper Text"
+                                                        maxLength="25"
                                                         value="Email address"
                                                         required="{Boolean}true"/>
                                                     <emailInvalidErrorMessage
@@ -65,6 +66,7 @@
                                                         name="./newsletterPromptLabel"
                                                         fieldDescription="Character Limit of 50. This is the checkbox that a user must click in order to be opted-in to receive communications from KG Bank."
                                                         fieldLabel="Newsletter Prompt Label"
+                                                        maxLength="50"
                                                         value="Opt-in to receive monthly newsletters and updates"
                                                         required="{Boolean}true"/>
                                                     <newsletterPromptRequiredErrorMessage
@@ -81,6 +83,7 @@
                                                         name="./ctaText"
                                                         fieldLabel="Submission CTA Text"
                                                         fieldDescription="Character Limit: 25"
+                                                        maxLength="25"
                                                         value="SIGN UP"
                                                         required="{Boolean}true"/>
                                                     <submissionAltText

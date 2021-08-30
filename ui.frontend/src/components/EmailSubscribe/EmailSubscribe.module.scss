@@ -3,7 +3,7 @@
 .root {
     width: 100%;
     text-align: left;
-    background-color: #3f2a56;
+    background-color: $color-dark-purple;
     @media #{$breakpoint-desktop} {
         max-width: 37rem;
         margin: 0 auto;
@@ -19,14 +19,17 @@
 }
 
 .container {
-    background-color: #3f2a56;
+    background-color: $color-dark-purple;
     @media #{$breakpoint-desktop} {
         flex: 1 0;
         margin-right: $spacing-s;
+        margin-bottom: 1px;
+
     }
 }
 
 .input-container {
+
     margin-bottom: $spacing-xs;
     @media #{$breakpoint-desktop} {
         margin-bottom: 0;
@@ -36,9 +39,10 @@
         display: flex;
         align-items: baseline;
         margin-bottom: 0;
-
         @media #{$breakpoint-desktop} {
             margin-top: $spacing-s;
+
+
         }
     }
 }
@@ -62,8 +66,10 @@ div.error-message-container {
 :global(.dark-theme),
 :global(.light-theme .dark-theme) {
     .error-message {
+
         &-icon {
             @include error-message-icon--dark-theme;
+
         }
 
         &-text {
@@ -88,6 +94,9 @@ div.error-message-container {
 input.text-field {
     @include body-l;
     @include form-text-field;
+    @media #{$breakpoint-desktop} {
+        margin-top: -10px;
+    }
 }
 
 :global(.dark-theme),
@@ -101,6 +110,12 @@ input.text-field {
 :global(.dark-theme .light-theme) {
     input.text-field {
         @include form-text-field-light;
+        background-color: $color-dark-purple;
+        color: $color-white;
+        border: 2px solid $color-white;
+        &::placeholder{
+            color: $color-white;
+        }
     }
 }
 
@@ -118,14 +133,21 @@ input.text-field {
 .checkbox {
     &-input {
         margin: 0;
+        &.checkbox-input {
+            -webkit-appearance: none;
+            width: 15px;
+            height: 15px;
+            background-color: $color-dark-purple;
+            border: 2px solid $color-white;
+        }
     }
 
     &-label {
         @include body-s;
-
         padding-left: $spacing-xxs;
     }
 }
+
 
 :global(.dark-theme),
 :global(.light-theme .dark-theme) {
@@ -142,6 +164,9 @@ input.text-field {
     .checkbox-label {
         color: $color-white;
         font-size: 10px;
+        @media #{$breakpoint-desktop} {
+            font-size: 14px;
+        }
     }
 }
 
@@ -191,9 +216,9 @@ input.text-field {
     }
 }
 
-.prueba{
+.subs{
     width: 100%;
-    background-color: #3f2a56;
+    background-color: $color-dark-purple;
 }
 
 .title{
@@ -226,8 +251,14 @@ input.text-field {
     }
 }
 
-placeholder {
-    background-color: red;
+Button {
+    margin-top: toRem(12px);
+    @media #{$breakpoint-desktop} {
+    margin-top: toRem(9px);
+    }
 }
+
+
+
 
 
