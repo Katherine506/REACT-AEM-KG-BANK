@@ -9,9 +9,12 @@ import {Media} from "../../index";
 import Heading from "../Heading";
 
 const TabContent = (props) => {
-    const {children} =props;
+    const {children, id, title} =props;
     return (
-        <section className={`tab-content`}>
+        <section className={`tab-content`} id={id}>
+            <div className={`tab-content__title`}>
+                <h2>{title}</h2>
+            </div>
             <div className={`tab-content__wrapper`}>
                 {children}
             </div>

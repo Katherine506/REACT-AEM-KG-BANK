@@ -42,7 +42,7 @@
                                                     maxLength="20"
                                                     required="true"
                                                     name="./title"/>
-                                            <contentId
+                                            <id
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/foundation/form/textfield"
                                                     class="field-whitespace"
@@ -50,7 +50,7 @@
                                                     fieldLabel="ID"
                                                     maxLength="{Boolean}false"
                                                     required="true"
-                                                    name="./contentId"/>
+                                                    name="./id"/>
                                             <columns
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/foundation/form/select"

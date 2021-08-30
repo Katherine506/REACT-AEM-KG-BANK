@@ -4,3 +4,4 @@
           jcr:title="Tab Content"
           sling:resourceSuperType="core/wcm/components/container/v1/container"
           componentGroup=".hidden"/>
+
