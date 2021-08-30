@@ -139,6 +139,10 @@ input.text-field {
             height: 15px;
             background-color: $color-dark-purple;
             border: 2px solid $color-white;
+
+            &:checked {
+                -webkit-appearance: checkbox;
+            }
         }
     }
 
