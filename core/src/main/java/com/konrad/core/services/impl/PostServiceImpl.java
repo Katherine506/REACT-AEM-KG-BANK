@@ -6,16 +6,15 @@ import com.day.cq.search.QueryBuilder;
 import com.day.cq.search.result.SearchResult;
 import com.day.cq.tagging.Tag;
 import com.day.cq.tagging.TagManager;
+import com.day.cq.wcm.api.Page;
 import com.day.cq.wcm.api.PageManager;
 import com.drew.lang.annotations.Nullable;
 import com.konrad.core.models.Post;
-import com.day.cq.wcm.api.Page;
 import com.konrad.core.services.PostService;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.sling.api.SlingConstants;
-import org.apache.sling.api.resource.LoginException;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.api.resource.ResourceResolver;
+import org.apache.sling.api.resource.ResourceResolverFactory;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.slf4j.Logger;
@@ -34,6 +33,9 @@ public class PostServiceImpl implements PostService {
     private static final transient String RESOURCE_TYPE = "kg-bank/components/post";
     private static final transient String PROPERTY_CATEGORY = "category";
     private static final transient String ROOT_PATH = "/content/kg-bank";
+
+    @Reference
+    private ResourceResolverFactory resolverFactory;
 
 
     public Post getPost(String path) {
@@ -104,24 +106,33 @@ public class PostServiceImpl implements PostService {
             query.setHitsPerPage(10000); // Arbitrarily large limit
             SearchResult result = query.getResult();
             return result.getHits().stream()
-                .map(h -> {
-                    try {
-                        return h.getResource();
-                    } catch (RepositoryException e) {
-                        log.error("Could not get path for this hit", e);
-                        return null;
-                    }
-                })
-                .filter(Objects::nonNull)
-                .map(this::getPost)
-                .collect(Collectors.toList());
+                    .map(h -> {
+                        try {
+                            return h.getResource();
+                        } catch (RepositoryException e) {
+                            log.error("Could not get path for this hit", e);
+                            return null;
+                        }
+                    })
+                    .filter(Objects::nonNull)
+                    .map(this::getPost)
+                    .collect(Collectors.toList());
         }
     }
 
     @Nullable
     private ResourceResolver getResourceResolver() {
-       
-            return null;
-        
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put(ResourceResolverFactory.SUBSERVICE, SUBSERVICE_NAME);
+
+        ResourceResolver resolver = null;
+
+        try {
+            resolver = resolverFactory.getServiceResourceResolver(param);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resolver;
     }
 }
