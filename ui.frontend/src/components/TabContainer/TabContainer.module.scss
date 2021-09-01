@@ -1,2 +1,43 @@
 @import '../../styles/mixins/typography';
 @import '../../styles/mixins/utils';
+
+.tabContainer{
+  &__scroller-wrapper{
+  display: flex;
+  justify-content: space-between;
+    border-radius: 5px;
+    width: 5px;
+    width: 100%;
+    background-color: $color-white;
+    box-shadow: 0 toRem(2px) toRem(6px) 0 rgba(0, 0, 0, 0.04),
+    0 toRem(16px) toRem(24px) 0 rgba(0, 0, 0, 0.06);
+    overflow: auto hidden;
+  }
+
+  &__page{
+    background-color: $color-white;
+    padding: toRem(30px) toRem(30px);
+    text-decoration: none;
+    color: $color-dark-purple;
+    flex-grow: 1;
+    text-align: center;
+    font-size: toRem(18px);
+    white-space: nowrap;
+    &:hover{
+      background-color: $color-dark-purple-transparent-5;
+    }
+    &--selected{
+      font-weight: 900;
+      border-bottom: 3px solid $color-dark-vermilion;
+    }
+  }
+
+  &__tab{
+    &--show{
+      display: inline;
+    }
+    &--hide{
+      display: none;
+    }
+  }
+}

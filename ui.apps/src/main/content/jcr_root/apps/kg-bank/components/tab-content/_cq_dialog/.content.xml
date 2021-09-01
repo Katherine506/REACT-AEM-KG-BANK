@@ -50,7 +50,7 @@
                                                     fieldLabel="ID"
                                                     maxLength="{Boolean}false"
                                                     required="true"
-                                                    name="./id"/>
+                                                    name="./tabId"/>
                                             <columns
                                                     jcr:primaryType="nt:unstructured"
                                                     sling:resourceType="granite/ui/components/foundation/form/select"

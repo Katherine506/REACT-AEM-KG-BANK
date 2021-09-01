@@ -10,15 +10,11 @@ import Heading from "../Heading";
 
 const TabContent = (props) => {
     const {children, id, title} =props;
+    const classes = cx(styles.tabContent,);
     return (
-        <section className={`tab-content`} id={id}>
-            <div className={`tab-content__title`}>
-                <h2>{title}</h2>
-            </div>
-            <div className={`tab-content__wrapper`}>
-                {children}
-            </div>
-        </section>
+        <div className={classes} id={id}>
+            {children}
+        </div>
     );
 };
 

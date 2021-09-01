@@ -1,47 +1,84 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import PropTypes from 'prop-types';
 import styles from './TabContainer.module.scss';
 import cx from 'classnames';
+import { useEffect, useState } from 'react';
 
 const TabContainer = (props) => {
-    const {children, wcChildren, label} = props;
-    const items = useRef([]);
-    let newDiv = [];
+    const {children, wcChildren, label, roleAtribute} = props;
+    const [pages, setPages] = useState([]);
+    const [currentPage, setCurrentPage] = useState('');
+    const block = 'tabContainer';
 
-    const filterNodes =(n) => {
-        //exclude html contents and cq markup if not in edit node
-        return (
-            ! [Node.TEXT_NODE, Node.COMMENT_NODE, "cq"].includes(n.nodeType)
+    useEffect(() => {
+        if (wcChildren.nodes.length > 1) {
+            const nodes = wcChildren.nodes;
+            let tabs = [];
+            let tabToJSON;
+            nodes.map((node) => {
 
-        );
+                if (node.children !== undefined && node.children.length > 0) {
+
+                    if (node.children[0].tagName === 'KG-TAB-CONTENT') {
+                        tabToJSON = JSON.parse(node.childNodes[1].getAttribute('aem-data'));
+                        tabs.push(tabToJSON);
+                    }
+                }
+            })
+
+            if (tabs.length > 0) {
+                console.log("tabs", tabs);
+                setPages(tabs);
+                setPage(tabs[0].tabId);
+            }
+        }
+    }, [wcChildren]);
+
+    const showOrHidePages = (id) => {
+        const nodes = wcChildren.nodes;
+        let showOrHideClassName = '';
+        let dataToJSON;
+        nodes.map((node) =>{
+            if (node.children !== undefined && node.children.length > 0){
+                if (node.children[0].tagName === 'KG-TAB-CONTENT') {
+                    showOrHideClassName = node.className.replace(`${block}__tab--show`, '').replace(`${block}__tab--hide`, '');
+                    dataToJSON = JSON.parse(node.childNodes[1].getAttribute('aem-data'));
+                    if (dataToJSON.tabId === id){
+                        node.className = `${showOrHideClassName} ${block}__tab--show`;
+                    }else{
+                        node.className = `${showOrHideClassName} ${block}__tab--hide`;
+                    }
+                }
+            }
+        })
     };
-     //useEffect
 
-    useEffect( () =>{
-       wcChildren.nodes.filter(filterNodes)[0].childNodes.forEach((child, index) => {
-           if( child.className && child.className.includes('heading')){
-               newDiv.push(<div key={index} ref={(ref)=> ref && ref.appendChild(child)}/>);
-           }
-       });
-    items.current = newDiv;
-    }, []);
+    const setPage = (pageId) => {
+        setCurrentPage(pageId);
+        showOrHidePages(pageId);
+    }
 
-    console.log("newDiv", newDiv);
-
-    return(
-        <section className={`tab-container`} aria-label={label}>
-            <div className={`tab-container__wrapper`}>
-                <div className={`tab-container__buttons`}>
-                </div>
-                <div className={`tab-container__content`}>
-                    {children}
-                </div>
-
+    return (
+        <div className= {`${block}`}>
+            <div className={`${block}__scroller-wrapper`} aria-label={label} role={roleAtribute}>
+                {pages && pages.length > 0 &&
+                (pages.map(
+                        (node)=>(
+                            <a key={node.tabId} href={`#${node.tabId}`}
+                               className={`${block}__page ${currentPage === node.tabId && block+'__page--selected'}`}
+                               onClick={()=>{setPage(node.tabId)}}>
+                                {node.title}
+                            </a>
+                        ))
+                )
+                }
             </div>
-        </section>
+            {children}
+        </div>
     );
 };
+
 
 TabContainer.displayName = 'TabContainer';
 
