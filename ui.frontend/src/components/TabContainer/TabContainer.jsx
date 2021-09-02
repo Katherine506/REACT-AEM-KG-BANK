@@ -28,14 +28,13 @@ const TabContainer = (props) => {
             })
 
             if (tabs.length > 0) {
-                console.log("tabs", tabs);
                 setPages(tabs);
                 setPage(tabs[0].tabId);
             }
         }
     }, [wcChildren]);
 
-    const showOrHidePages = (id) => {
+    const showOrHide = (id) => {
         const nodes = wcChildren.nodes;
         let showOrHideClassName = '';
         let dataToJSON;
@@ -56,7 +55,7 @@ const TabContainer = (props) => {
 
     const setPage = (pageId) => {
         setCurrentPage(pageId);
-        showOrHidePages(pageId);
+        showOrHide(pageId);
     }
 
     return (
