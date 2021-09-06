@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:granite="http://www.adobe.com/jcr/granite/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+          jcr:primaryType="nt:unstructured"
+          jcr:title="Navigation Column"
+          sling:resourceType="cq/gui/components/authoring/dialog"
+          helpPath="https://konradgroup.atlassian.net/wiki/spaces/OB/pages/1420230831/Navigation+Column"
+          trackingFeature="kg-bank:navigation-column">
+    <content
+            granite:class="cmp-navigation-column__editor"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="granite/ui/components/coral/foundation/container">
+        <items jcr:primaryType="nt:unstructured">
+            <tabs
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="granite/ui/components/coral/foundation/tabs"
+                    maximized="{Boolean}true">
+                <items jcr:primaryType="nt:unstructured">
+                    <post
+                            jcr:primaryType="nt:unstructured"
+                            jcr:title="Post"
+                            sling:orderBefore="advanced"
+                            sling:resourceType="granite/ui/components/coral/foundation/fixedcolumns">
+                        <items jcr:primaryType="nt:unstructured">
+                            <column
+                                    jcr:primaryType="nt:unstructured"
+                                    sling:resourceType="granite/ui/components/coral/foundation/container">
+                                <items jcr:primaryType="nt:unstructured">
+                                    <author
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Author"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <name
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Enter the author's full name."
+                                                    fieldLabel="Name"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    required="{Boolean}true"
+                                                    name="./author"/>
+                                        </items>
+                                    </author>
+
+                                    <details
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Details"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <image
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/pathfield"
+                                                    fieldDescription="This is the image that will be placed at the top of the post. This will also be shown in areas of the website where the post is linked."
+                                                    fieldLabel=" Post Image"
+                                                    name="./image"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/dam"/>
+                                            <alt-text
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textfield"
+                                                    fieldDescription="Provide context for the Media."
+                                                    fieldLabel="Alt Text"
+                                                    required="{Boolean}false"
+                                                    name="./altText"/>
+                                            <description
+                                                    jcr:primaryType="nt:unstructured"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/textarea"
+                                                    fieldDescription="The description that will be displayed in Internet searches and featured articles."
+                                                    fieldLabel="Description"
+                                                    required="{Boolean}true"
+                                                    name="./description"/>
+                                        </items>
+                                    </details>
+
+
+                                    <meta
+                                            jcr:primaryType="nt:unstructured"
+                                            jcr:title="Metadata"
+                                            sling:resourceType="granite/ui/components/coral/foundation/form/fieldset">
+                                        <items jcr:primaryType="nt:unstructured">
+                                            <category
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="cq/gui/components/coral/common/form/tagfield"
+                                                    fieldLabel="Post Category"
+                                                    fieldDescription="Select the tag that best categorizes this post."
+                                                    multiple="{Boolean}false"
+                                                    required="{Boolean}true"
+                                                    rootPath="/content/cq:tags/kg-bank/categories"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    name="./category"/>
+                                            <read-time
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/numberfield"
+                                                    fieldDescription="Enter the number of minutes that it takes to read this article."
+                                                    fieldLabel="Read Time (minutes)"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    required="{Boolean}false"
+                                                    value="3"
+                                                    name="./readTime"/>
+                                            <date
+                                                    jcr:primaryType="nt:unstructured"
+                                                    sling:resourceType="granite/ui/components/coral/foundation/form/datepicker"
+                                                    cq:showOnCreate="{Boolean}true"
+                                                    fieldDescription="Write the date that the post will be displayed as Published."
+                                                    fieldLabel="Publish Date"
+                                                    required="{Boolean}true"
+                                                    name="./date"/>
+                                        </items>
+                                    </meta>
+                                </items>
+                            </column>
+                        </items>
+                    </post>
+                </items>
+            </tabs>
+        </items>
+    </content>
+</jcr:root>
