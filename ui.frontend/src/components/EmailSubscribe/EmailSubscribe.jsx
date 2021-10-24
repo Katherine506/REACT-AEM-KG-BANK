@@ -119,11 +119,13 @@ const EmailSubscribe = (props) => {
 
         const consentProvided = submittedFields.consent.value;
 
+
         if (isFormValid && consentProvided) {
             (async function () {
                 try {
+                    //servlet connection
                     const recaptchaToken = await getRecaptchaToken();
-                    await axios.post(path + '.subscribe.json', {
+                    await axios.post(path + '.subscribe.json', { //where the form is, then connect to the servlet
                         path: path,
                         recaptchaToken: recaptchaToken,
                         data: {
